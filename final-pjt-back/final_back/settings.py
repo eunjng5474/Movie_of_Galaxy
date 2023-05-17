@@ -32,8 +32,11 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'movies',
+    'accounts',
+    'community',
     'corsheaders',
     'rest_framework',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -133,3 +136,6 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 CORS_ALLOWED_ALL_ORIGINS = True
+
+
+AUTH_USER_MODEL = 'accounts.User'
