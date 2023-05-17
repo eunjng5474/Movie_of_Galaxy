@@ -14,6 +14,11 @@ export default {
   components: {
     MovieListItem,
   },
+  computed: {
+    movies() {
+      return this.$store.state.movies
+    }
+  }
   
 }
 </script>
