@@ -7,22 +7,20 @@ const API_URL = 'http://127.0.0.1:8000'
 
 const communityModule = {
 
-  // plugins: [
-  //   createPersistedState(),
-  // ],
   state: {
     articles: [],
-    // token: null,
+    datailarticle: null,
   },
   getters: {
-    // isLogin(state) {
-      //   return state.token ? true : false
-      // }
+
   },
   mutations: {
     GET_ARTICLES(state, articles) {
       this.state.articles = articles
       console.log()
+    },
+    GET_ARTICLE_DETAIL(state, detailmovie) {
+      this.state.detailarticle = detailmovie
     }
   },
   actions: {
@@ -37,6 +35,18 @@ const communityModule = {
       .then((res) => {
         // console.log(res)
         context.commit('GET_ARTICLES', res.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    },
+    getArticleDetail(context, articleId) {
+      axios({
+        method: 'get',
+        url: `${API_URL}/api/v2/articles/${ articleId }`,
+      })
+      .then((res) => {
+        context.commit('GET_ARTICLE_DETAIL', res.data)
       })
       .catch((err) => {
         console.log(err)
