@@ -18,8 +18,8 @@ const accountsModule = {
   // ],
   state: {
     token: null,
-    // current_username: null,
-    currentUser: {},
+    current_username: null,
+    // currentUser: {},
     // userid: null,
   },
   getters: {
@@ -72,8 +72,8 @@ const accountsModule = {
           }
         })
         .then((res) => {
-          this.state.currentUser = res.data
-          console.log(res)
+          this.state.current_username = username
+          // console.log(res)
           context.commit('SAVE_TOKEN', res.data.key)
         })
         .catch((err) => {

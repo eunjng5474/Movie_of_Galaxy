@@ -9,17 +9,27 @@
     <h1>무비 페이지</h1>
     <MovieList/>    
 
+  <div>
+    <NavVar/>
+    <div class="Movie">
+      <h1>무비 페이지</h1>
+      <MovieList/>    
+    </div>
+  </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import MovieList from '@/components/MovieList'
+import NavVar from '@/components/Common/NavVar'
+
 
 export default {
   name: 'MovieView',
   components: {
     MovieList,
+    NavVar,
   },
   created() {
     this.getMovies()
