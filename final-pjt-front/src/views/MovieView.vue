@@ -5,17 +5,15 @@
         params: {username: getCurrentUser}}">
     MyProfile
     </router-link> 
+    <NavVar/>
     <!-- {{ getCurrentUser }} -->
     <h1>무비 페이지</h1>
     <MovieList/>    
 
-  <div>
-    <NavVar/>
     <div class="Movie">
       <h1>무비 페이지</h1>
       <MovieList/>    
     </div>
-  </div>
   </div>
 </template>
 

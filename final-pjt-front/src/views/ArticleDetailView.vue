@@ -3,6 +3,9 @@
     <h1>Article Detail</h1>
     <h3>{{detailOneArticle.title}}</h3>
     <p>{{detailOneArticle.content}}</p>
+    <!-- {{detailOneArticle.id}} -->
+    <router-link :to="{ name: 'ArticleUpdateView', 
+    params: {id: detailOneArticle.id}}">[UPDATE]</router-link>
   </div>
 </template>
 
