@@ -13,8 +13,12 @@ import ProfileView from '../views/ProfileView.vue'
 Vue.use(VueRouter)
 
 const routes = [
+
+// 일단 첫화면에 로그인이 나와야함
+
+
   {
-    path: '/',
+    path: '/movies',
     name: 'MovieView',
     component: MovieView
   },
@@ -28,7 +32,7 @@ const routes = [
     // component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
   {
-    path: '/login',
+    path: '/',
     name: 'LogInView',
     component: LogInView
   },
@@ -38,7 +42,7 @@ const routes = [
     component: CommunityView
   },
   {
-    path: '/:id',
+    path: '/movie/:id',
     name: 'MovieDetailView',
     component: MovieDetailView
   },

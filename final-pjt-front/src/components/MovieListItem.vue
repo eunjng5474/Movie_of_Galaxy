@@ -1,13 +1,16 @@
 <template>
   <div>
-    <div>
-      <router-link :to="{
-        name: 'MovieDetailView',
-        params: {id: movie.id}}">
-        <img :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" alt="" style="width:300px; height:350px">
-       </router-link> 
-      <h5>영화제목 {{movie.title}}</h5>
-    </div>
+      <div class="col">
+        <div class="card h-200">
+          <router-link :to="{
+            name: 'MovieDetailView',
+            params: {id: movie.id}}">
+            <img :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="card-img-top" alt="">
+          </router-link> 
+          <!-- <div calss="card-body"></div> -->
+          <div class="card-footer">♡</div>
+        </div>
+      </div>
   </div>
 </template>
 
@@ -23,5 +26,11 @@ export default {
 </script>
 
 <style>
+/* 카드 크기 맞추기 */
+.card-img-top {
+  height: 25rem; 
+  object-fit:cover;
+}
+
 
 </style>

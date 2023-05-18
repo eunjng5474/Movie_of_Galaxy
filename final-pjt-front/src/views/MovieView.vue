@@ -5,15 +5,18 @@
         params: {username: getCurrentUser}}">
     MyProfile
     </router-link> 
+
+
+    <!--  네브바 있는자리 -->
     <NavVar/>
-    <!-- {{ getCurrentUser }} -->
-    <h1>무비 페이지</h1>
+
+    <!--  네브바밑으로 위에 gif 들어갈자리  -->
+
+    <h1>무비 페이지</h1>  
+    <!-- 이자리 나중에 알고리즘 정렬 추천순 뭐이런거 자리 -->
+    
     <MovieList/>    
 
-    <div class="Movie">
-      <h1>무비 페이지</h1>
-      <MovieList/>    
-    </div>
   </div>
 </template>
 

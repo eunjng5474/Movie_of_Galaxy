@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <nav>
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Login</router-link> |
       <router-link to="/signup">SignUp</router-link> |
-      <router-link to="/login">LogIn</router-link> |
+      <router-link to="/movies">MOvie</router-link> |
       <router-link to="/community">Community</router-link> |
       <!-- <router-link :to="{ name: 'ProfileView',
         params: {id: user.id}}"> -->
@@ -26,6 +26,9 @@
   background-image: url('@/assets/background.gif');
   background-size : cover;
   background-repeat : no-repeat; */
+}
+* {
+  box-sizing: content-box;
 }
 
 nav {

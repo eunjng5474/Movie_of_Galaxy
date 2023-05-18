@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>Profile</h1>
+    <router-view></router-view>
     <p><b>아이디 : {{ getCurrentUser }}</b></p>
   </div>
 </template>
