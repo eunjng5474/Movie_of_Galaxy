@@ -1,13 +1,19 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
 import axios from 'axios'
+
+import accounts from './modules/accounts'
+import createPersistedState from 'vuex-persistedstate'
+
 
 const API_URL = 'http://127.0.0.1:8000'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  plugins: [
+    createPersistedState(),
+  ],
   state: {
     movies: [],
   },
@@ -34,5 +40,6 @@ export default new Vuex.Store({
     }
   },
   modules: {
+    accounts,
   }
 })
