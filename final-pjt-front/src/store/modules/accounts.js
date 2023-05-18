@@ -27,7 +27,7 @@ const accountsModule = {
     mutations: {
       SAVE_TOKEN(state, token) {
         state.token = token
-        // console.log(1)
+        console.log(state.token)
         router.push({ name: 'MovieView' })  
         // store/index.js에서 $router 접근 불가 -> import 해야 함 
       }
@@ -47,7 +47,7 @@ const accountsModule = {
           }
         })
         .then((res) => {
-          // console.log(res)
+          console.log(1)
           // context.commit('SIGN_UP', res.data.key)
           context.commit('SAVE_TOKEN', res.data.key)
         })

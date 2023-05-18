@@ -12,7 +12,7 @@ const communityModule = {
   // ],
   state: {
     articles: [],
-    token: null,
+    // token: null,
   },
   getters: {
     // isLogin(state) {
