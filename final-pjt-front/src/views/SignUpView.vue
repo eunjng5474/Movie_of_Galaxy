@@ -39,8 +39,6 @@ export default {
       const payload = {
         username, password1, password2
       }
-      console.log('디스패치직전')
-      console.log(payload)
       this.$store.dispatch('signUp', payload)
     }
   }

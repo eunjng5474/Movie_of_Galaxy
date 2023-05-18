@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import axios from 'axios'
 
 import accounts from './modules/accounts'
+import community from './modules/community'
 import createPersistedState from 'vuex-persistedstate'
 
 
@@ -41,5 +42,6 @@ export default new Vuex.Store({
   },
   modules: {
     accounts,
+    community,
   }
 })
