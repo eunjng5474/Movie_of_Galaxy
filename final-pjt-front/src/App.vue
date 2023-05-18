@@ -17,6 +17,13 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+
+  /* 배경잠시설정 */
+  /* height: 500vh;
+  width: 100vw;
+  background-image: url('@/assets/background.gif');
+  background-size : cover;
+  background-repeat : no-repeat; */
 }
 
 nav {
