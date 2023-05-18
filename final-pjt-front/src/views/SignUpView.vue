@@ -5,6 +5,12 @@
       <label for="username">username : </label>
       <input type="text" id="username" v-model="username"><br>
 
+      <label for="nickname">nickname : </label>
+      <input type="text" id="nickname" v-model="nickname"><br>
+
+      <!-- <label for="birth">birthday : </label>
+      <input type="date" id="birth" v-model="birth"><br> -->
+
       <label for="password1"> password : </label>
       <input type="password" id="password1" v-model="password1"><br>
 
@@ -25,19 +31,24 @@ export default {
   data() {
     return {
       username: null,
+      nickname: null,
+      // birth: null,
       password1: null,
       password2: null,
+
     }
   },
   methods: {
     signUp() {
       // console.log('signup')
       const username = this.username
+      const nickname = this.nickname
+      // const birth = this.birth
       const password1 = this.password1
       const password2 = this.password2
 
       const payload = {
-        username, password1, password2
+        username, nickname, password1, password2
       }
       this.$store.dispatch('signUp', payload)
     }

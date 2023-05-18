@@ -16,7 +16,6 @@
     <!-- 이자리 나중에 알고리즘 정렬 추천순 뭐이런거 자리 -->
     
     <MovieList/>    
-
   </div>
 </template>
 
@@ -40,15 +39,23 @@ export default {
     getMovies() {
       this.$store.dispatch('getMovies')
     },
+    // getUsername() {
+    //   this.$store.dispatch('currentUserName')
+    // }
     // goProfile() {
     //   const user_id = this.$store.state.token
     // }
   },
   computed: {
+    // getUsername() {
+    //   console.log(this.$store.getters.currentUserName)
+    //   return this.$store.getters.currentUserName
+    // }
     getCurrentUser() {
-      console.log(this.$store.state.current_username)
+      // console.log(this.$store.state.currentUser)
+      // console.log(typeof(this.$store.state.currentUser))
       // console.log(this.$store.state.token)
-      return this.$store.state.current_username
+      return this.$store.state.currentUser.username
     }
   }
 }

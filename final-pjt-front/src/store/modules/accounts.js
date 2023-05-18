@@ -18,11 +18,16 @@ const accountsModule = {
   // ],
   state: {
     token: null,
-    current_username: null,
-    // currentUser: {},
+    // current_username: null,
+    // current_usernickname: null,
+    // current_userbirth: null,
+    currentUser: {},
     // userid: null,
   },
   getters: {
+    // currentUserName(state) {
+    //   return state.currentUser["username"]
+    // }
     // isLogin(state) {
       //   return state.token ? true : false
       // }
@@ -33,13 +38,19 @@ const accountsModule = {
         // state.username = username
         // console.log(state.username)
         // console.log(state.token)
-        router.push({ name: 'MovieView' })  
+        // router.push({ name: 'MovieView' })  
         // store/index.js에서 $router 접근 불가 -> import 해야 함 
+      },
+      SAVE_USER(state, userinfo) {
+        this.state.currentUser = userinfo
+        // console.log(userinfo)
+        router.push({ name: 'MovieView'})
       }
     },
     actions: {
       signUp(context, payload) {
         const username = payload.username
+        const nickname = payload.nickname
         const password1 = payload.password1
         const password2 = payload.password2
         
@@ -47,14 +58,23 @@ const accountsModule = {
           method: 'post',
           url: `${API_URL}/account/signup/`,
           data: {
-            username, password1, password2
+            username, password1, password2, nickname
             // key === value면 생략
           }
         })
         .then((res) => {
-          console.log(1)
-          // context.commit('SIGN_UP', res.data.key)
+          console.log(res)
+          // this.state.current_usernickname = payload.nickname
+          // this.state.current_username = username
+          // console.log(this.state.current_username)
+          // console.log(this.state.current_usernickname)
+          
+          //// string -> object로 변환
+          const userinfo = JSON.parse(res.config.data)
+          // console.log(typeof(test))
+          // console.log(test)
           context.commit('SAVE_TOKEN', res.data.key)
+          context.commit('SAVE_USER', userinfo)
         })
         .catch((err) => {
           console.log(err)
@@ -72,7 +92,8 @@ const accountsModule = {
           }
         })
         .then((res) => {
-          this.state.current_username = username
+          // this.state.current_username = username
+          // console.log('login')
           // console.log(res)
           context.commit('SAVE_TOKEN', res.data.key)
         })
