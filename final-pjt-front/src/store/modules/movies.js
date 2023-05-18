@@ -23,7 +23,7 @@ const moviesModule = {
     GET_MOVIES(state, movies) {
       this.state.movies = movies
     },
-    GET_MOVIES_DETAIL(state, detailmovie){
+    GET_MOVIE_DETAIL(state, detailmovie){
       this.state.detailmovie = detailmovie
     }
   },
@@ -48,11 +48,11 @@ const moviesModule = {
       })
       .then((res) => {
         // console.log(res)
-        context.commit('GET_MOVIES_DETAIL', res.data)
+        context.commit('GET_MOVIE_DETAIL', res.data)
       })
-      .catch((err => {
+      .catch((err) => {
         console.log(err)
-      }))
+      })
     }
   },
 }
