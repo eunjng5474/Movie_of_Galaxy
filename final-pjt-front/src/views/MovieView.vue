@@ -9,11 +9,11 @@
     <!-- {{ getCurrentUser }} -->
     <h1>무비 페이지</h1>
     <MovieList/>    
-
+<!-- 
     <div class="Movie">
       <h1>무비 페이지</h1>
       <MovieList/>    
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -37,15 +37,23 @@ export default {
     getMovies() {
       this.$store.dispatch('getMovies')
     },
+    // getUsername() {
+    //   this.$store.dispatch('currentUserName')
+    // }
     // goProfile() {
     //   const user_id = this.$store.state.token
     // }
   },
   computed: {
+    // getUsername() {
+    //   console.log(this.$store.getters.currentUserName)
+    //   return this.$store.getters.currentUserName
+    // }
     getCurrentUser() {
-      console.log(this.$store.state.current_username)
+      // console.log(this.$store.state.currentUser)
+      // console.log(typeof(this.$store.state.currentUser))
       // console.log(this.$store.state.token)
-      return this.$store.state.current_username
+      return this.$store.state.currentUser.username
     }
   }
 }
