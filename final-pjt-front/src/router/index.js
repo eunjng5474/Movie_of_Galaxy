@@ -6,6 +6,7 @@ import LogInView from '../views/LogInView.vue'
 import CommunityView from '../views/CommunityView.vue'
 import MovieDetailView from '../views/MovieDetailView.vue'
 import ArticleDetailView from '../views/ArticleDetailView.vue'
+import ProfileView from '../views/ProfileView.vue'
 
 Vue.use(VueRouter)
 
@@ -44,6 +45,12 @@ const routes = [
     name: 'ArticleDetailView',
     component: ArticleDetailView
   },
+  {
+    // 프로필
+    path: '/profile/:username',
+    name: 'ProfileView',
+    component: ProfileView
+  }
 ]
 
 const router = new VueRouter({

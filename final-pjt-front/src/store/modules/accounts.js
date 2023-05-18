@@ -18,6 +18,9 @@ const accountsModule = {
   // ],
   state: {
     token: null,
+    // current_username: null,
+    currentUser: {},
+    // userid: null,
   },
   getters: {
     // isLogin(state) {
@@ -27,7 +30,9 @@ const accountsModule = {
     mutations: {
       SAVE_TOKEN(state, token) {
         state.token = token
-        console.log(state.token)
+        // state.username = username
+        // console.log(state.username)
+        // console.log(state.token)
         router.push({ name: 'MovieView' })  
         // store/index.js에서 $router 접근 불가 -> import 해야 함 
       }
@@ -67,6 +72,8 @@ const accountsModule = {
           }
         })
         .then((res) => {
+          this.state.currentUser = res.data
+          console.log(res)
           context.commit('SAVE_TOKEN', res.data.key)
         })
         .catch((err) => {

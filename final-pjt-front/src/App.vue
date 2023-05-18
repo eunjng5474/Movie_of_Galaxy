@@ -4,7 +4,9 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/signup">SignUp</router-link> |
       <router-link to="/login">LogIn</router-link> |
-      <router-link to="/community">Community</router-link>
+      <router-link to="/community">Community</router-link> |
+      <!-- <router-link :to="{ name: 'ProfileView',
+        params: {id: user.id}}"> -->
     </nav>
     <router-view/>
   </div>
