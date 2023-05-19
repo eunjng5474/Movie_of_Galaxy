@@ -9,6 +9,9 @@ import ArticleDetailView from '../views/ArticleDetailView.vue'
 import ArticleCreateView from '../views/ArticleCreateView.vue'
 import ArticleUpdateView from '../views/ArticleUpdateView.vue'
 import ProfileView from '../views/ProfileView.vue'
+import MoviePopularView from '../views/MoviePopularView.vue'
+import MovieVoteView from '../views/MovieVoteView.vue'
+import MovieRandomView from '../views/MovieRandomView.vue'
 
 Vue.use(VueRouter)
 
@@ -67,6 +70,22 @@ const routes = [
     name: 'ArticleUpdateView',
     component: ArticleUpdateView
   },
+  // 알고리즘 추천
+  {
+    path: '/movies/popularity',
+    name: 'MoviePopularView',
+    component: MoviePopularView
+  },
+  {
+    path: '/movies/voteaverage',
+    name: 'MovieVoteView',
+    component: MovieVoteView
+  },
+  {
+    path: '/movies/random',
+    name: 'MovieRandomView',
+    component: MovieRandomView
+  }
 ]
 
 const router = new VueRouter({

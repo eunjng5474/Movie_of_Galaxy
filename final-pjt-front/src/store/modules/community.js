@@ -19,8 +19,8 @@ const communityModule = {
       this.state.articles = articles
       console.log()
     },
-    GET_ARTICLE_DETAIL(state, detailmovie) {
-      this.state.detailarticle = detailmovie
+    GET_ARTICLE_DETAIL(state, detailarticle) {
+      this.state.detailarticle = detailarticle
     }
   },
   actions: {

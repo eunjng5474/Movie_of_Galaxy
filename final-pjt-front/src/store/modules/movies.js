@@ -21,18 +21,23 @@ const moviesModule = {
     detailmovie: null,
   },
   getters: {
-    all_movies : (state) => state.all_movies, 
+    all_movies : (state) => state.all_movies,
+    random30 : (state) => state.random30,
+    top30_popularity : (state) => state.top30_popularity,
+    top30_vote_average : (state) => state.top30_vote_average,
+    detailmovie : (state) => state.detailmovie,
   },
   mutations: {
     GET_MOVIES(state, payload) {
       state.all_movies = payload.all_movies
       state.random30 = payload.random30
-      state.top30_popularitys = payload.top30_popularity
+      state.top30_popularity = payload.top30_popularity
       state.top30_vote_average = payload.top30_vote_average
-      // console.log(state.all_movies)
+      // console.log(state.top30_popularity)
     },
     GET_MOVIE_DETAIL(state, detailmovie){
       state.detailmovie = detailmovie
+      // console.log(state.detailmovie)
     }
   },
   actions: {
@@ -50,10 +55,10 @@ const moviesModule = {
         console.log(err)
       })
     },
-    getMovieDetail(context,movieId) {
+    getMovieDetail(context, movieId) {
       axios({
         method: 'get',
-        url: `${API_URL}/api/v1/movies/${ movieId }/`,
+        url: `${API_URL}/api/v1/movies/${ movieId }`,
       })
       .then((res) => {
         // console.log(res)

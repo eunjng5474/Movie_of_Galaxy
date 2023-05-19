@@ -17,7 +17,17 @@
     <h1>무비 페이지</h1>  
     <!-- 이자리 나중에 알고리즘 정렬 추천순 뭐이런거 자리 -->
     
-    <p> 추천별 버튼들어갈 자리</p>
+    <div class="recommend">
+      <router-link :to="{ name: 'MoviePopularView'}">
+        <button class="btn btn-outline-primary">인기순</button>
+      </router-link>
+      <router-link :to="{ name: 'MovieVoteView'}">
+        <button class="btn btn-outline-primary">평점순</button>
+      </router-link>
+      <router-link :to="{ name: 'MovieRandomView'}">
+        <button class="btn btn-outline-primary">랜덤순</button>
+      </router-link>
+    </div>
     <MovieList/>    
   </div>
 </template>
@@ -66,3 +76,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.recommend .btn {
+  margin: 0 20px 0
+}
+</style>

@@ -18,12 +18,11 @@ export default {
 
   created() {
     this.getMovieDetail()
-    // console.log(detailmovie)
   },
   
   computed: {
     detailOneMovie() {
-      return this.$store.state.detailmovie
+      return this.$store.getters.detailmovie
     }
   },
 
@@ -31,6 +30,8 @@ export default {
     getMovieDetail() {
       const movieId = this.$route.params.id
       this.$store.dispatch('getMovieDetail', movieId)
+      // console.log(movieId)
+
     }
   }
 }
