@@ -1,10 +1,12 @@
 <template>
   <div class="Movie">
     <!-- 프로필 이동 테스트 -->
-    <router-link :to="{ name: 'ProfileView',
-        params: {username: getCurrentUser}}">
-    MyProfile
-    </router-link> 
+    <div v-if="isLogin">
+      <router-link :to="{ name: 'ProfileView',
+          params: {username: getCurrentUser.username}}">
+      MyProfile
+      </router-link> 
+    </div>
 
 
     <!--  네브바 있는자리 -->
@@ -55,7 +57,10 @@ export default {
       // console.log(this.$store.state.currentUser)
       // console.log(typeof(this.$store.state.currentUser))
       // console.log(this.$store.state.token)
-      return this.$store.state.currentUser.username
+      return this.$store.state.currentUser
+    },
+    isLogin() {
+      return this.$store.getters.isLogin
     }
   }
 }
