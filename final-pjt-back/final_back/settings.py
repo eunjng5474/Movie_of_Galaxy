@@ -28,8 +28,12 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
+REST_AUTH_REGISTER_SERIALIZERS = {
+    'REGISTER_SERIALIZER': 'accounts.serializers.CustomRegisterSerializer'
+}
+ACCOUNT_ADAPTER = 'accounts.adapters.CustomAccountAdapter'
 
+# Application definition
 INSTALLED_APPS = [
     # Django Apps
     'movies',
@@ -37,6 +41,7 @@ INSTALLED_APPS = [
     'community',
 
     'rest_framework',
+    'django_extensions',
 
     # CORS policy
     'corsheaders',
@@ -44,9 +49,12 @@ INSTALLED_APPS = [
     # Auth
     'rest_framework.authtoken',
     'dj_rest_auth',
+    # 'dj_rest_auth.registration',
+
+    #임시
+    # 'rest_framework_simplejwt',
 
     # registration
-    'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -59,6 +67,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 ]
 
 REST_AUTH = { # 회원가입시 토큰 발급
@@ -72,6 +81,9 @@ REST_FRAMEWORK = {
     # Authentication
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
+
+        # 임시
+        # 'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
 
     # permission
@@ -187,3 +199,7 @@ CORS_ALLOWED_ALL_ORIGINS = True
 
 
 AUTH_USER_MODEL = 'accounts.User'
+
+
+
+# ACCOUNT_FORMS = {'signup': 'accounts.forms.CustomSignupForm'}

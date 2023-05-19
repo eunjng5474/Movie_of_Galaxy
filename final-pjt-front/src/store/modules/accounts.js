@@ -49,19 +49,20 @@ const accountsModule = {
     },
     actions: {
       signUp(context, payload) {
-        const username = payload.username
-        const nickname = payload.nickname
-        const birth = payload.birth
-        const password1 = payload.password1
-        const password2 = payload.password2
+        // const username = payload.username
+        // const nickname = payload.nickname
+        // const birth = payload.birth
+        // const password1 = payload.password1
+        // const password2 = payload.password2
         
         axios({
           method: 'post',
           url: `${API_URL}/account/signup/`,
-          data: {
-            username, password1, password2, nickname, birth
-            // key === value면 생략
-          }
+          data: payload,
+          // data: {
+          //   username, password1, password2, nickname, birth
+          //   // key === value면 생략
+          // }
         })
         .then((res) => {
           // console.log(res)

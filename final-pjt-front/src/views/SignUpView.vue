@@ -13,7 +13,7 @@
         </div>
         <div class="inputBox">
           <input type="date" id="birth" v-model="birth"><br>
-          <label for="birth">birthday</label>
+          <label for="birth">birth</label>
         </div>
         <div class="inputBox">
           <input type="password" id="password1" v-model="password1"><br>
@@ -73,8 +73,9 @@ export default {
       const password2 = this.password2
 
       const payload = {
-        username, nickname, birth, password1, password2
+        username, password1, password2, nickname, birth
       }
+      // console.log(payload)
       this.$store.dispatch('signUp', payload)
     }
   }
