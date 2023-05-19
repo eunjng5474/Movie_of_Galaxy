@@ -3,6 +3,7 @@
     <h1>Profile</h1>
     <p><b>아이디 : {{ getCurrentUser.username }}</b></p>
     <p>닉네임 : {{ getCurrentUser.nickname }}</p>
+    <p>생년월일 : {{ getCurrentUser.birth }}</p>
   </div>
 </template>
 

@@ -28,9 +28,9 @@ const accountsModule = {
     // currentUserName(state) {
     //   return state.currentUser["username"]
     // }
-    // isLogin(state) {
-      //   return state.token ? true : false
-      // }
+    isLogin(state) {
+        return state.token ? true : false
+      }
     },
     mutations: {
       SAVE_TOKEN(state, token) {
@@ -43,14 +43,15 @@ const accountsModule = {
       },
       SAVE_USER(state, userinfo) {
         this.state.currentUser = userinfo
-        // console.log(userinfo)
-        router.push({ name: 'MovieView'})
+        console.log(this.state.currentUser)
+        router.push({ name: 'LogInView'})
       }
     },
     actions: {
       signUp(context, payload) {
         const username = payload.username
         const nickname = payload.nickname
+        const birth = payload.birth
         const password1 = payload.password1
         const password2 = payload.password2
         
@@ -58,12 +59,12 @@ const accountsModule = {
           method: 'post',
           url: `${API_URL}/account/signup/`,
           data: {
-            username, password1, password2, nickname
+            username, password1, password2, nickname, birth
             // key === value면 생략
           }
         })
         .then((res) => {
-          console.log(res)
+          // console.log(res)
           // this.state.current_usernickname = payload.nickname
           // this.state.current_username = username
           // console.log(this.state.current_username)
@@ -96,6 +97,7 @@ const accountsModule = {
           // console.log('login')
           // console.log(res)
           context.commit('SAVE_TOKEN', res.data.key)
+          router.push({ name: 'MovieView'})
         })
         .catch((err) => {
           console.log(err)
