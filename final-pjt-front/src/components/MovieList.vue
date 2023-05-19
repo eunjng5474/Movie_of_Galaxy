@@ -7,7 +7,7 @@
       <!-- <div class = "row row-cols-1 row-cols-sm-3 row-cols-md-5 g-5"> -->
       <!-- <div class = "row row-cols-1 row-cols-md-5 g-5"> -->
         <MovieListItem
-        v-for='movie in movies' :key='movie.id' :movie='movie'/>
+        v-for='movie in all_movies' :key='movie.id' :movie='movie'/>
       <!-- </div> -->
 
       
@@ -24,8 +24,9 @@ export default {
     MovieListItem,
   },
   computed: {
-    movies() {
-      return this.$store.state.movies
+    all_movies() {
+      // console.log(this.$store.getters.all_movies)
+      return this.$store.getters.all_movies
     }
   }
   
