@@ -33,6 +33,12 @@ REST_AUTH_REGISTER_SERIALIZERS = {
 }
 ACCOUNT_ADAPTER = 'accounts.adapters.CustomAccountAdapter'
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+
 # Application definition
 INSTALLED_APPS = [
     # Django Apps
@@ -61,8 +67,8 @@ INSTALLED_APPS = [
     'dj_rest_auth.registration',
 
     # drf
-    'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',

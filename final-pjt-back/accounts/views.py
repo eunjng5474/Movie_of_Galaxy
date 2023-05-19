@@ -36,14 +36,14 @@ def profile(request, user_pk):
         return Response(serializer.data)
 
 
-######## signup form custom 시도
-@api_view(['POST'])
-def signup(request):
-    serializer = UserSerializer(data = request.data)
-    print(request.data)
-    print('111111111'*10)
-    # if serializer.is_valid():
-    serializer.is_valid(raise_exception=True)
-    serializer.save()
-    print(serializer.data)
-    return Response(serializer.data)
+# ######## signup form custom 시도
+# @api_view(['POST'])
+# def signup(request):
+#     serializer = UserSerializer(data = request.data)
+#     print(request.data)
+#     print('111111111'*10)
+#     # if serializer.is_valid():
+#     serializer.is_valid(raise_exception=True)
+#     serializer.save()
+#     print(serializer.data)
+#     return Response(serializer.data)
