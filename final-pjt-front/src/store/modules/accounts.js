@@ -57,7 +57,8 @@ const accountsModule = {
         
         axios({
           method: 'post',
-          url: `${API_URL}/account/signup/`,
+          // 커스텀 시도 -> rest auth 할거면 url 수정해야 함!!!!!!!!!!!!!!!!!!
+          url: `${API_URL}/accounts/signup/`,
           data: {
             username, password1, password2, nickname, birth
             // key === value면 생략
