@@ -4,11 +4,11 @@
     
     <!-- 영화만 나열하는 카드항목 -->
     <div class= "movie-card-container border border-black p-5">
-      <div class = "row row-cols-1 row-cols-sm-3 row-cols-md-5 g-5">
-      <!-- <div class = "row row-col-6 row-col-sm-4"> -->
+      <!-- <div class = "row row-cols-1 row-cols-sm-3 row-cols-md-5 g-5"> -->
+      <!-- <div class = "row row-cols-1 row-cols-md-5 g-5"> -->
         <MovieListItem
         v-for='movie in movies' :key='movie.id' :movie='movie'/>
-      </div>
+      <!-- </div> -->
 
       
     </div>
@@ -55,4 +55,12 @@ a {
   width: 80%;
   margin: 0 auto;
 }
+
+.movie-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
 </style>

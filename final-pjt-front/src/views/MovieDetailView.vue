@@ -2,9 +2,9 @@
   <div>
     <h1>무비상세페이지</h1>
 
-    <img :src="`https://image.tmdb.org/t/p/original/${detailOneMovie.poster_path}`" alt="" style="width:300px; height:350px">
-    <h3>{{detailOneMovie.title}}</h3>
-    <p>{{detailOneMovie.overview}}</p>
+    <img :src="`https://image.tmdb.org/t/p/original/${detailOneMovie?.poster_path}`" alt="" style="width:300px; height:350px">
+    <h3>{{detailOneMovie?.title}}</h3>
+    <p>{{detailOneMovie?.overview}}</p>
   </div>
 </template>
 
