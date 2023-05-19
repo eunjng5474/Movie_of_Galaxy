@@ -34,7 +34,16 @@ def profile(request, user_pk):
         person = get_object_or_404(User, pk=user_pk)
         serializer = ProfileSerializer(person)
         return Response(serializer.data)
-    
-# class CustomRegisterView(RegisterView):
-#     serializer_class = CustomRegisterSerializer
-#     form_class = CustomSignupForm
+
+
+######## signup form custom 시도
+@api_view(['POST'])
+def signup(request):
+    serializer = UserSerializer(data = request.data)
+    print(request.data)
+    print('111111111'*10)
+    # if serializer.is_valid():
+    serializer.is_valid(raise_exception=True)
+    serializer.save()
+    print(serializer.data)
+    return Response(serializer.data)

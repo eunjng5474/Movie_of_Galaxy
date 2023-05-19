@@ -1,7 +1,7 @@
 <template>
   <div>
-      <div class="col">
-        <div class="card h-200">
+      <!-- <div class="col"> -->
+        <div class="card h-200 mt-3 mb-3">
           <router-link :to="{
             name: 'MovieDetailView',
             params: {id: movie.id}}">
@@ -10,6 +10,11 @@
           <!-- <div calss="card-body"></div> -->
           <div class="card-footer">♡</div>
         </div>
+      <!-- </div> -->
+
+
+      <div>
+
       </div>
   </div>
 </template>
@@ -28,9 +33,13 @@ export default {
 <style>
 /* 카드 크기 맞추기 */
 .card-img-top {
-  height: 25rem; 
+  height: 20rem;
+  /* width: 10rem; */
   object-fit:cover;
 }
+
+
+
 
 
 </style>

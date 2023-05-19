@@ -14,17 +14,25 @@ const API_URL = 'http://127.0.0.1:8000'
 const moviesModule = {
 
   state: {
-    movies: [],
+    all_movies: [],
+    random30: [],
+    top30_popularity: [],
+    top30_vote_average: [],
     detailmovie: null,
   },
   getters: {
+    all_movies : (state) => state.all_movies, 
   },
   mutations: {
-    GET_MOVIES(state, movies) {
-      this.state.movies = movies
+    GET_MOVIES(state, payload) {
+      state.all_movies = payload.all_movies
+      state.random30 = payload.random30
+      state.top30_popularitys = payload.top30_popularity
+      state.top30_vote_average = payload.top30_vote_average
+      // console.log(state.all_movies)
     },
     GET_MOVIE_DETAIL(state, detailmovie){
-      this.state.detailmovie = detailmovie
+      state.detailmovie = detailmovie
     }
   },
   actions: {
@@ -34,7 +42,8 @@ const moviesModule = {
         url: `${API_URL}/api/v1/movies/`
       })
       .then((res) => {
-        // console.log(res, context)
+        // console.log(res.data)
+        // console.log(21313123)
         context.commit('GET_MOVIES', res.data)
       })
       .catch((err) => {

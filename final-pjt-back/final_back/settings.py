@@ -199,7 +199,3 @@ CORS_ALLOWED_ALL_ORIGINS = True
 
 
 AUTH_USER_MODEL = 'accounts.User'
-
-
-
-# ACCOUNT_FORMS = {'signup': 'accounts.forms.CustomSignupForm'}

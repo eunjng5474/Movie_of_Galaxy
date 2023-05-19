@@ -69,3 +69,13 @@ class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = '__all__'
+
+### 커스텀 시도
+# class UserSerializer(serializers.ModelSerializer):
+#     password = serializers.CharField(max_length=100, write_only= True)
+#     nickname = serializers.CharField(max_length=100)
+#     birth = serializers.DateField()
+
+#     class Meta:
+#         model = User
+#         fields = ('username', 'password', 'nickname', 'birth')
