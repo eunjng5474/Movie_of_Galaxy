@@ -18,6 +18,11 @@ class CustomRegisterSerializer(RegisterSerializer):
     #     fileds = ('nickname', 'birth')
         # fileds = '__all__'
     # print('2222222222'*20)
+
+    class Meta:
+        model = User
+        fields = ('nickname', 'birth',)
+        
     def get_cleaned_data(self):
         # print('33333333333'*20)
 

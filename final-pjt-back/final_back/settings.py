@@ -31,13 +31,19 @@ ALLOWED_HOSTS = []
 REST_AUTH_REGISTER_SERIALIZERS = {
     'REGISTER_SERIALIZER': 'accounts.serializers.CustomRegisterSerializer'
 }
+# 임시 사용자 정보 조회 재정의
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'accounts.serializers.CustomRegisterSerializer'
+}
+
 ACCOUNT_ADAPTER = 'accounts.adapters.CustomAccountAdapter'
 
 AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
+    # `allauth` specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
-
 
 # Application definition
 INSTALLED_APPS = [
@@ -73,7 +79,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
+    # 'django.contrib. s',
 ]
 
 REST_AUTH = { # 회원가입시 토큰 발급
