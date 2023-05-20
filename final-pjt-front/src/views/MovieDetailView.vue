@@ -2,18 +2,20 @@
   <div>
     <NavBar/>
     <h1>무비상세페이지</h1>
+    <div class="container">
+      <img :src="`https://image.tmdb.org/t/p/original/${detailOneMovie?.poster_path}`" alt="" style="width:300px; height:350px">
+      <h3>{{detailOneMovie?.title}}</h3>
+      <p>{{detailOneMovie?.overview}}</p>
+      <button class="btn btn-outline-primary" @click="likeMovie">좋아요</button>
+      <br>
+      <!-- 임시 - 좋아요 한 유저 -->
+      {{ detailOneMovie?.like_users}}
+      {{ detailOneMovie?.vote_average }}
+      <br>
+      <!-- 유튜브 예고편 보여줄 곳 -->
+      <iframe :src="`https://www.youtube.com/embed/${detailOneMovie?.key}?autoplay=1&mute=1`" frameborder="0" style="width: 500px; height: 300px"></iframe>
+    </div>
 
-    <img :src="`https://image.tmdb.org/t/p/original/${detailOneMovie?.poster_path}`" alt="" style="width:300px; height:350px">
-    <h3>{{detailOneMovie?.title}}</h3>
-    <p>{{detailOneMovie?.overview}}</p>
-    <button @click="likeMovie">좋아요</button>
-    <br>
-    <!-- 임시 - 좋아요 한 유저 -->
-    {{ detailOneMovie?.like_users}}
-    {{ detailOneMovie?.vote_average }}
-    <br>
-    <!-- 유튜브 예고편 보여줄 곳 -->
-    <iframe :src="`https://www.youtube.com/embed/${detailOneMovie?.key}?autoplay=1&mute=1`" frameborder="0" style="width: 500px; height: 300px"></iframe>
   </div>
 </template>
 
@@ -65,5 +67,4 @@ export default {
 </script>
 
 <style>
-
 </style>

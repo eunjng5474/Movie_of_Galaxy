@@ -12,6 +12,9 @@ import ProfileView from '../views/ProfileView.vue'
 import MoviePopularView from '../views/MoviePopularView.vue'
 import MovieVoteView from '../views/MovieVoteView.vue'
 import MovieRandomView from '../views/MovieRandomView.vue'
+
+import NotFound404View from '../views/NotFound404View.vue'
+
 // import CommentCreateView from '../views/CommentCreateView.vue'
 
 Vue.use(VueRouter)
@@ -92,6 +95,18 @@ const routes = [
   //   name: 'CommentCreateView',
   //   component: CommentCreateView
   // }
+
+
+  // 404 - 제일 마지막
+  {
+    path: '/404',
+    name: 'NotFound404View',
+    component: NotFound404View
+  },
+  {
+    path: '*',
+    redirect: '/404'
+  }
 ]
 
 const router = new VueRouter({

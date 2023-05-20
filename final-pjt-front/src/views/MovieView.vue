@@ -14,9 +14,9 @@
 
     <!--  네브바밑으로 위에 gif 들어갈자리  -->
 
-    <h1>무비 페이지</h1>  
+    <h1>Movies</h1>
+    <br>
     <!-- 이자리 나중에 알고리즘 정렬 추천순 뭐이런거 자리 -->
-    
     <div class="recommend">
       <router-link :to="{ name: 'MoviePopularView'}">
         <button class="btn btn-outline-primary">인기순</button>
@@ -28,6 +28,7 @@
         <button class="btn btn-outline-primary">랜덤순</button>
       </router-link>
     </div>
+    <br>
     <MovieList/>    
   </div>
 </template>
@@ -79,6 +80,6 @@ export default {
 
 <style scoped>
 .recommend .btn {
-  margin: 0 20px 0
+  margin: 0 30px 0
 }
 </style>

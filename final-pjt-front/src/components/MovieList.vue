@@ -1,6 +1,6 @@
 <template>
   <div class="movie-list-container">
-    <h1>무비리스트</h1>
+    <!-- <h1>무비리스트</h1> -->
     
     <!-- 영화만 나열하는 카드항목 -->
     <div class= "movie-card-container border border-black p-5">
