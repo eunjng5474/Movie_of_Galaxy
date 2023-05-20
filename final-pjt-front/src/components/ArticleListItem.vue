@@ -3,9 +3,9 @@
     <router-link :to="{ 
       name: 'ArticleDetailView',
       params: { id: article.id }}">
-      <h5>{{ article.id }}</h5>
-      <p>작성자: {{ article.username }}</p>
-      <p>{{ article.title }}</p>
+      <h5>{{ article?.id }}</h5>
+      <p>작성자: {{ article?.username }}</p>
+      <p>{{ article?.title }}</p>
     </router-link>
     <hr>
   </div>

@@ -1,6 +1,9 @@
 <template>
   <div class="body">
     <div class="box">
+      <router-link to="/movies" style="color:white;">임시 나중지움 무비로가는거MOvie</router-link>
+      <br>
+      <router-link to="/" style="color:white;">임시 나중 지움 lopgin 가는거</router-link> 
       <h2>Sign Up</h2>
       <form @submit.prevent="signUp">
         <div class="inputBox">

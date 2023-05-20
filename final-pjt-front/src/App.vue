@@ -1,13 +1,5 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Login</router-link> |
-      <router-link to="/signup">SignUp</router-link> |
-      <router-link to="/movies">MOvie</router-link> |
-      <router-link to="/community">Community</router-link> |
-      <!-- <router-link :to="{ name: 'ProfileView',
-        params: {id: user.id}}"> -->
-    </nav>
     <router-view/>
   </div>
 </template>
@@ -32,7 +24,7 @@
   box-sizing: content-box;
 }
 
-nav {
+/* nav {
   padding: 30px;
 }
 
@@ -43,5 +35,5 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
-}
+} */
 </style>
