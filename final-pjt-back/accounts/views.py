@@ -12,6 +12,7 @@ from rest_framework.decorators import api_view, permission_classes
 from dj_rest_auth.registration.views import RegisterView
 from rest_framework.permissions import *
 
+
 # from django.contrib.auth import get_user_model
 
 # User = get_user_model()

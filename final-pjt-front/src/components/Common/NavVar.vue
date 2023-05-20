@@ -1,6 +1,7 @@
 <template>
   <div>
-      <h1>네브바다임마</h1>
+      <!-- <h1>네브바다임마</h1> -->
+      <br>
       <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container-fluid">
           <router-link to="movies" class="navbar-brand">로고</router-link>
@@ -10,7 +11,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <router-link to="movies/" class="nav-link active" aria-current="page">Home</router-link>
+                <router-link to="/movies" class="nav-link active" aria-current="page">Home</router-link>
               </li>
               <li class="nav-item">
                 <router-link to="/community" class="nav-link">Community</router-link>
@@ -29,6 +30,7 @@
           </div>
         </div>
     </nav>
+    <br>
   </div>
 </template>
 

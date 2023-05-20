@@ -33,7 +33,8 @@ const accountsModule = {
     },
     isLogin(state) {
         return state.token ? true : false
-      }
+    },
+    token: (state) => state.token
     },
     mutations: {
       SAVE_TOKEN(state, token) {

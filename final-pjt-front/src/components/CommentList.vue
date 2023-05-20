@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CommentListFrom @create-comment="getArticleDetail"/>
+    <CommentListForm @create-comment="getArticleDetail"/>
     <h3>Comment List</h3>
     <CommentListItem @update-comment="getArticleDetail"
     v-for="(comment, idx) in comments" :key="idx" :comment="comment"/>
@@ -9,7 +9,7 @@
 
 <script>
 import CommentListItem from '@/components/CommentListItem'
-import CommentListFrom from '@/components/CommentListForm'
+import CommentListForm from '@/components/CommentListForm'
 // import axios from 'axios'
 // const API_URL = 'http://127.0.0.1:8000'
 
@@ -17,7 +17,7 @@ export default {
   name: 'CommentList',
   components: {
     CommentListItem,
-    CommentListFrom,
+    CommentListForm,
   },
   computed: {
     comments() {

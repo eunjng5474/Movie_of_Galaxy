@@ -19,6 +19,7 @@ const moviesModule = {
     top30_popularity: [],
     top30_vote_average: [],
     detailmovie: null,
+    movieLike: {},
   },
   getters: {
     all_movies : (state) => state.all_movies,
@@ -26,6 +27,7 @@ const moviesModule = {
     top30_popularity : (state) => state.top30_popularity,
     top30_vote_average : (state) => state.top30_vote_average,
     detailmovie : (state) => state.detailmovie,
+    movieLike : (state) => state.movieLike,
   },
   mutations: {
     GET_MOVIES(state, payload) {
@@ -38,6 +40,9 @@ const moviesModule = {
     GET_MOVIE_DETAIL(state, detailmovie){
       state.detailmovie = detailmovie
       // console.log(state.detailmovie)
+    },
+    LIKE_MOVIE(state, like_data) {
+      state.movieLike = like_data
     }
   },
   actions: {
@@ -63,6 +68,21 @@ const moviesModule = {
       .then((res) => {
         // console.log(res)
         context.commit('GET_MOVIE_DETAIL', res.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    },
+    likeMovie(context, movieId) {
+      // console.log(this.getters.token)
+      axios({
+        method: 'post',
+        url: `${API_URL}/api/v1/movies/${ movieId }/likes/`,
+        headers: {Authorization: `Token ${this.getters.token}`},
+      })
+      .then((res) => {
+        console.log(res.data)
+        context.commit('LIKE_MOVIE', res.data)
       })
       .catch((err) => {
         console.log(err)

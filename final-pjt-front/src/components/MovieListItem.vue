@@ -11,6 +11,7 @@
             </router-link> 
             <!-- <div calss="card-body"></div> -->
             <div class="card-footer">♡</div>
+            <!-- {{ detailOneMovie.like_users}} -->
           </div>
         </vue-glide-slide>
         <!-- </vue-glide> -->
@@ -30,6 +31,23 @@ export default {
   components: {
     [Glide.name]: Glide,
     [GlideSlide.name]: GlideSlide
+  },
+  created() {
+    // this.likeMovie()
+    // likeMovie() {
+    //   return this.$store.getters.movieLike
+    // }
+  },
+  computed: {
+    detailOneMovie() {
+      return this.$store.getters.detailmovie
+    }
+  },
+  methods: {
+    // likeMovie() {
+    //   const movieId = this.$route.params.id
+    //   this.$store.dispatch('likeMovie', movieId)
+    // }
   }
 }
 </script>
