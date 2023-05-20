@@ -1,5 +1,6 @@
 <template>
   <div class="movie-popular-list-container">
+    <NavBar/>
     <h1> 랜덤 영화 추천</h1>
     <div class= "movie-card-container border border-black p-5">
       <!-- <vue-glide> -->
@@ -13,6 +14,7 @@
 
 <script>
 import MovieListItem from '@/components/MovieListItem'
+import NavBar from '@/components/Common/NavBar'
 // import Vue from 'vue'
 // import { Carousel3d, Slide } from 'vue-carousel-3d';
 import { Glide, GlideSlide } from 'vue-glide-js'
@@ -23,6 +25,7 @@ export default {
   name: 'MovieRandomView',
   components: {
     MovieListItem,
+    NavBar,
     [Glide.name]: Glide,
     [GlideSlide.name]: GlideSlide
   },

@@ -10,7 +10,7 @@
 
 
     <!--  네브바 있는자리 -->
-    <NavVar/>
+    <NavBar/>
 
     <!--  네브바밑으로 위에 gif 들어갈자리  -->
 
@@ -35,14 +35,14 @@
 <script>
 // @ is an alias to /src
 import MovieList from '@/components/MovieList'
-import NavVar from '@/components/Common/NavVar'
+import NavBar from '@/components/Common/NavBar'
 
 
 export default {
   name: 'MovieView',
   components: {
     MovieList,
-    NavVar,
+    NavBar,
   },
   created() {
     this.getMovies()

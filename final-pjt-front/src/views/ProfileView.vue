@@ -1,5 +1,6 @@
 <template>
   <div>
+    <NavBar/>
     <h1>Profile</h1>
     <p><b>아이디 : {{ getCurrentUser.username }}</b></p>
     <p>닉네임 : {{ getCurrentUser.nickname }}</p>
@@ -8,11 +9,16 @@
 </template>
 
 <script>
+import NavBar from '@/components/Common/NavBar'
+
 export default {
   name: 'ProfileView',
+  components: {
+    NavBar
+  },
   computed: {
     getCurrentUser() {
-      return this.$store.state.currentUser
+      return this.$store.getters.currentUser
     }
     // getCurrentUserName() {
     //   console.log(this.$store.state.current_username)

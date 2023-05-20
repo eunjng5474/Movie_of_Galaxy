@@ -13,7 +13,7 @@ from .serializers import ArticleListSerializer, ArticleSerializer, CommentSerial
 from .models import Article, Comment
 
 
-@api_view(['GET', 'POST'])
+@api_view(['GET'])
 # @permission_classes([IsAuthenticated])
 def article_list(request):
     if request.method == 'GET':
@@ -26,6 +26,14 @@ def article_list(request):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
+# @api_view(['POST'])
+# def article_create(request):
+#     if request.method == 'POST':
+#         serializer = ArticleSerializer(data=request.data)
+#         if serializer.is_valid(raise_exception=True):
+#             serializer.save()
+#             return Response(serializer.data)
+
         
 @api_view(['GET', 'DELETE', 'PUT'])
 def article_detail(request, article_pk):

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <NavBar/>
     <h1>게시글 수정</h1>
     <form @submit.prevent="updateArticle">
       <label for="title">제목 : </label>
@@ -14,9 +15,13 @@
 <script>
 import axios from 'axios'
 const API_URL = 'http://127.0.0.1:8000'
+import NavBar from '@/components/Common/NavBar'
 
 export default {
  name: 'ArticleUpdateView',
+ components: {
+  NavBar,
+ },
  data() {
   return {
     title: null,

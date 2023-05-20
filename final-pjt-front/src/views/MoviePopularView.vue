@@ -1,5 +1,6 @@
 <template>
   <div class="movie-popular-list-container">
+    <NavBar/>
     <h1> 인기순 영화 추천</h1>
     <div class= "movie-card-container border border-black p-5">
       <MovieListItem v-for="movie in top30_popularity" :key="movie.id" :movie="movie"/>
@@ -9,11 +10,13 @@
 
 <script>
 import MovieListItem from '@/components/MovieListItem'
+import NavBar from '@/components/Common/NavBar'
 
 export default {
   name: 'MoviePopularView',
   components: {
     MovieListItem,
+    NavBar,
   },
   computed: {
     top30_popularity() {

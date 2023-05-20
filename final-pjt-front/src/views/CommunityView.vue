@@ -1,6 +1,6 @@
 <template>
   <div class="Community">
-    <NavVar/>
+    <NavBar/>
     <h1>Community</h1>
     <router-link :to="{ name: 'ArticleCreateView' }">[CREATE]</router-link>
     <ArticleList/>
@@ -10,13 +10,13 @@
 
 <script>
 import ArticleList from '@/components/ArticleList'
-import NavVar from '@/components/Common/NavVar'
+import NavBar from '@/components/Common/NavBar'
 
 export default {
   name: 'CommunityView',
   components: {
     ArticleList,
-    NavVar
+    NavBar
   },
   created() {
     this.getArticles()

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NavVar/>
+    <NavBar/>
     <h1>Article Detail</h1>
     <h3>{{detailOneArticle?.title}}</h3>
     <p>{{detailOneArticle?.content}}</p>
@@ -18,7 +18,7 @@
 <script>
 import axios from 'axios'
 import CommentList from '@/components/CommentList'
-import NavVar from '@/components/Common/NavVar'
+import NavBar from '@/components/Common/NavBar'
 
 const API_URL = 'http://127.0.0.1:8000'
 
@@ -27,7 +27,7 @@ export default {
   name: 'ArticleDetail',
   components: {
     CommentList,
-    NavVar
+    NavBar
   },
   created() {
     this.getArticleDetail()
