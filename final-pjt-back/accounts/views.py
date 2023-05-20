@@ -19,13 +19,13 @@ from rest_framework.permissions import *
 # Create your views here.
 
 # 회원가입
-@api_view(['POST'])
-@permission_classes([AllowAny])
-def signup(request):
-    serializer = CustomRegisterSerializer(data=request.data)
-    if serializer.is_valid(raise_exception=True):
-        serializer.save(request)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+# @api_view(['POST'])
+# @permission_classes([AllowAny])
+# def signup(request):
+#     serializer = CustomRegisterSerializer(data=request.data)
+#     if serializer.is_valid(raise_exception=True):
+#         serializer.save(request)
+#         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 # 프로필 조회
 @api_view(['GET'])
@@ -39,11 +39,8 @@ def profile(request, user_pk):
 ######## signup form custom 시도
 @api_view(['POST'])
 def signup(request):
-    serializer = UserSerializer(data = request.data)
-    print(request.data)
-    print('111111111'*10)
+    serializer = CustomRegisterSerializer(data = request.data)
     # if serializer.is_valid():
-    serializer.is_valid(raise_exception=True)
-    serializer.save()
-    print(serializer.data)
-    return Response(serializer.data)
+    if serializer.is_valid(raise_exception=True):
+        serializer.save(request)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)

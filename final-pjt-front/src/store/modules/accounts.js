@@ -42,8 +42,8 @@ const accountsModule = {
         // store/index.js에서 $router 접근 불가 -> import 해야 함 
       },
       SAVE_USER(state, userinfo) {
-        this.state.currentUser = userinfo
-        console.log(this.state.currentUser)
+        state.currentUser = userinfo
+        // console.log(this.state.currentUser)
         router.push({ name: 'LogInView'})
       }
     },
@@ -58,7 +58,7 @@ const accountsModule = {
         axios({
           method: 'post',
           // 커스텀 시도 -> rest auth 할거면 url 수정해야 함!!!!!!!!!!!!!!!!!!
-          url: `${API_URL}/accounts/signup/`,
+          url: `${API_URL}/account/signup/`,  // account로 보내!!!!!!!
           data: payload,
           // data: {
           //   username, password1, password2, nickname, birth
@@ -73,10 +73,14 @@ const accountsModule = {
           // console.log(this.state.current_usernickname)
           
           //// string -> object로 변환
+          // 제발되라
+          const token = res.data.key
+          // axios.defaults.headers.common['Authorization'] = `Token ${token}`
+
           const userinfo = JSON.parse(res.config.data)
           // console.log(typeof(test))
           // console.log(test)
-          context.commit('SAVE_TOKEN', res.data.key)
+          context.commit('SAVE_TOKEN', token)
           context.commit('SAVE_USER', userinfo)
         })
         .catch((err) => {

@@ -23,5 +23,7 @@ urlpatterns = [
     path('account/', include('dj_rest_auth.urls')),
     path('account/signup/', include('dj_rest_auth.registration.urls')),
     path('accounts/', include('accounts.urls')),
+    #제발 되라되라제발
+    path('accounts/', include('allauth.urls')),
     # 커스텀 시도 -> rest auth 쓸거면 위에 두 개 주석 해제
 ]
