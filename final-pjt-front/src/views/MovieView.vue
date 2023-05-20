@@ -68,7 +68,7 @@ export default {
       // console.log(this.$store.state.currentUser)
       // console.log(typeof(this.$store.state.currentUser))
       // console.log(this.$store.state.token)
-      return this.$store.state.currentUser
+      return this.$store.getters.currentUser
     },
     isLogin() {
       return this.$store.getters.isLogin
