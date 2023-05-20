@@ -12,15 +12,17 @@ const communityModule = {
     datailarticle: null,
   },
   getters: {
-
+    articles: (state) => state.articles,
+    detailarticle: (state) => state.detailarticle,
   },
   mutations: {
     GET_ARTICLES(state, articles) {
-      this.state.articles = articles
+      state.articles = articles
       console.log()
     },
     GET_ARTICLE_DETAIL(state, detailarticle) {
-      this.state.detailarticle = detailarticle
+      console.log(state.detailarticle)
+      state.detailarticle = detailarticle
     }
   },
   actions: {
@@ -51,7 +53,7 @@ const communityModule = {
       .catch((err) => {
         console.log(err)
       })
-    }
+    },
   },
 }
 

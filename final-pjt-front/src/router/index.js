@@ -12,6 +12,7 @@ import ProfileView from '../views/ProfileView.vue'
 import MoviePopularView from '../views/MoviePopularView.vue'
 import MovieVoteView from '../views/MovieVoteView.vue'
 import MovieRandomView from '../views/MovieRandomView.vue'
+// import CommentCreateView from '../views/CommentCreateView.vue'
 
 Vue.use(VueRouter)
 
@@ -85,7 +86,12 @@ const routes = [
     path: '/movies/random',
     name: 'MovieRandomView',
     component: MovieRandomView
-  }
+  },
+  // {
+  //   path: '/community/:id/comment',
+  //   name: 'CommentCreateView',
+  //   component: CommentCreateView
+  // }
 ]
 
 const router = new VueRouter({

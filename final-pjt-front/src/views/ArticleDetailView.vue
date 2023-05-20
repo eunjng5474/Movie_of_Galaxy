@@ -7,24 +7,31 @@
     <router-link :to="{ name: 'ArticleUpdateView', 
     params: {id: detailOneArticle.id}}">[UPDATE]</router-link>
     <button @click="deleteArticle">DELETE</button>
+    <hr>
+    <!-- <router-link :to="{ name: 'CommentCreateView' }">[CREATE COMMENT]</router-link> -->
+    <CommentList/>
+    <!-- <p>{{ detailOneArticle?.comment_set[1].content}}</p> -->
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import CommentList from '@/components/CommentList'
 const API_URL = 'http://127.0.0.1:8000'
 
 
 export default {
   name: 'ArticleDetail',
-
+  components: {
+    CommentList,
+  },
   created() {
     this.getArticleDetail()
   },
   
   computed: {
     detailOneArticle() {
-      return this.$store.state.detailarticle
+      return this.$store.getters.detailarticle
     }
   },
 
