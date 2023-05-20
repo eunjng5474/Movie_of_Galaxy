@@ -29,9 +29,9 @@ export default {
     createArticle() {
       const title = this.title
       const content = this.content
-      const user = this.$store.getters.currentUser
-      const username = this.$store.getters.currentUser.username
-      console.log(user)
+      // const user = this.$store.getters.currentUser
+      // const username = this.$store.getters.currentUser.username
+      // console.log(user)
 
       if (!title) {
         alert('제목을 입력해주세요')
@@ -43,7 +43,7 @@ export default {
       axios({
         method: 'post',
         url: `${API_URL}/api/v2/articles/`,
-        data: { title, content, user, username },
+        data: { title, content},
       })
       .then(() => {
         this.$router.push({ name: 'CommunityView' })
