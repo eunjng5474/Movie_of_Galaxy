@@ -8,6 +8,9 @@
     </form>
     <button class="d-inline" @click="deleteComment">DELETE</button>
     <!-- <p>{{ commment?.} }</p> -->
+
+    <!-- 임시로 댓글 뭐가져오는지 확인하기 -->
+    <p>{{comment}}</p>
   </div>
 </template>
 

@@ -8,6 +8,10 @@
     <router-link :to="{ name: 'ArticleUpdateView', 
     params: {id: detailOneArticle.id}}">[UPDATE]</router-link>
     <button @click="deleteArticle">DELETE</button>
+
+    <!-- 임시로  뭐받아와지는지 확인중 -->
+
+    <p>{{detailOneArticle}}</p>
     <hr>
     <!-- <router-link :to="{ name: 'CommentCreateView' }">[CREATE COMMENT]</router-link> -->
     <CommentList/>
