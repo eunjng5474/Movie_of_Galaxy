@@ -69,5 +69,5 @@ def movie_like(request, movie_pk):
     print('3333333333'*10)
     serializer = MovieLikeSerializer(movie)
     print('11111111111111'*10)
-    print(serializer)
+    print(serializer.data)
     return Response(serializer.data)

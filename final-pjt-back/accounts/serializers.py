@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
-# from movies.models import Movie
+from movies.models import Movie
 from allauth.account.adapter import get_adapter, DefaultAccountAdapter
 from django.core.exceptions import ValidationError as DjangoValidationError
 from dj_rest_auth.registration.serializers import RegisterSerializer
@@ -65,11 +65,11 @@ class CustomRegisterSerializer(RegisterSerializer):
 
 class ProfileSerializer(serializers.ModelSerializer):
     nickname = serializers.CharField()
-    # class MovieSerializer(serializers.ModelSerializer):
-    #     class Meta:
-    #         model = Movie
-    #         fields = '__all__'
-    # movie = MovieSerializer(read_only=True)
+    class MovieSerializer(serializers.ModelSerializer):
+        class Meta:
+            model = Movie
+            fields = '__all__'
+    like_movies = MovieSerializer(many=True, read_only=True)
 
     class Meta:
         model = User

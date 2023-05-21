@@ -19,7 +19,7 @@ const moviesModule = {
     top30_popularity: [],
     top30_vote_average: [],
     detailmovie: null,
-    movieLike: {},
+    movieLike1: [],
   },
   getters: {
     all_movies : (state) => state.all_movies,
@@ -27,7 +27,7 @@ const moviesModule = {
     top30_popularity : (state) => state.top30_popularity,
     top30_vote_average : (state) => state.top30_vote_average,
     detailmovie : (state) => state.detailmovie,
-    movieLike : (state) => state.movieLike,
+    movieLike : (state) => state.movieLike1,
   },
   mutations: {
     GET_MOVIES(state, payload) {
@@ -42,7 +42,12 @@ const moviesModule = {
       // console.log(state.detailmovie)
     },
     LIKE_MOVIE(state, like_data) {
-      state.movieLike = like_data
+      console.log(like_data.id)
+      // state.movieLike = like_data
+      // if(state.movieLike1.include(like_data.id)) {
+      //   state.movi
+      // }
+      state.movieLike1.push(like_data.id) 
     }
   },
   actions: {
