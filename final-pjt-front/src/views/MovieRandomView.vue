@@ -4,6 +4,10 @@
     <div>
       <h1> 랜덤 영화 추천</h1>
       <carousel-3d height="480" border="5" :autoplay="true" :count="30">
+  <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button> -->
         <slide style="border-color: white;" 
         v-for="(movie, idx) in random30" :index="idx" :key="idx">
           <template slot-scope="{index, isCurrent, leftIndex, rightIndex}">
@@ -81,4 +85,22 @@ a {
   justify-content: space-between;
 }
 
+
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: red;
+  /* position: absolute; */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.carousel-control-prev-icon {
+  left: 10px;
+  color: red;
+}
+
+.carousel-control-next {
+  right: 10px;
+}
 </style>

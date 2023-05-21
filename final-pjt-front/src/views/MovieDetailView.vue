@@ -1,23 +1,38 @@
 <template>
-  <div class="movie-detail-container">
+  <div class="container">
     <NavBar/>
-    <h1>무비상세페이지</h1>
-    <div class="">
-      <div class="justify-content-center" style="width: 500px">
-      <img :src="`https://image.tmdb.org/t/p/original/${detailOneMovie?.poster_path}`" alt="" style="width:300px; height:350px">
-      <h3>{{detailOneMovie?.title}}</h3>
-        <p>{{detailOneMovie?.overview}}</p>
-        <button :class="like_btn" @click="likeMovie">좋아요</button>
-        <br>
-        <!-- 임시 - 좋아요 한 유저 -->
-        {{ detailOneMovie?.like_users}}
-        {{ detailOneMovie?.vote_average }}
-      <br>
+    <!-- <h1>무비상세페이지</h1> -->
+    <!-- <br> -->
+    <!-- {{ detailOneMovie}} -->
+    <div class="row align-items-center" style="width: 80%; margin: 0 auto;">
+      <div class="col-6">
+        <img class="img-fluid" :src="`https://image.tmdb.org/t/p/original/${detailOneMovie?.poster_path}`" alt="">
       </div>
-      <!-- 유튜브 예고편 보여줄 곳 -->
-      <iframe :src="`https://www.youtube.com/embed/${detailOneMovie?.key}?autoplay=1&mute=1`" frameborder="0" style="width: 500px; height: 300px"></iframe>
+      <div class="col-6">
+        <div class="title">
+        <h1><b>{{detailOneMovie?.title}}</b></h1>
+        </div>
+        <br>
+        <br>
+        <h5 style="text-align: left;"><b>개봉일 : </b> {{ detailOneMovie?.release_date}}</h5>
+        <div class="vote and like" style="display: flex">
+          <h5 style="text-align: left; margin-right: 20px;"><b>평점 </b>&#11088; {{ detailOneMovie?.vote_average}}</h5>   
+          <h4 style="margin-left: 20px;" :class="like_btn" @click="likeMovie">{{heart}}</h4>
+        </div>
+        <br>
+        <h3 style="text-align: left;"><b>줄거리</b></h3>
+        <h6 style="text-align: left;">{{detailOneMovie?.overview}}</h6>
+        <br>
+        <!-- <button :class="like_btn" @click="likeMovie">좋아요</button> -->
+        <!-- {{ detailOneMovie?.like_users}} -->
+        <!-- {{ detailOneMovie?.vote_average }} -->
+      </div>
+        <!-- 임시 - 좋아요 한 유저 -->
     </div>
-
+    <div class="movie-iframe" style="mt-20px">
+      <!-- 유튜브 예고편 보여줄 곳 -->
+      <iframe :src="`https://www.youtube.com/embed/${detailOneMovie?.key}?autoplay=1&mute=1`" frameborder="0" style="width: 75%; aspect-ratio: 16/9;"></iframe>
+    </div>
   </div>
 </template>
 
@@ -36,7 +51,8 @@ export default {
   data() {
     return {
       // click_btn: 'btn btn-primary',
-      like_btn: 'btn btn-outline-primary',
+      // like_btn: 'btn btn-outline-primary',
+      heart: '🤍',
       like_toggle: false
     }
   },
@@ -69,9 +85,9 @@ export default {
       this.$store.dispatch('likeMovie', movieId)
       this.like_toggle = !this.like_toggle
       if (this.like_toggle === true) {
-        this.like_btn = 'btn btn-primary'
+        this.heart = '🩷'
       } else {
-        this.like_btn = 'btn btn-outline-primary'
+        this.heart = '🤍'
       }
     },
     // getYoutube() {
@@ -86,5 +102,14 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
+/* .movie-detail-container {
+  width: 90%
+  justify-content: center;
+} */
+
+.movie-poster-and-info {
+  display: flex;
+  justify-content: center;
+}
 </style>
