@@ -1,14 +1,5 @@
 <template>
   <div class="Movie">
-    <!-- 프로필 이동 테스트 -->
-    <div v-if="isLogin">
-      <router-link :to="{ name: 'ProfileView',
-          params: {username: getCurrentUser.username}}">
-      MyProfile
-      </router-link> 
-    </div>
-
-
     <!--  네브바 있는자리 -->
     <NavBar/>
 

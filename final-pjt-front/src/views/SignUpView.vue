@@ -1,5 +1,8 @@
 <template>
   <div class="body">
+    <video autoplay loop muted>
+      <source src="@/assets/3.mp4" type="video/mp4">
+    </video>
     <div class="box">
       <router-link to="/movies" style="color:white;">임시 나중지움 무비로가는거MOvie</router-link>
       <br>
@@ -89,9 +92,19 @@ export default {
 body {
   margin: 0;
   padding: 0;
-  background: url(https://picsum.photos/2500/1500?image=1041);
-  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   font-family: sans-serif;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .box {
@@ -102,7 +115,7 @@ body {
   width: 25rem;
   padding: 2.5rem;
   box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0);
   border-radius: 0.625rem;
 }
 

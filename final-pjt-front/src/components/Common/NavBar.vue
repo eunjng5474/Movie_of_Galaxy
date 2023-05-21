@@ -4,7 +4,7 @@
       <br>
       <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container-fluid">
-          <router-link to="movies" class="navbar-brand">로고</router-link>
+          <router-link to="/movies" class="navbar-brand">로고</router-link>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -25,8 +25,19 @@
             </ul>
             <form class="d-flex">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+              <button class="btn btn-outline-success" type="submit">Search임시(밑으로내림)</button>
             </form>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                프로필(이미지)
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" style="max-width: 150px">
+                <li><router-link class= "droptown-item" :to="{ name: 'ProfileView', params: {username: getCurrentUser.username}}">MyProfile</router-link></li>
+                
+  
+                <li> <router-link to="/" class="nav-link dropdown-item">로그아웃임시</router-link></li>
+              </ul>
+            </li>
           </div>
         </div>
     </nav>
@@ -36,11 +47,20 @@
 
 <script>
 export default {
-  name:'NavBar'
+  name:'NavBar',
+
+  computed: {
+    getCurrentUser() {
+      return this.$store.getters.currentUser
+    }
+  }
 
 }
 </script>
 
 <style>
+.dropdown-menu {
+  width: 5px; /* 원하는 너비로 설정하세요 */
+}
 
 </style>
