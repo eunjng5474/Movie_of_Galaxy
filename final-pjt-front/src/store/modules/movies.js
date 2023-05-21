@@ -42,7 +42,7 @@ const moviesModule = {
       // console.log(state.detailmovie)
     },
     LIKE_MOVIE(state, like_data) {
-      console.log(like_data.id)
+      // console.log(like_data.id)
       // state.movieLike = like_data
       // if(state.movieLike1.include(like_data.id)) {
       //   state.movi
@@ -86,7 +86,7 @@ const moviesModule = {
         headers: {Authorization: `Token ${this.getters.token}`},
       })
       .then((res) => {
-        console.log(res.data)
+        // console.log(res.data)
         context.commit('LIKE_MOVIE', res.data)
       })
       .catch((err) => {

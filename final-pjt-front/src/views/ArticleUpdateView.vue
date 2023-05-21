@@ -63,7 +63,7 @@ export default {
       url: `${API_URL}/api/v2/articles/${this.$route.params.id}/`,
     })
     .then((res) => {
-      console.log(res)
+      // console.log(res)
       this.title = res.data.title
       this.content = res.data.content
       this.id = this.$route.params.id

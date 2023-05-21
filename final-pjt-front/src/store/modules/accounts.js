@@ -41,14 +41,14 @@ const accountsModule = {
         state.token = token
         // state.username = username
         // console.log(state.username)
-        console.log(token)
+        // console.log(token)
         // router.push({ name: 'MovieView' })  
         // store/index.js에서 $router 접근 불가 -> import 해야 함 
       },
       SAVE_USER(state, userinfo) {
         state.currentUser = userinfo
-        console.log(userinfo)
-        console.log(state.currentUser)
+        // console.log(userinfo)
+        // console.log(state.currentUser)
         router.push({ name: 'LogInView'})
       }
     },
@@ -84,7 +84,7 @@ const accountsModule = {
 
           const userinfo = JSON.parse(res.config.data)
           // console.log(typeof(test))
-          console.log(res.data.key)
+          // console.log(res.data.key)
           context.commit('SAVE_TOKEN', token)
           context.commit('SAVE_USER', userinfo)
         })

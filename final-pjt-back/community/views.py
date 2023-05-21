@@ -16,17 +16,19 @@ from .models import Article, Comment
 @api_view(['GET', 'POST'])
 # @permission_classes([IsAuthenticated])
 def article_list(request):
-    print('-'*30)
     if request.method == 'GET':
-        articles = get_list_or_404(Article)
+        # print('x'*30)
+        # articles = get_list_or_404(Article)
+        articles = Article.objects.all()
+        # print(38483483848348)
         serializer = ArticleListSerializer(articles, many=True)
         return Response(serializer.data)
     
     elif request.method == 'POST':
         serializer = ArticleSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
-            print(request.user)
-            print(request)
+            # print(request.user)
+            # print(request)
             serializer.save(write_article_user = request.user) # write_articleuser = request.user추가
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 # @api_view(['POST'])

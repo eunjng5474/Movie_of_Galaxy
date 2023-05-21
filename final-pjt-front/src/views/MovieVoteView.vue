@@ -38,7 +38,7 @@ export default {
   },
   computed: {
     top30_vote_average() {
-      console.log(this.$store.getters.top30_vote_average)
+      // console.log(this.$store.getters.top30_vote_average)
       return this.$store.getters.top30_vote_average
     }
   }

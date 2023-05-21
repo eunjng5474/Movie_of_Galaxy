@@ -57,7 +57,7 @@ export default {
   },
     methods: {
       getUserMovieList() {
-        console.log(this.$store.getters.currentUser.username)
+        // console.log(this.$store.getters.currentUser.username)
         axios({
           method: 'get',
           url: `${API_URL}/accounts/profile/${this.$store.getters.currentUser.username}/`,

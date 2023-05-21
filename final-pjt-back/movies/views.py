@@ -55,19 +55,19 @@ def movie_detail(request, movie_pk):
 def movie_like(request, movie_pk):
     movie = get_object_or_404(Movie, pk=movie_pk)
     user = request.user
-    print('22222222222222222222222222')
-    print(movie)
-    print('-------------------'*10)
-    print(user.id)
-    print('-------------'*10)
-    print(request.data)
+    # print('22222222222222222222222222')
+    # print(movie)
+    # print('-------------------'*10)
+    # print(user.id)
+    # print('-------------'*10)
+    # print(request.data)
 
     if movie.like_users.filter(pk=user.pk).exists():
         movie.like_users.remove(user)
     else:
         movie.like_users.add(user)
-    print('3333333333'*10)
+    # print('3333333333'*10)
     serializer = MovieLikeSerializer(movie)
-    print('11111111111111'*10)
-    print(serializer.data)
+    # print('11111111111111'*10)
+    # print(serializer.data)
     return Response(serializer.data)

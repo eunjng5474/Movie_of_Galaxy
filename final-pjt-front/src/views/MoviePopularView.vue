@@ -38,7 +38,7 @@ export default {
   },
   computed: {
     top30_popularity() {
-      console.log(this.$store.getters.top30_popularity)
+      // console.log(this.$store.getters.top30_popularity)
       return this.$store.getters.top30_popularity
     }
   }

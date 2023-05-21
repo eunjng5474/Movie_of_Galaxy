@@ -48,9 +48,9 @@ def profile(request, user_pk):
 @api_view(['GET'])
 def user_movie_list(request, username):
     current_user = get_object_or_404(User, username=username)
-    print(current_user)
-    print('-------------'*10)
+    # print(current_user)
+    # print('-------------'*10)
     serializer = ProfileSerializer(current_user)
-    print('99999999'*10)
-    print(serializer.data)
+    # print('99999999'*10)
+    # print(serializer.data)
     return Response(serializer.data)

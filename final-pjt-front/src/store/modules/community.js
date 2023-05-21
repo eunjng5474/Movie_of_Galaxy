@@ -18,10 +18,10 @@ const communityModule = {
   mutations: {
     GET_ARTICLES(state, articles) {
       state.articles = articles
-      console.log()
+      // console.log()
     },
     GET_ARTICLE_DETAIL(state, detailarticle) {
-      console.log(state.detailarticle)
+      // console.log(state.detailarticle)
       state.detailarticle = detailarticle
     }
   },
