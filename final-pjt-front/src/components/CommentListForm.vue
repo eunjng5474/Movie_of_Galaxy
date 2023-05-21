@@ -23,7 +23,7 @@ export default {
     createComment() {
       // alert("댓글이 등록되었습니다")
       const content = this.content
-
+      console.log(this.$route.params.id)
       if (!content) {
         alert('댓글을 입력해주세요')
         return
@@ -32,6 +32,9 @@ export default {
         method: 'post',
         url: `${API_URL}/api/v2/articles/${this.$route.params.id}/comments/`,
         data: {content},
+        headers: {
+          Authorization: `Token ${this.$store.getters.token}`
+        }
       })
       .then(() => {
         alert("댓글이 등록되었습니다.")

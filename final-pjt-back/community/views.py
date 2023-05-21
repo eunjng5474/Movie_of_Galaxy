@@ -23,11 +23,8 @@ def article_list(request):
         return Response(serializer.data)
     
     elif request.method == 'POST':
-        print('요청들어오니?'*5)
         serializer = ArticleSerializer(data=request.data)
-        print('안들어오니?'*5)
         if serializer.is_valid(raise_exception=True):
-            print('야기는???'*5)
             print(request.user)
             print(request)
             serializer.save(write_article_user = request.user) # write_articleuser = request.user추가
@@ -51,7 +48,7 @@ def article_detail(request, article_pk):
         return Response(serializer.data)
     
     elif request.method == 'DELETE':
-        article.delete() # 데이터 삭제 알림 나중에 추가해보자
+        article.delete() # 데이터 삭제 알림 나중에 추가해보자, 자신만 지울수잇게
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     elif request.method == 'PUT':  # 나중작성자만 수정할쑤있게 if reqeust,user = article.user뭥이런거 한줄 추가 예정
@@ -76,11 +73,11 @@ def comment_detail(request, comment_pk):
         serializer = CommentSerializer(comment)
         return Response(serializer.data)
     
-    elif request.method == 'DELETE':
+    elif request.method == 'DELETE': #댓글 쓴 사람만 딜릿되게 아니면 ㅁ뷰에서 칸보여주던가
         comment.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-    elif request.method == 'PUT':
+    elif request.method == 'PUT': #댓글을 쓴자시남ㄴ 수정
         serializer = CommentSerializer(comment, data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
@@ -92,7 +89,7 @@ def comment_create(request, article_pk):
     article = get_object_or_404(Article, pk=article_pk)
     serializer = CommentSerializer(data=request.data)
     if serializer.is_valid(raise_exception=True):
-        serializer.save(article=article)
+        serializer.save(article=article, write_comment_user = request.user) #유저정보가 잇어야함ㄴㄴ
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 

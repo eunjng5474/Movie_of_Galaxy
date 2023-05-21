@@ -32,7 +32,7 @@ export default {
       // const user = this.$store.getters.currentUser
       // const username = this.$store.getters.currentUser.username
       // console.log(user)
-
+      // console.log(this.$store.getters.token)
       if (!title) {
         alert('제목을 입력해주세요')
         return
@@ -44,6 +44,9 @@ export default {
         method: 'post',
         url: `${API_URL}/api/v2/articles/`,
         data: { title, content},
+        headers: {
+          Authorization: `Token ${this.$store.getters.token}`
+        }
       })
       .then(() => {
         this.$router.push({ name: 'CommunityView' })
