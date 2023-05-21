@@ -3,13 +3,22 @@
     <NavBar/>
     <div>
       <h1> 랜덤 영화 추천</h1>
-      <carousel-3d height="480" border="5" :autoplay="true" :count="30">
-  <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button> -->
+
+      <carousel-3d height="480" border="5" :autoplay="true" :count="30" :controls-visible="true">
         <slide style="border-color: white;" 
         v-for="(movie, idx) in random30" :index="idx" :key="idx">
+            <!-- <controls v-if="controlsVisible" :next-html="controlsNextHtml" :prev-html="controlsPrevHtml"
+              :width="controlsWidth" :height="controlsHeight"></controls> -->
+        <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button> -->
+              <!-- <a href="#" class="prev" @click.prevent="parent.goPrev()"
+       :class="{ disabled: !parent.isPrevPossible }"
+       :style="`width: ${width}px; height: ${height}px; line-height: ${height}px;`"
+       aria-label="Previous slide">
+      <span v-html="prevHtml"></span>
+    </a> -->
           <template slot-scope="{index, isCurrent, leftIndex, rightIndex}">
             <router-link :to="{name: 'MovieDetailView',
               params: {id: movie.id}}">
@@ -45,8 +54,15 @@ export default {
     NavBar,
     Carousel3d,
     Slide,
+    // 'carousel-3d': window['carousel-3d'].Carousel3d,
+    // 'slide': window['carousel-3d'].Slide
     // [Glide.name]: Glide,
     // [GlideSlide.name]: GlideSlide
+  },
+  data() {
+    return {
+      parent: this.$parent
+    }
   },
   computed: {
     random30() {
@@ -56,7 +72,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 h3 {
   margin: 40px 0 0;
 }
@@ -86,21 +102,4 @@ a {
 }
 
 
-.carousel-control-prev,
-.carousel-control-next {
-  background-color: red;
-  /* position: absolute; */
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-}
-
-.carousel-control-prev-icon {
-  left: 10px;
-  color: red;
-}
-
-.carousel-control-next {
-  right: 10px;
-}
 </style>

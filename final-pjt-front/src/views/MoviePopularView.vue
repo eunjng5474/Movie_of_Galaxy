@@ -3,7 +3,7 @@
     <NavBar/>
     <div>
       <h1> 인기순 영화 추천</h1>
-      <carousel-3d height="480" border="5" :autoplay="true" :count="30">
+      <carousel-3d height="480" border="5" :autoplay="true" :count="30" :controls-visible="true">
         <slide style="border-color: white;" 
         v-for="(movie, idx) in top30_popularity" :index="idx" :key="idx">
           <template slot-scope="{index, isCurrent, leftIndex, rightIndex}">

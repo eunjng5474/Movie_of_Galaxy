@@ -4,7 +4,7 @@
     <!-- <h1>무비상세페이지</h1> -->
     <!-- <br> -->
     <!-- {{ detailOneMovie}} -->
-    <div class="row align-items-center" style="width: 80%; margin: 0 auto;">
+    <div class="row align-items-center" style="width: 80%; margin: 0 auto; margin-bottom: 50px;">
       <div class="col-6">
         <img class="img-fluid" :src="`https://image.tmdb.org/t/p/original/${detailOneMovie?.poster_path}`" alt="">
       </div>
@@ -14,14 +14,14 @@
         </div>
         <br>
         <br>
-        <h5 style="text-align: left;"><b>개봉일 : </b> {{ detailOneMovie?.release_date}}</h5>
+        <h4 style="text-align: left;"><b>개봉일 : </b> {{ detailOneMovie?.release_date}}</h4>
         <div class="vote and like" style="display: flex">
-          <h5 style="text-align: left; margin-right: 20px;"><b>평점 </b>&#11088; {{ detailOneMovie?.vote_average}}</h5>   
-          <h4 style="margin-left: 20px;" :class="like_btn" @click="likeMovie">{{heart}}</h4>
+          <h4 style="text-align: left; margin-right: 20px;"><b>평점 </b>&#11088; {{ detailOneMovie?.vote_average}}</h4>   
+          <h4 style="margin-left: 20px;" @click="likeMovie">{{heart}}</h4>
         </div>
         <br>
         <h3 style="text-align: left;"><b>줄거리</b></h3>
-        <h6 style="text-align: left;">{{detailOneMovie?.overview}}</h6>
+        <h5 style="text-align: left;">{{detailOneMovie?.overview}}</h5>
         <br>
         <!-- <button :class="like_btn" @click="likeMovie">좋아요</button> -->
         <!-- {{ detailOneMovie?.like_users}} -->
@@ -31,7 +31,7 @@
     </div>
     <div class="movie-iframe" style="mt-20px">
       <!-- 유튜브 예고편 보여줄 곳 -->
-      <iframe :src="`https://www.youtube.com/embed/${detailOneMovie?.key}?autoplay=1&mute=1`" frameborder="0" style="width: 75%; aspect-ratio: 16/9;"></iframe>
+      <iframe :src="`https://www.youtube.com/embed/${detailOneMovie?.key}?autoplay=1&mute=1`" frameborder="0" style="width: 80%; aspect-ratio: 16/9;"></iframe>
     </div>
   </div>
 </template>

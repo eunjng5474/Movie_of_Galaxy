@@ -3,7 +3,14 @@
     <NavBar/>
     <div>
       <h1> 평점순 영화 추천</h1>
-      <carousel-3d height="480" border="5" :autoplay="true" :count="30">
+      <!-- <b-carousel id="carousel-1" v-model="slide" :interval="2000"
+      controls indicators background="black" img-width="1024" img-height="480"
+      style="text-shadow: 1px 1px 2px #333; 
+      width: 60%; height: 150%; margin: 0 auto; z-index: auto;"
+      @sliding-start="onSlideStart" @sliding-end="onSlideEnd">
+        <TestMovieListItem v-for="(movie, idx) in top30_vote_average" :key="idx" :movie="movie"/>
+      </b-carousel> -->
+      <carousel-3d height="480" border="5" :autoplay="true" :count="30" :controls-visible="true">
         <slide style="border-color: white;" 
         v-for="(movie, idx) in top30_vote_average" :index="idx" :key="idx">
           <template slot-scope="{index, isCurrent, leftIndex, rightIndex}">
@@ -26,16 +33,24 @@
 <script>
 // import MovieListItem from '@/components/MovieListItem'
 import NavBar from '@/components/Common/NavBar'
+// import TestMovieListItem from '../components/TestMovieListItem.vue'
 import { Carousel3d, Slide } from 'vue-carousel-3d'
 
 export default {
   name: 'MovieVoteView',
   components: {
-    // MovieListItem,
+    // TestMovieListItem,
     NavBar,
+    // MovieListItem,
     Carousel3d,
     Slide,
   },
+  // data() {
+  //   return {
+  //     slide: 0,
+  //     sliding: null,
+  //   }
+  // },
   computed: {
     top30_vote_average() {
       // console.log(this.$store.getters.top30_vote_average)
