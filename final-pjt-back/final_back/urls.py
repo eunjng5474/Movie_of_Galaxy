@@ -22,6 +22,7 @@ urlpatterns = [
     path('api/v2/', include('community.urls')),
     path('account/', include('dj_rest_auth.urls')),
     path('account/signup/', include('dj_rest_auth.registration.urls')),
+    # 이거 바꿔도 되는 거 맞나,,,,,, 일단 되긴 한데,,,,,
     path('accounts/', include('accounts.urls')),
     #제발 되라되라제발
     path('accounts/', include('allauth.urls')),

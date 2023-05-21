@@ -30,4 +30,4 @@ class MovieLikeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Movie
-        fields = ('id', 'like_users')
+        fields = ('id', 'like_users',)

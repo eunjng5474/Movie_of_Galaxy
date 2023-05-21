@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="movie-detail-container">
     <NavBar/>
     <h1>무비상세페이지</h1>
-    <div class="container">
+    <div class="">
       <div class="justify-content-center" style="width: 500px">
       <img :src="`https://image.tmdb.org/t/p/original/${detailOneMovie?.poster_path}`" alt="" style="width:300px; height:350px">
       <h3>{{detailOneMovie?.title}}</h3>
@@ -13,9 +13,9 @@
         {{ detailOneMovie?.like_users}}
         {{ detailOneMovie?.vote_average }}
       <br>
+      </div>
       <!-- 유튜브 예고편 보여줄 곳 -->
       <iframe :src="`https://www.youtube.com/embed/${detailOneMovie?.key}?autoplay=1&mute=1`" frameborder="0" style="width: 500px; height: 300px"></iframe>
-      </div>
     </div>
 
   </div>
