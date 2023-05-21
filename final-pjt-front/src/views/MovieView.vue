@@ -1,26 +1,34 @@
 <template>
   <div class="Movie">
     <!--  네브바 있는자리 -->
-    <NavBar/>
-
-    <!--  네브바밑으로 위에 gif 들어갈자리  -->
-
-    <h1>Movies</h1>
-    <br>
-    <!-- 이자리 나중에 알고리즘 정렬 추천순 뭐이런거 자리 -->
-    <div class="recommend">
-      <router-link :to="{ name: 'MoviePopularView'}">
-        <button class="btn btn-outline-primary">인기순</button>
-      </router-link>
-      <router-link :to="{ name: 'MovieVoteView'}">
-        <button class="btn btn-outline-primary">평점순</button>
-      </router-link>
-      <router-link :to="{ name: 'MovieRandomView'}">
-        <button class="btn btn-outline-primary">랜덤순</button>
-      </router-link>
+    <!-- 네브바 및 네브바 살짝 밑 까지 보이게함 -->
+    <div class="video-container">
+      <video autoplay loop muted class="background-video">
+        <source src="@/assets/movielist.mp4" type="video/mp4">
+      </video>
+      <div class="nav-container">
+        <NavBar/>
+      </div>
     </div>
-    <br>
-    <MovieList/>    
+
+    <div class = 'middle-background border-top border-white border-4'>
+      <h1 style="color:white;">Movies</h1>
+      <br>
+      <!-- 이자리 나중에 알고리즘 정렬 추천순 뭐이런거 자리 -->
+      <div class="recommend">
+        <router-link :to="{ name: 'MoviePopularView'}">
+          <button class="btn btn-outline-primary">인기순</button>
+        </router-link>
+        <router-link :to="{ name: 'MovieVoteView'}">
+          <button class="btn btn-outline-primary">평점순</button>
+        </router-link>
+        <router-link :to="{ name: 'MovieRandomView'}">
+          <button class="btn btn-outline-primary">랜덤순</button>
+        </router-link>
+      </div>
+      <br>
+      <MovieList/>  
+    </div>
   </div>
 </template>
 
@@ -73,4 +81,33 @@ export default {
 .recommend .btn {
   margin: 0 30px 0
 }
+
+.video-container {
+  position: relative;
+  height: 500px; 
+  overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.nav-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1; /* 네브바를 동영상 위로 겹치기 위해 z-index 값을 설정합니다 */
+}
+
+.middle-background{
+  background-image: url(@/assets/movielist2.png);
+  /* background-size: cover; */
+  background-position: center;
+}
+
 </style>

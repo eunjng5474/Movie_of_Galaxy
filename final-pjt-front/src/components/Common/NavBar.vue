@@ -4,7 +4,7 @@
       <br>
       <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container-fluid">
-          <router-link to="/movies" class="navbar-brand">로고</router-link>
+          <router-link to="/movies" class="navbar-brand ">로고</router-link>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -59,8 +59,5 @@ export default {
 </script>
 
 <style>
-.dropdown-menu {
-  width: 5px; /* 원하는 너비로 설정하세요 */
-}
 
 </style>
