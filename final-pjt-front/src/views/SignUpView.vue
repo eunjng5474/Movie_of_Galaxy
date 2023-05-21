@@ -89,7 +89,7 @@ export default {
 </script>
 
 <style scoped>
-body {
+.body {
   margin: 0;
   padding: 0;
   position: fixed;
@@ -106,6 +106,11 @@ video {
   height: 100%;
   object-fit: cover;
 }
+/* 달력 색갈바꾸기 */
+.inputBox input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
 
 .box {
   position: absolute;

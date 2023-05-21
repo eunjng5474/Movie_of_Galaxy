@@ -3,7 +3,7 @@
     <!-- <h1>무비리스트</h1> -->
     
     <!-- 영화만 나열하는 카드항목 -->
-    <div class= "movie-card-container border border-black p-5">
+    <div class= "movie-card-container border border-4 border-white rounded-5 p-5">
       <!-- <div class = "row row-cols-1 row-cols-sm-3 row-cols-md-5 g-5"> -->
       <!-- <div class = "row row-cols-1 row-cols-md-5 g-5"> -->
         <MovieListItem
