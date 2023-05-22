@@ -49,7 +49,8 @@ export default {
         }
       })
       .then(() => {
-        this.$router.push({ name: 'CommunityView' })
+        const articleId = this.$route.params.id
+        this.$router.push({name: 'ArticleDetailView', articleId})
       })
       .catch((err) => {
         console.log(err)
