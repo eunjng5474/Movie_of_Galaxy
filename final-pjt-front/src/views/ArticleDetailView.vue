@@ -1,29 +1,30 @@
 <template>
-  <div>
+  <div class="article-detail">
     <NavBar/>
     <h1>Article Detail</h1>
-    <!-- 물음표 넣어도 새로고침 해야 뜸 -> 어찌 해결? -->
-    <h3>제목 : {{detailOneArticle?.title}}</h3>
-    <p>내용 : {{detailOneArticle?.content}}</p>
-    <p>작성자 : {{detailOneArticle?.write_article_user.username}}</p>
-    <div v-if="isArticleAuthor">
-      <!-- <p>{{ isAuthor}}</p> -->
-      <router-link :to="{ name: 'ArticleUpdateView', 
-      params: {id: detailOneArticle?.id}}">[UPDATE]</router-link>
-      <button @click="deleteArticle">DELETE</button>
+    <div id="particles-js"></div>
+    <div class="article-detail-container">
+      <h2 class="post-title">{{detailOneArticle?.title}}</h2>
+      <p class="author-info">작성자: {{detailOneArticle?.write_article_user.username}} | 작성일: {{detailOneArticle?.created_at.slice(0,10)}}</p>
+      <div class="post-content">
+        <p>{{detailOneArticle?.content}}</p>
+      </div>
+      <!-- 자기가작성한것만 수정하기랑 삭제가뜸 -->
+      <div v-if="isArticleAuthor">
+        <router-link :to="{ name: 'ArticleUpdateView', 
+        params: {id: detailOneArticle?.id}}">수정</router-link>
+        <button @click="deleteArticle">삭제</button>
+      </div>
+      <hr>
+      <!-- <router-link :to="{ name: 'CommentCreateView' }">[CREATE COMMENT]</router-link> -->
+      <CommentList/>
     </div>
-
-    <!-- 임시로  뭐받아와지는지 확인중 -->
-    <!-- <p>작성자 : {{detailOneArticle?.write_article_user.id}}</p> -->
-    <!-- <p>지금 유저 : {{ getcurrentUser?.username}}</p> -->
-    <!-- <p>{{detailOneArticle}}</p> -->
-    <hr>
-    <!-- <router-link :to="{ name: 'CommentCreateView' }">[CREATE COMMENT]</router-link> -->
-    <CommentList/>
     <!-- <p>{{ detailOneArticle?.comment_set[1].content}}</p> -->
   </div>
 </template>
 
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
 import axios from 'axios'
 import CommentList from '@/components/CommentList'
@@ -39,9 +40,10 @@ export default {
     NavBar
   },
 
-  created() {
+  mounted() {
     this.getArticleDetail()
-    this.detailOneArticle()
+    // this.detailOneArticle()  이거 오류 내일 봐야함 새로고침할때뜨게하기
+    this.initializeParticles()
   },
   
   computed: {
@@ -74,6 +76,113 @@ export default {
       .catch((err) => {
         console.log(err)
       })
+    },
+    initializeParticles() {
+      particlesJS("particles-js", {
+        "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#ffffff"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          },
+          "polygon": {
+            "nb_sides": 5
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false,
+          "anim": {
+            "enable": false,
+            "speed": 1,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 3,
+          "random": true,
+          "anim": {
+            "enable": false,
+            "speed": 40,
+            "size_min": 0.1,
+            "sync": false
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 6,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": {
+            "enable": false,
+            "rotateX": 600,
+            "rotateY": 1200
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "repulse"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 400,
+            "line_linked": {
+              "opacity": 1
+            }
+          },
+          "bubble": {
+            "distance": 400,
+            "size": 40,
+            "duration": 2,
+            "opacity": 8,
+            "speed": 3
+          },
+          "repulse": {
+            "distance": 200,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 4
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
+      },
+      "retina_detect": true
+      });
     }
   }
 }
@@ -82,5 +191,48 @@ export default {
 </script>
 
 <style>
+.article-detail {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #0f0f1f; /* 배경색을 어두운 우주색으로 설정 */
+  color: #ffffff; /* 글자색을 흰색으로 설정 */
+  height: 100vh;
+}
+
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* particles-js를 테이블 뒤로 이동 */
+}
+
+.article-detail-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.post-title {
+  font-size: 45px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.post-content {
+  margin-bottom: 40px;
+  font-size: 30px;
+}
+
+.author-info {
+  font-style: italic;
+  color: #999999;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
 
 </style>

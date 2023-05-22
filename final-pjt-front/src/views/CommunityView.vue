@@ -1,25 +1,23 @@
 <template>
   <div class="Community">
-
     <div id="particles-js"></div>
+
     <NavBar/>
     <h1>Community</h1>
     <!-- 임시 -->
 
-    <router-link :to="{ name: 'ArticleCreateView' }">[CREATE]</router-link>
+    <!-- <router-link :to="{ name: 'ArticleCreateView' }" style="position:relative; z-index:1;">[CREATE]</router-link> -->
     
     <ArticleList/>
-
-    <hr>
   </div>
 </template>
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
 <script>
 import ArticleList from '@/components/ArticleList'
 import NavBar from '@/components/Common/NavBar'
 
-// import particlesJS from 'particles.js';
 
 export default {
   name: 'CommunityView',
@@ -153,19 +151,25 @@ export default {
 }
 </script>
 
+
 <style>
+
 .Community {
- font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #0f0f1f; /* 배경색을 어두운 우주색으로 설정 */
   color: #ffffff; /* 글자색을 흰색으로 설정 */
-  min-height: 100vh;
+  height: 100vh;
 }
 
 #particles-js {
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  z-index: 0; /* particles-js를 테이블 뒤로 이동 */
 }
 </style>
+

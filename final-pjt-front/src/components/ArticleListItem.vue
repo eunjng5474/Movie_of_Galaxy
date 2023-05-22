@@ -15,9 +15,7 @@
         {{article?.created_at.slice(0,10)}}
       </td>
     </tr>
-  </tbody>
-   
-  
+  </tbody>  
 </template>
 
 <script>
@@ -35,6 +33,7 @@ td{
   text-align: center;
   border-bottom: 1px solid #555577; /* 구분선 색상을 어두운 회색으로 설정 */
   color: white;
+  font-size: 20px;
 }
 
 

@@ -1,7 +1,7 @@
 <template>
   <div class="article-list">
     <h3 style="color:white">Article List</h3>
-
+    <router-link :to="{ name: 'ArticleCreateView' }" style="position:relative; z-index:1; text-decoration:none; font-size:30px">🌟글 작성하기</router-link>
       <div v-if="articles">
         <table class="table">
           <thead>
@@ -13,7 +13,7 @@
           </thead>
           <ArticleListItem 
             v-for="article in articles" :key="article.id" :article="article"/>
-         </table>
+        </table>
       </div>
 
     <!-- <div v-else>
@@ -42,6 +42,8 @@ export default {
 table {
   width: 100%;
   border-collapse: collapse;
+  position: relative;
+  z-index:1;
 }
 
 th{
@@ -50,6 +52,7 @@ th{
   border-bottom: 1px solid #555577; /* 구분선 색상을 어두운 회색으로 설정 */
   color: white;
   font-weight: bold;
+  font-size: 30px;
 
 }
 

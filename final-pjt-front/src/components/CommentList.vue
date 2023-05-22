@@ -1,9 +1,13 @@
 <template>
   <div>
-    <CommentListForm @create-comment="getArticleDetail"/>
-    <h3>Comment List</h3>
-    <CommentListItem @update-comment="getArticleDetail"
-    v-for="(comment, idx) in comments" :key="idx" :comment="comment"/>
+    <div class="comment-section">
+      <h3>댓글</h3>
+      <CommentListItem @update-comment="getArticleDetail"
+        v-for="(comment, idx) in comments" :key="idx" :comment="comment"/>
+      <div class="comment-form">
+      <CommentListForm @create-comment="getArticleDetail"/>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -47,5 +51,9 @@ export default {
 </script>
 
 <style>
+
+.comment-section {
+  margin-top: 20px;
+}
 
 </style>

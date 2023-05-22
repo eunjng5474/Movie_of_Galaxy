@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="nav-bar">
       <!-- <h1>네브바다임마</h1> -->
       <br>
       <nav class="navbar navbar-expand-lg navbar-light ">
@@ -60,5 +60,8 @@ export default {
 </script>
 
 <style>
-
+.nav-bar{
+  position: relative;
+  z-index:1;
+}
 </style>
