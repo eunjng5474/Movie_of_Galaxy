@@ -4,7 +4,7 @@
     <!-- 네브바 및 네브바 살짝 밑 까지 보이게함 -->
     <div class="video-container">
       <video autoplay loop muted class="background-video">
-        <source src="@/assets/movielist.mp4" type="video/mp4">
+        <source src="@/assets/movielist3.mp4" type="video/mp4">
       </video>
       <div class="nav-container">
         <NavBar/>
@@ -12,6 +12,7 @@
     </div>
 
     <div class = 'middle-background border-top border-white border-4'>
+      <br>
       <h1 style="color:white;">Movies</h1>
       <br>
       <!-- 이자리 나중에 알고리즘 정렬 추천순 뭐이런거 자리 -->
@@ -84,7 +85,7 @@ export default {
 
 .video-container {
   position: relative;
-  height: 500px; 
+  height: 300px; 
   overflow: hidden;
 }
 
@@ -105,7 +106,7 @@ export default {
 }
 
 .middle-background{
-  background-image: url(@/assets/movielist2.png);
+  background-image: url(@/assets/movielist4.png);
   /* background-size: cover; */
   background-position: center;
 }
