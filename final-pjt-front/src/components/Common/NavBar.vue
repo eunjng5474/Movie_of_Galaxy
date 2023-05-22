@@ -23,10 +23,6 @@
                 <router-link to="/signup" class="nav-link" style="color:white;">signup임시(나중없어짐)</router-link>
               </li>
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search임시(밑으로내림)</button>
-            </form>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:white;">
                 프로필(이미지)

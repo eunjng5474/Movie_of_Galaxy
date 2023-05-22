@@ -17,16 +17,26 @@
       <br>
       <!-- 이자리 나중에 알고리즘 정렬 추천순 뭐이런거 자리 -->
       <div class="recommend">
-        <router-link :to="{ name: 'MoviePopularView'}">
-          <button class="btn btn-outline-primary">인기순</button>
-        </router-link>
-        <router-link :to="{ name: 'MovieVoteView'}">
-          <button class="btn btn-outline-primary">평점순</button>
-        </router-link>
-        <router-link :to="{ name: 'MovieRandomView'}">
-          <button class="btn btn-outline-primary">랜덤순</button>
-        </router-link>
+        <div class="d-flex">
+          <div class="images">
+          <router-link :to="{ name: 'MoviePopularView'}">
+            <img src="@/assets/popul.png" alt="" style="width:150px; height:150px" >
+          </router-link>
+          <router-link :to="{ name: 'MovieVoteView'}">
+            <img src="@/assets/average.png" alt="" style="width:150px; height:150px" >
+          </router-link>
+          <router-link :to="{ name: 'MovieRandomView'}">
+            <img src="@/assets/random.png" alt="" style="width:150px; height:150px" >
+          </router-link>
+          </div>
+          <form class="d-flex" style="margin-left: auto;">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search임시(밑으로내림)</button>
+          </form>
+        </div>
+
       </div>
+      
       <br>
       <MovieList/>  
     </div>
@@ -79,9 +89,9 @@ export default {
 </script>
 
 <style scoped>
-.recommend .btn {
-  margin: 0 30px 0
-}
+/* .recommend .img {
+  margin: 0 300px 0
+} */
 
 .video-container {
   position: relative;
