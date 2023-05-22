@@ -34,8 +34,8 @@
               <ul class="dropdown-menu dropdown-menu-end" style="max-width: 150px">
                 <li><router-link class= "droptown-item" :to="{ name: 'ProfileView', params: {username: getCurrentUser.username}}">MyProfile</router-link></li>
                 
-  
-                <li> <router-link to="/" class="nav-link dropdown-item">로그아웃임시</router-link></li>
+                <li @click="logout">로그아웃 임시</li>
+                <!-- <li> <router-link to="/" class="nav-link dropdown-item">로그아웃임시</router-link></li> -->
               </ul>
             </li>
           </div>
@@ -52,6 +52,11 @@ export default {
   computed: {
     getCurrentUser() {
       return this.$store.getters.currentUser
+    }
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch('logout')
     }
   }
 

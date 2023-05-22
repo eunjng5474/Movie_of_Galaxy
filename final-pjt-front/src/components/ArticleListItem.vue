@@ -2,11 +2,11 @@
   <div>
     <router-link :to="{ 
       name: 'ArticleDetailView',
-      params: { id: article.id }}">
+      params: { id: article?.id }}">
       <h5>{{ article?.id }}</h5>
       <p>작성자: {{ article?.write_article_user.nickname }}</p>
       <p>{{ article?.title }}</p>
-      {{article}}
+      <!-- {{article}} -->
     </router-link>
     <hr>
   </div>
