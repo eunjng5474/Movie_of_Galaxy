@@ -42,8 +42,9 @@ export default {
 
   mounted() {
     this.getArticleDetail()
-    // this.detailOneArticle()  이거 오류 내일 봐야함 새로고침할때뜨게하기
+    // this.detailOneArticle() 오류 나주에봐야함 
     this.initializeParticles()
+
   },
   
   computed: {
