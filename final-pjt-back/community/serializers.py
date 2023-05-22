@@ -17,7 +17,8 @@ class ArticleListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
         # fields = ('id', 'title', 'content')
-        fields = ('id', 'title', 'content', 'write_article_user',)
+        # fields = ('id', 'title', 'content', 'write_article_user',)
+        fields = '__all__'
 
 
 # 댓글 생성

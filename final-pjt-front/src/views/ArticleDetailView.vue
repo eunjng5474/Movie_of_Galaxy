@@ -5,7 +5,7 @@
     <!-- 물음표 넣어도 새로고침 해야 뜸 -> 어찌 해결? -->
     <h3>제목 : {{detailOneArticle?.title}}</h3>
     <p>내용 : {{detailOneArticle?.content}}</p>
-    <p>작성자 : {{detailOneArticle?.id}}</p>
+    <p>작성자id : {{detailOneArticle?.id}}</p>
     <router-link :to="{ name: 'ArticleUpdateView', 
     params: {id: detailOneArticle?.id}}">[UPDATE]</router-link>
     <button @click="deleteArticle">DELETE</button>
@@ -34,8 +34,10 @@ export default {
     CommentList,
     NavBar
   },
+
   created() {
     this.getArticleDetail()
+    this.detailOneArticle()
   },
   
   computed: {

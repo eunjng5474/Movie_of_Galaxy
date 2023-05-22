@@ -1,5 +1,5 @@
 <template>
-  <div class="body">
+  <div class="loginpage">
     <!-- <h1>LogIn Page</h1>
     <form @submit.prevent="login">
       <label for="username">username : </label>
@@ -65,7 +65,7 @@ export default {
 </script>
 
 <style scoped>
-.body {
+.loginpage {
   margin: 0;
   padding: 0;
   position: fixed;
