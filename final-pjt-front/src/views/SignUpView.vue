@@ -1,5 +1,5 @@
 <template>
-  <div class="body">
+  <div class="signuppage">
     <video autoplay loop muted>
       <source src="@/assets/3.mp4" type="video/mp4">
     </video>
@@ -89,7 +89,7 @@ export default {
 </script>
 
 <style scoped>
-.body {
+.signuppage {
   margin: 0;
   padding: 0;
   position: fixed;

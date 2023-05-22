@@ -38,8 +38,10 @@ export default {
     CommentList,
     NavBar
   },
+
   created() {
     this.getArticleDetail()
+    this.detailOneArticle()
   },
   
   computed: {
