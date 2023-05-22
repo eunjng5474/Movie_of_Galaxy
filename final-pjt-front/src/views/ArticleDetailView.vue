@@ -48,6 +48,7 @@ export default {
     detailOneArticle() {
       return this.$store.getters.detailarticle
     },
+    // 혹시 제대로 안 되면 community.js getters 수정
     isArticleAuthor() {
       return this.$store.getters.isArticleAuthor
     },

@@ -22,7 +22,19 @@ const accountsModule = {
     // current_usernickname: null,
     // current_userbirth: null,
     currentUser: {},
+    
+    //// 좋아요 토글 테스트 및 프로필 요청 여기서 했었는데 일단 초기화
+    // user_movie_list: [],
+    // likes_movie_id: [],
+    // nickname: '',
+    // birth: '',
+    // birth_year: '',
+    // birth_month: '',
+    // birth_day: '',
     // userid: null,
+
+    //// 유저 정보 담기
+    // userInfo: {},
   },
   getters: {
     // currentUserName(state) {
@@ -35,6 +47,12 @@ const accountsModule = {
         return state.token ? true : false
     },
     token: (state) => state.token,
+    userInfo: (state) => state.userInfo,
+    ///// 좋아요 토글 
+    // nickname: (state) => state.nickname,
+    // birth: (state) => state.birth,
+    // user_movie_list: (state) => state.user_movie_list,
+    // likes_movie_id: (state) => state.likes_movie_id,
     },
     mutations: {
       SAVE_TOKEN(state, token) {
@@ -52,6 +70,19 @@ const accountsModule = {
         // console.log(state.currentUser)
         router.push({ name: 'MovieView'})
       },
+      // 프로필 요청 여기서 했었는데 일단 다시 초기화
+      // GET_USER_INFO(state, data) {
+      //   console.log(data)
+      //   state.userInfo = data
+      //   // state.nickname = data.nickname
+      //   // state.birth = data.birth
+      //   // state.user_movie_list = data.like_movies
+      //   // state.likes_movie_id = []
+      //   // for(let i=0; i<data.like_movies.length; i++) {
+      //   //   console.log(data.like_movies[i].id)
+      //   //   state.likes_movie_id.push(state.user_movie_list[i].id)
+      //   // }
+      // }
       // SIGNUP_USER() {
       //   router.push({name: 'LogInView'})
       // }
@@ -140,7 +171,39 @@ const accountsModule = {
         .catch((err) => {
           console.log(err)
         })
-      }
+      },
+      // getUserInfo(context, username) {
+      //   console.log(username)
+      //   // console.log(this.$route.params.username)
+      //   axios({
+      //     method: 'get',
+      //     // url: `${API_URL}/accounts/profile/${this.$route.params.username}/`,
+      //     url: `${API_URL}/accounts/profile/${username}/`,
+      //     // headers: {Authorization: `Token ${this.getters.token}`},
+      //   })
+      //   .then((res) => {
+      //     context.commit('GET_USER_INFO', res.data)
+      //     // console.log(res.data)
+      //     // this.nickname = res.data.nickname
+      //     // this.birth = res.data.birth
+      //     // this.user_movie_list = res.data.like_movies
+
+      //     // this.birth_year = res.data.birth.slice(0, 4)
+      //     // this.birth_month = res.data.birth.slice(5, 7)
+      //     // this.birth_day = res.data.birth.slice(8, 11)
+
+      //     ///// 좋아요 토글 테스트 할 때 썼던 거
+      //     // for(let i=0; i<this.user_movie_list.length; i++) {
+      //     // // userLikeMovieId.push(userMovieLst[i])
+      //     // // console.log(this.user_movie_list[i].id)
+      //     // this.likes_movie_id.push(this.user_movie_list[i].id)
+      //   // }
+      //   })
+      //   .catch((err) => {
+      //     console.log(err)
+      //   })
+
+      // }
     },
 }
 

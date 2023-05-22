@@ -2,7 +2,10 @@
 <div>
   <NavBar/>
   <h1>"{{ this.$route.params.keyword }}" 검색 결과</h1>
-  <div class= "movie-card-container border border-4 border-white rounded-5 p-5">
+  <div v-if="searchMovies.length < 1" style="margin-top: 80px;">
+    <h3>검색 결과가 없습니다.</h3>
+  </div>
+  <div v-else class= "movie-card-container border border-4 border-white rounded-5 p-5">
     <MovieListItem v-for="movie in searchMovies" :key="movie.id" :movie='movie'/>
   </div>
   <!-- {{ searchMovies}} -->

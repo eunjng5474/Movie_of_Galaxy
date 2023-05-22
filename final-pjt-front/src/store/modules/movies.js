@@ -25,8 +25,10 @@ const moviesModule = {
     // 검색
     keyword: '',
     searchMovies: [],
-    ///// 좋아요 토글 테스트
-    user_movie_lst: [],
+    // ///// 좋아요 토글 테스트
+    // userMovieLst: [],
+    // // 유저가 좋아요 한 영화 아이디들
+    // userLikeMovieId: [],
   },
   getters: {
     all_movies : (state) => state.all_movies,
@@ -39,9 +41,15 @@ const moviesModule = {
     keyword: (state) => state.keyword,
     searchMovies: (state) => state.searchMovies,
     /////// 좋아요 토글을 위한 테스트
-    userMovieLst: (state) => state.user_movie_lst,
+    // userMovieLst: (state) => state.userMovieLst,
+    // userLikeMovieId: (state) => state.userLikeMovieId,
+    // isLikeMovie: (state, getters) => {
+    //   return getters.detailmovie.id in state.userMovieLst
+    //   // return getters.getCurrentUser in getters.detailmovie.like_users
+    // }
     // isLikeMovie: (getters) => {
-    //   return getters.detailmovie.id in getters.movieLike
+    //   return getters.userLikeMovieId.include(getters.detailmovie.id)
+    //   // return getters.detailmovie.id in getters.likes_movie_id
     // }
   },
   mutations: {
@@ -56,13 +64,19 @@ const moviesModule = {
       state.detailmovie = detailmovie
       // console.log(state.detailmovie)
     },
+    // 이거 밑에 get_like_lst 해결되면 지워도 될 듯
     LIKE_MOVIE(state, like_data) {
       // console.log(like_data.id)
       // state.movieLike = like_data
       // if(state.movieLike1.include(like_data.id)) {
       //   state.movi
       // }
-      state.movieLike1.push(like_data.id) 
+      state.movieLike1.push(like_data.id)
+      // state.userMovieLst.push(like_data.id)
+      
+      // state.userMovieLst.push(like_data.id)
+      // state.userLikeMovieId.push(like_data.id) 
+      // console.log(state.userMovieLst)
     },
     // 좋아요
     SET_KEYWORD(state, keyword) {
@@ -70,7 +84,22 @@ const moviesModule = {
     },
     SET_SEARCHMOVIES(state, searchmovies) {
       state.searchMovies = searchmovies
-    }
+    },
+    // 좋아요 토글 테스트
+    // GET_LIKE_LST(state, data) {
+    //   console.log('좋아요 리스트')
+    //   console.log(data)
+    //   if(data.like_users) {
+    //     state.userMovieLst.push(data.id)
+    //   } else {
+    //     for (let i=0; i<state.userMovieLst.length; i++) {
+    //       if (state.userMovieLst[i] == data.id) {
+    //         state.userMovieLst.splice(i, 1)
+    //       }
+    //     }
+    //   }
+    //   console.log(state.userMovieLst)
+    // }
   },
   actions: {
     getMovies(context) {
@@ -108,7 +137,7 @@ const moviesModule = {
         headers: {Authorization: `Token ${this.getters.token}`},
       })
       .then((res) => {
-        // console.log(res.data)
+        console.log(res.data)
         context.commit('LIKE_MOVIE', res.data)
       })
       .catch((err) => {
@@ -136,29 +165,36 @@ const moviesModule = {
       context.commit('SET_SEARCHMOVIES', searchmovies)
     },
     ///// 좋아요 토글 테스트
-    getUserMovieList() {
-      // console.log(this.$store.getters.currentUser.username)
-      axios({
-        method: 'get',
-        url: `${API_URL}/accounts/profile/${this.$store.getters.currentUser.username}/`,
-        // headers: {Authorization: `Token ${this.getters.token}`},
-      })
-      .then((res) => {
-        // console.log(res.data)
-        this.nickname = res.data.nickname
-        this.birth = res.data.birth
-        this.user_movie_list = res.data.like_movies
+    // getUserMovieList(context, username) {
+    //   // console.log(this.$store.getters.currentUser.username)
+    //   axios({
+    //     method: 'get',
+    //     url: `${API_URL}/accounts/profile/${username}/`,
+    //     // headers: {Authorization: `Token ${this.getters.token}`},
+    //   })
+    //   .then((res) => {
+    //     // console.log('이건가')
+    //     // console.log(res.data.like_movies)
+    //     // context.commit('GET_LIKE_LST', res.data.like_movies)
 
-        this.birth_year = res.data.birth.slice(0, 4)
-        this.birth_month = res.data.birth.slice(5, 7)
-        this.birth_day = res.data.birth.slice(8, 11)
-        // console.log(res.data.birth)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    //     // this.nickname = res.data.nickname
+    //     // this.birth = res.data.birth
+    //     this.userMovieLst = res.data.like_movies
+    //     for(let i=0; i<this.userMovieLst.length; i++) {
+    //       this.userLikeMovieId.push(this.userMovieLst[i].id)
+    //       console.log(this.userMovieLst[i])
+    //     }
+    //     // this.userLikeMovieId =
+    //     // this.birth_year = res.data.birth.slice(0, 4)
+    //     // this.birth_month = res.data.birth.slice(5, 7)
+    //     // this.birth_day = res.data.birth.slice(8, 11)
+    //     console.log(this.userMovieLst)
+    //   })
+    //   .catch((err) => {
+    //     console.log(err)
+    //   })
 
-    }
+    // }
   },
 }
 

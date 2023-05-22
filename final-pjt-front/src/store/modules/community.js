@@ -14,8 +14,10 @@ const communityModule = {
   getters: {
     articles: (state) => state.articles,
     detailarticle: (state) => state.detailarticle,
-    isArticleAuthor: (state, getters) => {
-      return state.detailarticle?.write_article_user.username === getters.currentUser.username
+    isArticleAuthor: (getters) => {
+      // state.detailarticle?을 getters로 수정함.
+      // 혹시 문제 되면 다시 바꾸기,,,
+      return getters.detailarticle?.write_article_user.username === getters.currentUser.username
     }
   },
   mutations: {
