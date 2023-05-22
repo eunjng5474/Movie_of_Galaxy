@@ -14,6 +14,9 @@ const communityModule = {
   getters: {
     articles: (state) => state.articles,
     detailarticle: (state) => state.detailarticle,
+    isArticleAuthor: (state, getters) => {
+      return state.detailarticle?.write_article_user.username === getters.currentUser.username
+    }
   },
   mutations: {
     GET_ARTICLES(state, articles) {

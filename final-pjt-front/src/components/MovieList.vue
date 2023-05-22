@@ -7,7 +7,7 @@
       <!-- <div class = "row row-cols-1 row-cols-sm-3 row-cols-md-5 g-5"> -->
       <!-- <div class = "row row-cols-1 row-cols-md-5 g-5"> -->
         <MovieListItem
-        v-for='movie in all_movies' :key='movie.id' :movie='movie'/>
+        v-for='movie in top30_popularity' :key='movie.id' :movie='movie'/>
       <!-- </div> -->
 
       
@@ -24,10 +24,15 @@ export default {
     MovieListItem,
   },
   computed: {
-    all_movies() {
-      // console.log(this.$store.getters.all_movies)
-      return this.$store.getters.all_movies
+    // 사실 100개
+    top30_popularity() {
+      // console.log(this.$store.getters.top30_popularity)
+      return this.$store.getters.top30_popularity
     }
+    // all_movies() {
+    //   // console.log(this.$store.getters.all_movies)
+    //   return this.$store.getters.all_movies
+    // }
   }
   
 }

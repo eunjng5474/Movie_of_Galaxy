@@ -12,33 +12,34 @@
     </div>
 
     <div class = 'middle-background border-top border-white border-4'>
-      <br>
+      <!-- <br>
       <h1 style="color:white;">Movies</h1>
-      <br>
+      <br> -->
       <!-- 이자리 나중에 알고리즘 정렬 추천순 뭐이런거 자리 -->
-      <div class="recommend">
-        <div class="d-flex">
+      <div class="recommend-and-search" style="width: 80%; margin: 0 auto;">
+        <div class="d-flex justify-content-between" style="margin-top: 30px;">
           <div class="images">
           <router-link :to="{ name: 'MoviePopularView'}">
-            <img src="@/assets/popul.png" alt="" style="width:150px; height:150px" >
+            <img class="recom-img" src="@/assets/popul.png" alt="" >
           </router-link>
           <router-link :to="{ name: 'MovieVoteView'}">
-            <img src="@/assets/average.png" alt="" style="width:150px; height:150px" >
+            <img class="recom-img" src="@/assets/average.png" alt="">
           </router-link>
           <router-link :to="{ name: 'MovieRandomView'}">
-            <img src="@/assets/random.png" alt="" style="width:150px; height:150px" >
+            <img class="recom-img" src="@/assets/random.png" alt="">
           </router-link>
           </div>
           <!-- 검색 -->
-          <form @submit.prevent="onSearch" class="d-flex" style="margin-left: auto;">
-            <input v-model="keyword" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <div class="search-bar row align-items-end" style="margin-bottom: 10px;">
+          <form @submit.prevent="onSearch" class="d-flex">
+            <input v-model="keyword" class="form-control me-2" type="search" placeholder="검색할 영화를 입력하세요" aria-label="Search"
+            style="width: 230px">
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
+          </div>
         </div>
 
       </div>
-      
-      <br>
       <MovieList/>  
     </div>
   </div>
@@ -98,9 +99,11 @@ export default {
 </script>
 
 <style scoped>
-/* .recommend .img {
-  margin: 0 300px 0
-} */
+.recom-img {
+  width:120px; 
+  height:120px;
+  /* margin: 0 300px 0 */
+}
 
 .video-container {
   position: relative;

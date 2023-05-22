@@ -1,16 +1,18 @@
 <template>
   <div>
     <p class="d-inline">{{ comment?.content }}    </p>
-    <button class="d-inline" @click="switchIsEditing">UPDATE</button>
-    <form v-if="isEditing">
-      <input type="text" v-model="content">
-      <button @click="updateComment">등록</button>
-    </form>
-    <button class="d-inline" @click="deleteComment">DELETE</button>
+    <div v-if="getCurrentUser.username == comment.write_comment_user.username">
+      <button class="d-inline" @click="switchIsEditing">UPDATE</button>
+      <form v-if="isEditing">
+        <input type="text" v-model="content">
+        <button @click="updateComment">등록</button>
+      </form>
+      <button class="d-inline" @click="deleteComment">DELETE</button>
+    </div>
     <!-- <p>{{ commment?.} }</p> -->
 
     <!-- 임시로 댓글 뭐가져오는지 확인하기 -->
-    <p>{{comment}}</p>
+    <!-- <p>{{comment}}</p> -->
   </div>
 </template>
 
@@ -71,6 +73,12 @@ export default {
       .catch((err) => {
         console.log(err)
       })
+    }
+  },
+  computed: {
+    getCurrentUser() {
+      // console.log(this.$store.getters.currentUser.username)
+      return this.$store.getters.currentUser
     }
   }
 }

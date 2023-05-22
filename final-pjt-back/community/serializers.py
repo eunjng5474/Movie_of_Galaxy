@@ -43,7 +43,7 @@ class ArticleSerializer(serializers.ModelSerializer):
     class UserSerializer(serializers.ModelSerializer):
         class Meta:
             model = User
-            fields = ('id', 'username',)
+            fields = ('id', 'username', 'nickname')
     
     write_article_user = UserSerializer(read_only=True)
     comment_set = CommentSerializer(many=True, read_only=True)

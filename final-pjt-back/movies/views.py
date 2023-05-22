@@ -14,7 +14,9 @@ def movie_list(request):
     if request.method == 'GET':
         # all_movies = get_list_or_404(Movie)
         all_movies = Movie.objects.all()
-        top30_popularity = all_movies[:30]
+        # 수정 과정에서 30이 아닌 100개로 바꿈 
+        # -> 메인에서 100개만 보여주려고(추천은 인기순 안 할 거임)
+        top30_popularity = all_movies[:100]
         top30_vote_average = all_movies.order_by('-vote_average')[:30]
         random30 = all_movies.order_by('?')[:30]
 
