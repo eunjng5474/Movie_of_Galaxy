@@ -88,10 +88,10 @@ export default {
   },
     methods: {
       getUserMovieList() {
-        // console.log(this.$store.getters.currentUser.username)
+        console.log(this.$route.params.username)
         axios({
           method: 'get',
-          url: `${API_URL}/accounts/profile/${this.$store.getters.currentUser.username}/`,
+          url: `${API_URL}/accounts/profile/${this.$route.params.username}/`,
           // headers: {Authorization: `Token ${this.getters.token}`},
         })
         .then((res) => {

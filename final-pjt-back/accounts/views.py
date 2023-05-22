@@ -29,12 +29,12 @@ def signup(request):
         serializer.save(request)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 # 프로필 조회
-@api_view(['GET'])
-def profile(request, user_pk):
-    if request.method == 'GET':
-        person = get_object_or_404(User, pk=user_pk)
-        serializer = ProfileSerializer(person)
-        return Response(serializer.data)
+# @api_view(['GET'])
+# def profile(request, user_pk):
+#     if request.method == 'GET':
+#         person = get_object_or_404(User, pk=user_pk)
+#         serializer = ProfileSerializer(person)
+#         return Response(serializer.data)
 # 회원가입
 # @api_view(['POST'])
 # @permission_classes([AllowAny])
@@ -44,13 +44,14 @@ def profile(request, user_pk):
 #         serializer.save(request)
 #         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-
+# 프로필 조회
 @api_view(['GET'])
 def user_movie_list(request, username):
-    current_user = get_object_or_404(User, username=username)
+    # person = User.objects.get(username=username)
+    person = get_object_or_404(User, username=username)
     # print(current_user)
     # print('-------------'*10)
-    serializer = ProfileSerializer(current_user)
+    serializer = ProfileSerializer(person)
     # print('99999999'*10)
     # print(serializer.data)
     return Response(serializer.data)
