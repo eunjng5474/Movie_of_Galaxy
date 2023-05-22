@@ -25,6 +25,8 @@ const moviesModule = {
     // 검색
     keyword: '',
     searchMovies: [],
+    ///// 좋아요 토글 테스트
+    user_movie_lst: [],
   },
   getters: {
     all_movies : (state) => state.all_movies,
@@ -36,6 +38,11 @@ const moviesModule = {
     // 검색
     keyword: (state) => state.keyword,
     searchMovies: (state) => state.searchMovies,
+    /////// 좋아요 토글을 위한 테스트
+    userMovieLst: (state) => state.user_movie_lst,
+    // isLikeMovie: (getters) => {
+    //   return getters.detailmovie.id in getters.movieLike
+    // }
   },
   mutations: {
     GET_MOVIES(state, payload) {
@@ -127,6 +134,30 @@ const moviesModule = {
     },
     searchMovies(context, searchmovies) {
       context.commit('SET_SEARCHMOVIES', searchmovies)
+    },
+    ///// 좋아요 토글 테스트
+    getUserMovieList() {
+      // console.log(this.$store.getters.currentUser.username)
+      axios({
+        method: 'get',
+        url: `${API_URL}/accounts/profile/${this.$store.getters.currentUser.username}/`,
+        // headers: {Authorization: `Token ${this.getters.token}`},
+      })
+      .then((res) => {
+        // console.log(res.data)
+        this.nickname = res.data.nickname
+        this.birth = res.data.birth
+        this.user_movie_list = res.data.like_movies
+
+        this.birth_year = res.data.birth.slice(0, 4)
+        this.birth_month = res.data.birth.slice(5, 7)
+        this.birth_day = res.data.birth.slice(8, 11)
+        // console.log(res.data.birth)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+
     }
   },
 }

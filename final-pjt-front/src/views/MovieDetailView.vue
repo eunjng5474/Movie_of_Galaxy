@@ -3,7 +3,7 @@
     <NavBar/>
     <!-- <h1>무비상세페이지</h1> -->
     <!-- <br> -->
-    <!-- {{ detailOneMovie}} -->
+    {{ detailOneMovie}}
     <div class="row align-items-center" style="width: 80%; margin: 0 auto; margin-bottom: 50px;">
       <div class="col-6">
         <img class="img-fluid" :src="`https://image.tmdb.org/t/p/original/${detailOneMovie?.poster_path}`" alt="">
@@ -17,7 +17,7 @@
         <h4 style="text-align: left;"><b>개봉일 : </b> {{ detailOneMovie?.release_date}}</h4>
         <div class="vote and like" style="display: flex">
           <h4 style="text-align: left; margin-right: 20px;"><b>평점 </b>&#11088; {{ detailOneMovie?.vote_average}}</h4>   
-          <h4 style="margin-left: 20px;" @click="likeMovie">{{heart}}</h4>
+          <h4 style="margin-left: 20px;" @click="likeMovie">{{like}}</h4>
         </div>
         <br>
         <h3 style="text-align: left;"><b>줄거리</b></h3>
@@ -28,6 +28,10 @@
         <!-- {{ detailOneMovie?.vote_average }} -->
       </div>
         <!-- 임시 - 좋아요 한 유저 -->
+        <!-- <h1>{{ isLikeMovie}}</h1> -->
+
+        <!-- ---------좋아요 토글 테스트 ------------- -->
+        <h1>{{ userMovieLst}}</h1>
     </div>
     <div class="movie-iframe" style="mt-20px">
       <!-- 유튜브 예고편 보여줄 곳 -->
@@ -52,7 +56,7 @@ export default {
     return {
       // click_btn: 'btn btn-primary',
       // like_btn: 'btn btn-outline-primary',
-      heart: '🤍',
+      like: '🖤',
       like_toggle: false
     }
   },
@@ -67,7 +71,18 @@ export default {
     },
     getCurrentUser() {
       return this.$store.getters.currentUser
+    },
+    getLike() {
+      return this.$store.getters.movieLike
+    },
+    ///// 좋아요 토글 테스트ㅍ
+    userMovieLst() {
+      console.log(this.$store.getters.userMovieLst)
+      return this.$store.getters.userMovieLst
     }
+    // isLikeMovie() {
+    //   return this.$store.getters.isLikeMovie
+    // }
   },
 
   methods: {
@@ -85,9 +100,9 @@ export default {
       this.$store.dispatch('likeMovie', movieId)
       this.like_toggle = !this.like_toggle
       if (this.like_toggle === true) {
-        this.heart = '🩷'
+        this.like = '💜'
       } else {
-        this.heart = '🤍'
+        this.like = '🖤'
       }
     },
     // getYoutube() {
