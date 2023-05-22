@@ -29,9 +29,10 @@
             <img src="@/assets/random.png" alt="" style="width:150px; height:150px" >
           </router-link>
           </div>
-          <form class="d-flex" style="margin-left: auto;">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search임시(밑으로내림)</button>
+          <!-- 검색 -->
+          <form @submit.prevent="onSearch" class="d-flex" style="margin-left: auto;">
+            <input v-model="keyword" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
         </div>
 
@@ -55,6 +56,11 @@ export default {
     MovieList,
     NavBar,
   },
+  data() {
+    return {
+      keyword: '',
+    }
+  },
   created() {
     this.getMovies()
   },
@@ -62,6 +68,9 @@ export default {
   methods: {
     getMovies() {
       this.$store.dispatch('getMovies')
+    },
+    onSearch() {
+      this.$store.dispatch('searchResult', this.keyword)
     },
     // getUsername() {
     //   this.$store.dispatch('currentUserName')

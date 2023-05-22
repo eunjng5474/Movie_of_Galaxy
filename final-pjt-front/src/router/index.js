@@ -12,6 +12,7 @@ import ProfileView from '../views/ProfileView.vue'
 import MoviePopularView from '../views/MoviePopularView.vue'
 import MovieVoteView from '../views/MovieVoteView.vue'
 import MovieRandomView from '../views/MovieRandomView.vue'
+import MovieSearchView from '../views/MovieSearchView.vue'
 
 import NotFound404View from '../views/NotFound404View.vue'
 
@@ -89,6 +90,11 @@ const routes = [
     path: '/movies/random',
     name: 'MovieRandomView',
     component: MovieRandomView
+  },
+  {
+    path: '/movies/search/:keyword',
+    name: 'MovieSearchView',
+    component: MovieSearchView
   },
   // {
   //   path: '/community/:id/comment',

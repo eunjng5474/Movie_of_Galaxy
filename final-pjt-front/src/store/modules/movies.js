@@ -1,6 +1,7 @@
 // import Vue from 'vue'
 // import Vuex from 'vuex'
 
+import router from '@/router'
 import axios from 'axios'
 // import router from '@/router'
 // import createPersistedState from 'vuex-persistedstate'
@@ -19,7 +20,11 @@ const moviesModule = {
     top30_popularity: [],
     top30_vote_average: [],
     detailmovie: null,
+    // 좋아요
     movieLike1: [],
+    // 검색
+    keyword: '',
+    searchMovies: [],
   },
   getters: {
     all_movies : (state) => state.all_movies,
@@ -28,6 +33,9 @@ const moviesModule = {
     top30_vote_average : (state) => state.top30_vote_average,
     detailmovie : (state) => state.detailmovie,
     movieLike : (state) => state.movieLike1,
+    // 검색
+    keyword: (state) => state.keyword,
+    searchMovies: (state) => state.searchMovies,
   },
   mutations: {
     GET_MOVIES(state, payload) {
@@ -48,6 +56,13 @@ const moviesModule = {
       //   state.movi
       // }
       state.movieLike1.push(like_data.id) 
+    },
+    // 좋아요
+    SET_KEYWORD(state, keyword) {
+      state.keyword = keyword
+    },
+    SET_SEARCHMOVIES(state, searchmovies) {
+      state.searchMovies = searchmovies
     }
   },
   actions: {
@@ -92,6 +107,26 @@ const moviesModule = {
       .catch((err) => {
         console.log(err)
       })
+    },
+    // 검색
+    searchResult(context, keyword) {
+      if (keyword != '') {
+        context.commit('SET_KEYWORD', keyword)
+        router.push({
+          name: 'MovieSearchView',
+          params: {
+            keyword:this.getters.keyword,
+          }
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+      } else {
+        alert('검색어를 입력해주세요')
+      }
+    },
+    searchMovies(context, searchmovies) {
+      context.commit('SET_SEARCHMOVIES', searchmovies)
     }
   },
 }

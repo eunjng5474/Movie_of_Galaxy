@@ -120,7 +120,7 @@ video {
   width: 25rem;
   padding: 2.5rem;
   box-sizing: border-box;
-  background: rgba(0, 0, 0, 0);
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 0.625rem;
 }
 
