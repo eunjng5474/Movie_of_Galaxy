@@ -3,6 +3,7 @@
       <!-- <div class="col"> -->
       <!-- <vue-glide> -->
         <!-- <vue-glide-slide :key="movie.id"> -->
+          <!-- <p>{{getUserInfo?.like_movies}}</p> -->
           <div class="card h-200 mt-3 mb-3 bg-transparent">
             <router-link :to="{
               name: 'MovieDetailView',
@@ -11,8 +12,11 @@
             </router-link> 
             <!-- <div calss="card-body"></div> -->
             <div class="card-footer border border-white">
+              <!-- <h2 v-if="getUserInfo?.like_movies.includes(movie)" @click="likeMovie">&#128150;</h2>
+              <h2 v-else @click="likeMovie">&#128420;</h2> -->
               <h2 v-if="getLike.includes(movie.id)" @click="likeMovie">&#128150;</h2>
               <h2 v-else @click="likeMovie">&#128420;</h2>
+              <!-- =----------------------------- -->
               <!-- <img style="margin-left: 50px; width: 55px; height: 70px;" v-if="getLike.includes(movie.id)" @click="likeMovie" src="@/assets/ufolike.png">
               <img style="margin-left: 50px; width: 55px; height: 50px;" v-else @click="likeMovie" src="@/assets/ufohate11.png"> -->
               <!-- <button :class="like_btn" @click="likeMovie">좋아요</button> -->
@@ -46,6 +50,8 @@ export default {
     // [GlideSlide.name]: GlideSlide
   },
   created() {
+        // this.getUserInformation()
+        // console.log(this.getUserInfo?.like_movies.includes(this.movie))
     // this.likeMovie()
     // likeMovie() {
     //   return this.$store.getters.movieLike
@@ -60,6 +66,9 @@ export default {
     },
     getLike() {
       return this.$store.getters.movieLike
+    },
+    getUserInfo() {
+      return this.$store.getters.userInfo
     },
   },
   methods: {
@@ -76,6 +85,13 @@ export default {
       //   this.like = '🖤'
       // }
     },
+    //// 로그아웃 후 다시 로그인해도 기존 좋아요 리스트 반영되게 테스트
+      getUserInformation() {
+        const username = this.getCurrentUser.username
+        // console.log(username)
+        this.$store.dispatch('getUserInfo', username)
+      }
+
     // likeMovie() {
     //   // const movieId = this.$store.getters.detailmovie.id
     //   const movieId = this.this_movie.id
