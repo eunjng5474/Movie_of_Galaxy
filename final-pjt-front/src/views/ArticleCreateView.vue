@@ -7,10 +7,10 @@
   <div class="article-create-container">
     <h1 class="article-create-title">게시글 작성</h1>
     <form @submit.prevent="createArticle" class="article-create-form">
-      <label for="title">제목 : </label>
+      <label for="title">제목</label>
       <input type="text" id="title" v-model.trim="title">
       <br>
-      <label for="content">내용 : </label>
+      <label for="content">내용</label>
       <textarea id="content" cols="30" rows="10" v-model="content"></textarea>
       <br>
       <button type="submit">작성 완료</button>

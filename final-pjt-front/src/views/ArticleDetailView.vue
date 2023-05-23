@@ -5,7 +5,7 @@
     <div id="particles-js"></div>
     <div class="article-detail-container">
       <h2 class="post-title">{{detailOneArticle?.title}}</h2>
-      <p class="author-info">작성자: {{detailOneArticle?.write_article_user.username}} | 작성일: {{detailOneArticle?.created_at.slice(0,10)}}</p>
+      <p class="author-info">작성자: {{detailOneArticle?.write_article_user.nickname}} | 작성일: {{detailOneArticle?.created_at.slice(0,10)}}</p>
       <div class="post-content">
         <p>{{detailOneArticle?.content}}</p>
       </div>
@@ -201,6 +201,8 @@ export default {
   background-color: #0f0f1f; /* 배경색을 어두운 우주색으로 설정 */
   color: #ffffff; /* 글자색을 흰색으로 설정 */
   height: 100vh;
+    overflow: auto;
+
 }
 
 #particles-js {

@@ -1,14 +1,16 @@
 <template>
   <div>
     <div class="comment d-flex justify-content-between">
-      <div class="commentss">{{comment?.write_comment_user.username}} : {{ comment?.content }}</div>
+      <div v-if="!isEditing" class="commentss">{{comment?.write_comment_user.nickname}} : {{ comment?.content }}</div>
       <div v-if="getCurrentUser.username == comment.write_comment_user.username">
-        <button class="modifybtn" @click="switchIsEditing">수정</button>
-        <form v-if="isEditing">
-          <input type="text" v-model="content">
-          <button @click="updateComment">수정완료</button>
+        <button v-if="!isEditing" class="modifybtn" @click="switchIsEditing">수정</button>
+        <form v-if="isEditing" class="modi d-flex justify-content-between">
+          <!-- <div class="modi d-flex justify-content-between"> -->
+            <input type="text" v-model="content">
+            <button @click="updateComment">수정완료</button>
+          <!-- </div> -->
         </form>
-        <button class="deletebtn" @click="deleteComment">삭제</button>
+        <button v-if="!isEditing" class="deletebtn" @click="deleteComment">삭제</button>
         </div>
     </div>
     <hr>
@@ -33,8 +35,12 @@ export default {
     }
   },
   created() {
-    console.log(this.comment.id)
+    this.content = this.comment.content
+    console.log(this.comment)
     // this.deleteComment()
+  },
+  mounted() {
+    this.getCommentUpdate()
   },
   methods: {
     deleteComment() {
@@ -55,13 +61,13 @@ export default {
     switchIsEditing() {
       this.isEditing = !this.isEditing
       // console.log(this.comment.content)
-      this.content = this.comment.content
-      const commentss = document.querySelector('.commentss')
-      const modifybtn = document.querySelector('.modifybtn')
-      const deletebtn = document.querySelector('.deletebtn')
-      commentss.classList.add('visible')
-      modifybtn.classList.add('visible')
-      deletebtn.classList.add('visible')
+      // this.content = this.comment.content
+      // const commentss = document.querySelector('.commentss')
+      // const modifybtn = document.querySelector('.modifybtn')
+      // const deletebtn = document.querySelector('.deletebtn')
+      // commentss.classList.add('visible')
+      // modifybtn.classList.add('visible')
+      // deletebtn.classList.add('visible')
     },
     updateComment() {
       this.isEditing = true
@@ -76,8 +82,22 @@ export default {
         alert("댓글이 수정되었습니다.")
         this.$emit('update-comment')
         this.isEditing = false
-        console.log('update comment')
-        console.log(this.comment.id)
+        // this.content = this.comment.content
+        // console.log('update comment')
+        // console.log(this.comment.id)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    },
+    getCommentUpdate() {
+      axios({
+        method: 'get',
+        url: `${API_URL}/api/v2/comments/${this.comment.id}/`,
+        // data: {content},
+      })
+      .then((res) => {
+        this.content = res.data.content
       })
       .catch((err) => {
         console.log(err)
@@ -93,7 +113,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .comment {
   margin-bottom: 10px;
   font-size: 20px;
