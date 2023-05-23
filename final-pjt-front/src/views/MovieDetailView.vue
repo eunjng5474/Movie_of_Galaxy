@@ -17,7 +17,7 @@
           <img class="img-fluid" :src="`https://image.tmdb.org/t/p/original/${detailOneMovie?.poster_path}`" alt="">
         </div>
         <div class="col-6">
-          <div class="title">
+          <div class="title">  
           <h1><b>{{detailOneMovie?.title}}</b></h1>
           </div>
           <br>
