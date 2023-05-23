@@ -40,6 +40,10 @@ const moviesModule = {
     // 검색
     keyword: (state) => state.keyword,
     searchMovies: (state) => state.searchMovies,
+  //   isLikeMovie: (getters) => {
+  //     return getters.userInfo.like_movies.include(getters.detailmovie.id)
+  //     // return getters.userLikeMovieId.include(getters.detailmovie.id)
+  // }
     /////// 좋아요 토글을 위한 테스트
     // userMovieLst: (state) => state.userMovieLst,
     // userLikeMovieId: (state) => state.userLikeMovieId,
@@ -71,7 +75,18 @@ const moviesModule = {
       // if(state.movieLike1.include(like_data.id)) {
       //   state.movi
       // }
-      state.movieLike1.push(like_data.id)
+
+      /////// 여기서 냅다 push 하는게 아니라 if문으로 
+      if(state.movieLike1.includes(like_data.id)) {
+        for(let i=0; i<state.movieLike1.length; i++) {
+          if(state.movieLike1[i] === like_data.id) {
+            state.movieLike1.splice(i, 1)
+          }
+        }
+      } else {
+        state.movieLike1.push(like_data.id)
+      }
+      // state.movieLike1.push(like_data.id)
       // state.userMovieLst.push(like_data.id)
       
       // state.userMovieLst.push(like_data.id)

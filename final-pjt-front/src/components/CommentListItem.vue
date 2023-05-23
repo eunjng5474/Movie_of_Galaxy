@@ -52,7 +52,7 @@ export default {
       this.isEditing = !this.isEditing
     },
     updateComment() {
-      this.isEiditing = true
+      this.isEditing = true
       const content = this.content
 
       axios({

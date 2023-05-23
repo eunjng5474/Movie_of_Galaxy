@@ -5,6 +5,13 @@
       <!-- <h1>무비상세페이지</h1> -->
       <!-- <br> -->
       <!-- {{ detailOneMovie}} -->
+      <!-- <p>{{ isLikeMovie }}</p> -->
+      <!-- <p>{{detailOneMovie in getUserInfo.like_movies}}</p> -->
+      <!-- <p v-if="getLike.includes(detailOneMovie.id)">좋아요 취소</p>
+      <p v-else>좋아요</p>
+      {{getLike}}
+      {{detailOneMovie}} -->
+      <!-- <p>{{detailOneMovie.includes(getLike)}}</p> -->
       <div class="row align-items-center" style="width: 80%; margin: 0 auto; margin-bottom: 50px;">
         <div class="col-6">
           <img class="img-fluid" :src="`https://image.tmdb.org/t/p/original/${detailOneMovie?.poster_path}`" alt="">
@@ -15,13 +22,24 @@
           </div>
           <br>
           <br>
-          <h4 style="text-align: left;"><b>개봉일 : </b> {{ detailOneMovie?.release_date}}</h4>
-          <div class="vote and like" style="display: flex">
-            <h4 style="text-align: left; margin-right: 20px;"><b>평점 </b>&#11088; {{ detailOneMovie?.vote_average}}</h4>   
-            <!-- <button @click="likeMovie">좋아요?</button> -->
-            <!-- <h4 v-if="getCurrentUser in detailOneMovie.like_users">좋아요 취소</h4>
-            <h4 v-else>좋아요</h4> -->
-            <h4 style="margin-left: 20px;" @click="likeMovie">{{like}}</h4>
+          <div class="movie-info-1 d-flex" >
+            <div class="date and vote">
+              <h3 style="text-align: left;"><b>개봉일 : </b> {{ detailOneMovie?.release_date}}</h3>
+              <h3 style="text-align: left;" v-if="detailOneMovie?.vote_average >= 7.3"><b>평점 : </b>&#127765; {{ detailOneMovie?.vote_average}}</h3>
+              <h3 style="text-align: left;" v-else-if="detailOneMovie?.vote_average > 5.2"><b>평점 : </b>&#127763; {{ detailOneMovie?.vote_average}}</h3>
+              <h3 style="text-align: left;" v-else><b>평점 : </b>&#127762; {{ detailOneMovie?.vote_average}}</h3>
+              <!-- <h4 style="text-align: left; margin-right: 20px;"><b>평점 </b>&#11088; {{ detailOneMovie?.vote_average}}</h4>    -->
+              <!-- <button @click="likeMovie">좋아요?</button> -->
+              <!-- <h4 v-if="getCurrentUser in detailOneMovie.like_users">좋아요 취소</h4>
+              <h4 v-else>좋아요</h4> -->
+              <!-- <h4 style="margin-left: 20px;" @click="likeMovie">{{like}}</h4> -->
+            </div>
+            <div class="like-movie" style="text-align: right; ">
+              <img style="margin-left: 50px; width: 65px; height: 80px;" v-if="getLike.includes(detailOneMovie.id)" @click="likeMovie" src="@/assets/ufolike.png">
+              <img style="margin-left: 50px; width: 65px; height: 60px;" v-else @click="likeMovie" src="@/assets/ufohate11.png">
+              <!-- <h1 style="margin-left: 50px;" v-if="getLike.includes(detailOneMovie.id)" @click="likeMovie">&#128078;</h1> -->
+              <!-- <h1 style="margin-left: 50px;" v-else @click="likeMovie">&#128077;</h1> -->
+            </div>
           </div>
           <br>
           <h3 style="text-align: left;"><b>줄거리</b></h3>
@@ -77,7 +95,7 @@ export default {
     return {
       // click_btn: 'btn btn-primary',
       // like_btn: 'btn btn-outline-primary',
-      like: '🖤',
+      // like: '🖤',
       like_toggle: false
     }
   },
@@ -96,11 +114,14 @@ export default {
     getLike() {
       return this.$store.getters.movieLike
     },
+    getUserInfo() {
+      return this.$store.getters.userInfo
+    },
     ///// 좋아요 토글 테스트ㅍ
-    userMovieLst() {
-      console.log(this.$store.getters.userMovieLst)
-      return this.$store.getters.userMovieLst
-    }
+    // userMovieLst() {
+    //   console.log(this.$store.getters.userMovieLst)
+    //   return this.$store.getters.userMovieLst
+    // }
     // isLikeMovie() {
     //   return this.$store.getters.isLikeMovie
     // }
@@ -119,12 +140,12 @@ export default {
       // 좋아요 누르고 새로고침하면 버튼 색깔 다시 기본으로 돌아감 - this.like_toggle로 판단해서인 듯
       const movieId = this.$route.params.id
       this.$store.dispatch('likeMovie', movieId)
-      this.like_toggle = !this.like_toggle
-      if (this.like_toggle === true) {
-        this.like = '💜'
-      } else {
-        this.like = '🖤'
-      }
+      // this.like_toggle = !this.like_toggle
+      // if (this.getLike.includes(this.detailOneMovie.id)) {
+      //   this.like = '💜'
+      // } else {
+      //   this.like = '🖤'
+      // }
     },
     // getYoutube() {
     //   axios({
