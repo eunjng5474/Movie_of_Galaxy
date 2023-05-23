@@ -1,9 +1,11 @@
 <template>
   <div class="movie-popular-list-container">
+    <video class="popbackground-video" autoplay loop muted>
+      <source src="@/assets/3.mp4" type="video/mp4">
+    </video>
     <NavBar/>
-    <div>
-      <h1> 인기순 영화 추천</h1>
-      <carousel-3d height="480" border="5" :autoplay="true" :count="30" :controls-visible="true">
+      <h1 style="color:white;"> 인기순 TOP30</h1>
+      <carousel-3d height="480" border="1" :autoplay="true" :count="30" :controls-visible="true" style="width: 70%; margin: 0 auto">
         <slide style="border-color: white;" 
         v-for="(movie, idx) in top30_popularity" :index="idx" :key="idx">
           <template slot-scope="{index, isCurrent, leftIndex, rightIndex}">
@@ -17,10 +19,6 @@
         </slide>
       </carousel-3d>
     </div>
-    <!-- <div class= "movie-card-container border border-black p-5">
-      <MovieListItem v-for="movie in top30_popularity" :key="movie.id" :movie="movie"/>
-    </div> -->
-  </div>
 </template>
 
 <script>
@@ -31,7 +29,6 @@ import { Carousel3d, Slide } from 'vue-carousel-3d'
 export default {
   name: 'MoviePopularView',
   components: {
-    // MovieListItem,
     NavBar,
     Carousel3d,
     Slide
@@ -46,32 +43,41 @@ export default {
 </script>
 
 <style>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
+.movie-popular-list-container {
+  position: relative;
+  overflow:hidden;
+  margin: 0;
   padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+  /* background-color: black; */
+  height:100vh;
 }
 
-.movie-card-container{
-  /* justify-content: space-between;
-  align-items: center; */
-  width: 80%;
-  margin: 0 auto;
+.popbackground-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
 }
 
-.movie-card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+/* 버튼 색깔 바꾸기  */
+.next[data-v-05517ad0], .prev[data-v-05517ad0] {
+    width: 60px;
+    position: absolute;
+    z-index: 1010;
+    font-size: 60px;
+    height: 60px;
+    line-height: 60px;
+    color: white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-decoration: none;
+    top: 0;
 }
-
 </style>

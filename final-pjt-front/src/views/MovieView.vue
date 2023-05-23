@@ -3,7 +3,7 @@
     <!--  네브바 있는자리 -->
     <!-- 네브바 및 네브바 살짝 밑 까지 보이게함 -->
     <div class="video-container">
-      <video autoplay loop muted class="background-video">
+      <video autoplay loop muted class="allmovie-background-video">
         <source src="@/assets/movielist3.mp4" type="video/mp4">
       </video>
       <div class="nav-container">
@@ -111,7 +111,7 @@ export default {
   overflow: hidden;
 }
 
-.background-video {
+.allmovie-background-video {
   position: absolute;
   top: 0;
   left: 0;
