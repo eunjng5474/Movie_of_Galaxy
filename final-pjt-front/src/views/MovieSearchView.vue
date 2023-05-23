@@ -2,6 +2,7 @@
 <div>
   <NavBar/>
   <h1>"{{ this.$route.params.keyword }}" 검색 결과</h1>
+  
   <div v-if="searchMovies.length < 1" style="margin-top: 80px;">
     <h3>검색 결과가 없습니다.</h3>
   </div>

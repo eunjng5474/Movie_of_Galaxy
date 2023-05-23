@@ -17,6 +17,7 @@ import MovieSearchView from '../views/MovieSearchView.vue'
 
 import NotFound404View from '../views/NotFound404View.vue'
 
+import store from '../store/index'
 // import CommentCreateView from '../views/CommentCreateView.vue'
 
 Vue.use(VueRouter)
@@ -126,6 +127,23 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.beforeEach((to, from, next) => {
+
+  const isLoggedIn = store.getters.isLogin
+
+  const allowAuthPages = ['LogInView', 'SignupView']
+
+  const isAuthRequired = !allowAuthPages.includes(to.name)
+
+  if (isAuthRequired && !isLoggedIn) {
+    alert('로그인을 해야 서비스를 이용할 수 있습니다.')
+    next({name: 'LogInView'})
+  } else {
+    next()
+  }
+
 })
 
 export default router
