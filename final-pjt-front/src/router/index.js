@@ -18,7 +18,7 @@ import MovieSearchView from '../views/MovieSearchView.vue'
 import NotFound404View from '../views/NotFound404View.vue'
 
 import store from '../store/index'
-// import CommentCreateView from '../views/CommentCreateView.vue'
+
 
 Vue.use(VueRouter)
 
