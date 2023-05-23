@@ -6,11 +6,12 @@
       <!-- <br> -->
       <!-- {{ detailOneMovie}} -->
       <!-- <p>{{ isLikeMovie }}</p> -->
+      <!-- <p>{{getUserInfo?.like_movies}}</p> -->
       <!-- <p>{{detailOneMovie in getUserInfo.like_movies}}</p> -->
-      <!-- <p v-if="getLike.includes(detailOneMovie.id)">좋아요 취소</p>
-      <p v-else>좋아요</p>
+      <!-- <p v-if="getLike.includes(detailOneMovie.id)">좋아요 취소</p> -->
+      <!-- <p v-else>좋아요</p> -->
       {{getLike}}
-      {{detailOneMovie}} -->
+      <!-- {{detailOneMovie}} -->
       <!-- <p>{{detailOneMovie.includes(getLike)}}</p> -->
       <div class="row align-items-center" style="width: 80%; margin: 0 auto; margin-bottom: 50px;">
         <div class="col-6">
@@ -35,10 +36,11 @@
               <!-- <h4 style="margin-left: 20px;" @click="likeMovie">{{like}}</h4> -->
             </div>
             <div class="like-movie" style="text-align: right; ">
-              <img style="margin-left: 50px; width: 65px; height: 80px;" v-if="getLike.includes(detailOneMovie.id)" @click="likeMovie" src="@/assets/ufolike.png">
+              <img style="margin-left: 50px; width: 65px; height: 80px;" 
+              v-if="getLike.includes(detailOneMovie.id)" @click="likeMovie" src="@/assets/ufolike.png">
               <img style="margin-left: 50px; width: 65px; height: 60px;" v-else @click="likeMovie" src="@/assets/ufohate11.png">
-              <!-- <h1 style="margin-left: 50px;" v-if="getLike.includes(detailOneMovie.id)" @click="likeMovie">&#128078;</h1> -->
-              <!-- <h1 style="margin-left: 50px;" v-else @click="likeMovie">&#128077;</h1> -->
+              <!-- <h1 style="margin-left: 50px;" v-if="getLike.includes(detailOneMovie.id)" @click="likeMovie">&#128078;</h1>
+              <h1 style="margin-left: 50px;" v-else @click="likeMovie">&#128077;</h1> -->
             </div>
           </div>
           <br>
@@ -101,6 +103,8 @@ export default {
   },
   created() {
     this.getMovieDetail()
+    this.getInfo()
+    console.log(this.getCurrentUser)
   },
   
   computed: {
@@ -147,6 +151,10 @@ export default {
       //   this.like = '🖤'
       // }
     },
+    getInfo() {
+      const username = this.$route.params.username
+      this.$store.dispatch('getUserInfo', username)
+    }
     // getYoutube() {
     //   axios({
     //     method: 'get',

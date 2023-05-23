@@ -20,7 +20,7 @@ const moviesModule = {
     top30_popularity: [],
     top30_vote_average: [],
     detailmovie: null,
-    // 좋아요
+    // 좋아요 id만 들어감!!!
     movieLike1: [],
     // 검색
     keyword: '',
@@ -75,7 +75,7 @@ const moviesModule = {
       // if(state.movieLike1.include(like_data.id)) {
       //   state.movi
       // }
-
+      // state.movieLike1 = 
       /////// 여기서 냅다 push 하는게 아니라 if문으로 
       if(state.movieLike1.includes(like_data.id)) {
         for(let i=0; i<state.movieLike1.length; i++) {

@@ -32,6 +32,7 @@ const accountsModule = {
     // birth_month: '',
     // birth_day: '',
     // userid: null,
+    // currentUserLike: {},
 
     //// 유저 정보 담기
     userInfo: {},
@@ -75,13 +76,19 @@ const accountsModule = {
       // 로그인할 때 사용
       SAVE_USER(state, userinfo) {
         state.currentUser = userinfo
+
+        state.movieLike1 = userinfo.like_movies
         // console.log(userinfo)
         // console.log(state.currentUser)
         router.push({ name: 'MovieView'})
       },
       // 프로필 요청 여기서 했었는데 일단 다시 초기화
       GET_USER_INFO(state, data) {
-        // console.log(data)
+        // state.currentUserLike = data.like_movies
+        // console.log(state.currentUserLike)
+        
+        state.movieLike1 = data.like_movies
+
         state.userInfo = data
         state.userBirthYear = data.birth.slice(0, 4)
         state.userBirthMonth = data.birth.slice(5, 7)
@@ -175,49 +182,6 @@ const accountsModule = {
           console.log(err)
         })
       },
-      login(context, payload) {
-        const username = payload.username
-        const password = payload.password
-        
-        axios({
-          method: 'post',
-          url: `${API_URL}/account/login/`,
-          data: {
-            username, password
-          }
-        })
-        .then((res) => {
-          // console.log(res)
-          const userinfo = JSON.parse(res.config.data)
-          // this.state.current_username = username
-          // console.log('login')
-          // console.log(res)
-          context.commit('SAVE_TOKEN', res.data.key)
-          context.commit('SAVE_USER', userinfo)
-          // router.push({ name: 'MovieView'})
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-      },
-      logout(context) {
-        axios({
-          method: 'post',
-          url: `${API_URL}/account/logout/`,
-          headers: {Authorization: `Token ${this.getters.token}`},
-        })
-        .then(() => {
-          // this.state.current_username = username
-          context.commit('SAVE_TOKEN', '')
-          localStorage.removeItem('vuex')
-          alert('로그아웃 되었습니다.')
-          // console.log(this.state.token)
-          router.push({ name: 'LogInView'})
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-      },
       getUserInfo(context, username) {
         // console.log(username)
         // console.log(this.$route.params.username)
@@ -251,6 +215,55 @@ const accountsModule = {
 
       // }
     },
+      login(context, payload) {
+        const username = payload.username
+        const password = payload.password
+        
+        axios({
+          method: 'post',
+          url: `${API_URL}/account/login/`,
+          data: {
+            username, password
+          }
+        })
+        .then((res) => {
+          // console.log(res)
+          const userinfo = JSON.parse(res.config.data)
+          // this.state.current_username = username
+          // console.log('login')
+          // console.log(res)
+          console.log(userinfo.username)
+          // this.getUserInfo(userinfo.username)
+
+          context.commit('SAVE_TOKEN', res.data.key)
+          context.commit('SAVE_USER', userinfo)
+
+          
+          // router.push({ name: 'MovieView'})
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+      },
+      logout(context) {
+        axios({
+          method: 'post',
+          url: `${API_URL}/account/logout/`,
+          headers: {Authorization: `Token ${this.getters.token}`},
+        })
+        .then(() => {
+          // this.state.current_username = username
+          context.commit('SAVE_TOKEN', '')
+          localStorage.removeItem('vuex')
+          alert('로그아웃 되었습니다.')
+          // console.log(this.state.token)
+          router.push({ name: 'LogInView'})
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+      },
+
 
   }
 }
