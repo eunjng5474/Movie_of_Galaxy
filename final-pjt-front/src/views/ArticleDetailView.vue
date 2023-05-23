@@ -16,6 +16,7 @@
         <button @click="deleteArticle">삭제</button>
       </div>
       <hr>
+      
       <!-- <router-link :to="{ name: 'CommentCreateView' }">[CREATE COMMENT]</router-link> -->
       <CommentList/>
     </div>

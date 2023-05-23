@@ -1,10 +1,13 @@
 <template>
-  <div class="movie-star-list-container">
+  <div class="movie-popular-list-container">
+    <video class="popbackground-video" autoplay loop muted>
+      <source src="@/assets/movielist3.mp4" type="video/mp4">
+    </video>
     <NavBar/>
     <div>
-      <h1>별자리가 같은 영화 추천</h1>
-      <h3>{{getUserInfo.nickname}}의 별자리는 {{getUserStar}}입니다.</h3>
-      <carousel-3d height="480" border="5" :autoplay="true" :count="starMovies.length" :controls-visible="true">
+      <h1 style="color:white;">별자리가 같은 영화 추천</h1>
+      <h3 style="color:white;">{{getUserInfo.nickname}}의 별자리는 {{getUserStar}}입니다.</h3>
+      <carousel-3d height="480" border="5" :autoplay="true" :count="starMovies.length" :controls-visible="true" style="width: 70%; margin: 0 auto">
         <slide style="border-color: white;" 
         v-for="(movie, idx) in starMovies" :index="idx" :key="idx">
           <template slot-scope="{index, isCurrent, leftIndex, rightIndex}">

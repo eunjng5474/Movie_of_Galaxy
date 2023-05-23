@@ -19,9 +19,6 @@
       <div class="recommend-and-search" style="width: 80%; margin: 0 auto;">
         <div class="d-flex justify-content-between" style="margin-top: 30px;">
           <div class="images">
-          <router-link :to="{ name: 'MovieStarView'}">
-            <img class="recom-img" src="@/assets/star.png" alt="" >
-          </router-link>
           <router-link :to="{ name: 'MoviePopularView'}">
             <img class="recom-img" src="@/assets/popul.png" alt="" >
           </router-link>
@@ -30,6 +27,9 @@
           </router-link>
           <router-link :to="{ name: 'MovieRandomView'}">
             <img class="recom-img" src="@/assets/random.png" alt="">
+          </router-link>
+          <router-link :to="{ name: 'MovieStarView'}">
+            <img class="recom-img" src="@/assets/star.png" alt="" >
           </router-link>
           </div>
           <!-- 검색 -->

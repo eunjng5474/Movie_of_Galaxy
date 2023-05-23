@@ -1,24 +1,17 @@
 <template>
   <div class="movie-popular-list-container">
+    <video class="popbackground-video" autoplay loop muted>
+      <source src="@/assets/ranback.mp4" type="video/mp4">
+    </video>
     <NavBar/>
     <div>
-      <h1> 랜덤 영화 추천</h1>
-
-      <carousel-3d height="480" border="5" :autoplay="true" :count="30" :controls-visible="true">
+      <h1 style="color:white;"> 랜덤 영화 추천</h1>
+      <br>
+      <h2 style="color:white;"> 램덤30</h2>
+      <br>
+      <carousel-3d height="480" border="5" :autoplay="true" :count="30" :controls-visible="true" style="width: 70%; margin: 0 auto">
         <slide style="border-color: white;" 
         v-for="(movie, idx) in random30" :index="idx" :key="idx">
-            <!-- <controls v-if="controlsVisible" :next-html="controlsNextHtml" :prev-html="controlsPrevHtml"
-              :width="controlsWidth" :height="controlsHeight"></controls> -->
-        <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button> -->
-              <!-- <a href="#" class="prev" @click.prevent="parent.goPrev()"
-       :class="{ disabled: !parent.isPrevPossible }"
-       :style="`width: ${width}px; height: ${height}px; line-height: ${height}px;`"
-       aria-label="Previous slide">
-      <span v-html="prevHtml"></span>
-    </a> -->
           <template slot-scope="{index, isCurrent, leftIndex, rightIndex}">
             <router-link :to="{name: 'MovieDetailView',
               params: {id: movie.id}}">

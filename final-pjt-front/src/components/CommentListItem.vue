@@ -1,16 +1,19 @@
 <template>
-  <div class="comment">
-    <div class="">{{comment?.write_comment_user.username}} : {{ comment?.content }}
-    <div v-if="getCurrentUser.username == comment.write_comment_user.username">
-      <button class="d-inline" @click="switchIsEditing">수정</button>
-      <form v-if="isEditing">
-        <input type="text" v-model="content">
-        <button @click="updateComment">수정완료</button>
-      </form>
-      <button class="d-inline" @click="deleteComment">삭제</button>
-      </div>
+  <div>
+    <div class="comment d-flex justify-content-between">
+      <div class="commentss">{{comment?.write_comment_user.username}} : {{ comment?.content }}</div>
+      <div v-if="getCurrentUser.username == comment.write_comment_user.username">
+        <button class="modifybtn" @click="switchIsEditing">수정</button>
+        <form v-if="isEditing">
+          <input type="text" v-model="content">
+          <button @click="updateComment">수정완료</button>
+        </form>
+        <button class="deletebtn" @click="deleteComment">삭제</button>
+        </div>
     </div>
+    <hr>
   </div>
+  
 </template>
 
 <script>
@@ -26,6 +29,7 @@ export default {
     return {
       isEditing: false,
       content: null,
+      // comment_content: null,
     }
   },
   created() {
@@ -50,9 +54,17 @@ export default {
     },
     switchIsEditing() {
       this.isEditing = !this.isEditing
+      // console.log(this.comment.content)
+      this.content = this.comment.content
+      const commentss = document.querySelector('.commentss')
+      const modifybtn = document.querySelector('.modifybtn')
+      const deletebtn = document.querySelector('.deletebtn')
+      commentss.classList.add('visible')
+      modifybtn.classList.add('visible')
+      deletebtn.classList.add('visible')
     },
     updateComment() {
-      this.isEiditing = true
+      this.isEditing = true
       const content = this.content
 
       axios({
@@ -85,6 +97,10 @@ export default {
 .comment {
   margin-bottom: 10px;
   font-size: 20px;
+}
+
+.visible {
+  display: none;
 }
 
 </style>
