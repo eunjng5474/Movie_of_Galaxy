@@ -62,6 +62,8 @@ const moviesModule = {
       state.random30 = payload.random30
       state.top30_popularity = payload.top30_popularity
       state.top30_vote_average = payload.top30_vote_average
+      // console.log('current 찍히나')
+      // console.log(state.currentUser)
       // console.log(state.top30_popularity)
     },
     GET_MOVIE_DETAIL(state, detailmovie){
@@ -100,6 +102,14 @@ const moviesModule = {
     SET_SEARCHMOVIES(state, searchmovies) {
       state.searchMovies = searchmovies
     },
+    GET_LIKEMOVIES(state, movielist) {
+      for(let i=0; i<movielist.length; i++) {
+        state.movieLike1.push(movielist[i].id)
+      }
+    },
+    DELETE_LIKES(state) {
+      state.movieLike1 = []
+    }
     // 좋아요 토글 테스트
     // GET_LIKE_LST(state, data) {
     //   console.log('좋아요 리스트')
@@ -179,6 +189,24 @@ const moviesModule = {
     searchMovies(context, searchmovies) {
       context.commit('SET_SEARCHMOVIES', searchmovies)
     },
+    getLikeMovies(context, username) {
+      axios({
+        method: 'get',
+        url: `${API_URL}/accounts/profile/${username}`,
+      })
+      .then((res) => {
+        context.commit('GET_LIKEMOVIES', res.data.like_movies)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    },
+    deleteLikes(context) {
+      context.commit('DELETE_LIKES')
+    }
+
+
+
     ///// 좋아요 토글 테스트
     // getUserMovieList(context, username) {
     //   // console.log(this.$store.getters.currentUser.username)

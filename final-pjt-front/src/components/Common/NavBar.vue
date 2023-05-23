@@ -53,6 +53,7 @@ export default {
   },
   methods: {
     logout() {
+      this.$store.dispatch('deleteLikes')
       this.$store.dispatch('logout')
     },
     getUserInfo() {

@@ -77,17 +77,33 @@ const accountsModule = {
       SAVE_USER(state, userinfo) {
         state.currentUser = userinfo
 
-        state.movieLike1 = userinfo.like_movies
+        // state.movieLike1 = userinfo.like_movies
         // console.log(userinfo)
         // console.log(state.currentUser)
+        // router.push({ name: 'MovieView'})
+      },
+      LOG_IN() {
+        // for(let i=0; i<data.like_movies; i++) {
+        //   state.movieLike1.push(data.like_movies[i].id)
+        // }
         router.push({ name: 'MovieView'})
+      },
+      LOG_OUT(state) {
+        state.movieLike1 = []
+        alert('로그아웃 되었습니다.')
+        console.log(state.movieLike1)
+        // console.log(this.state.token)
+        router.push({ name: 'LogInView'})
       },
       // 프로필 요청 여기서 했었는데 일단 다시 초기화
       GET_USER_INFO(state, data) {
         // state.currentUserLike = data.like_movies
         // console.log(state.currentUserLike)
         
-        state.movieLike1 = data.like_movies
+        // for(let i=0; i<data.like_movies; i++) {
+        //   state.movieLike1.push(data.like_movies[i].id)
+        // }
+        // state.movieLike1 = data.like_movies
 
         state.userInfo = data
         state.userBirthYear = data.birth.slice(0, 4)
@@ -237,7 +253,7 @@ const accountsModule = {
 
           context.commit('SAVE_TOKEN', res.data.key)
           context.commit('SAVE_USER', userinfo)
-
+          context.commit('LOG_IN', userinfo)
           
           // router.push({ name: 'MovieView'})
         })
@@ -254,10 +270,11 @@ const accountsModule = {
         .then(() => {
           // this.state.current_username = username
           context.commit('SAVE_TOKEN', '')
+          context.commit('LOG_OUT')
           localStorage.removeItem('vuex')
-          alert('로그아웃 되었습니다.')
-          // console.log(this.state.token)
-          router.push({ name: 'LogInView'})
+          // alert('로그아웃 되었습니다.')
+          // // console.log(this.state.token)
+          // router.push({ name: 'LogInView'})
         })
         .catch((err) => {
           console.log(err)

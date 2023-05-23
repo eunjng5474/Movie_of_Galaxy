@@ -104,7 +104,8 @@ export default {
   created() {
     this.getMovieDetail()
     this.getInfo()
-    console.log(this.getCurrentUser)
+    this.getLike
+    // console.log(this.getCurrentUser)
   },
   
   computed: {
@@ -152,7 +153,7 @@ export default {
       // }
     },
     getInfo() {
-      const username = this.$route.params.username
+      const username = this.getCurrentUser.username
       this.$store.dispatch('getUserInfo', username)
     }
     // getYoutube() {

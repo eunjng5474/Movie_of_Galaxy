@@ -67,7 +67,7 @@ export default {
   },
   created() {
     this.getMovies()
-    // this.getUserInformation()
+    this.getUserInformation()
   },
 
   methods: {
@@ -78,7 +78,7 @@ export default {
       this.$store.dispatch('searchResult', this.keyword)
     },
     getUserInformation() {
-      const username = this.$route.params.username
+      const username = this.getCurrentUser.username
       this.$store.dispatch('getUserInfo', username)
     }
     // getUsername() {

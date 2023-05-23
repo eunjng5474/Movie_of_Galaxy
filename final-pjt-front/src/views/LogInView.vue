@@ -57,7 +57,7 @@ export default {
       const payload = {
         username, password
       }
-
+      this.$store.dispatch('getLikeMovies', username)
       this.$store.dispatch('login', payload)
     }
   }
