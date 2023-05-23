@@ -1,11 +1,14 @@
 <template>
   <div class="movie-popular-list-container">
     <video class="popbackground-video" autoplay loop muted>
-      <source src="@/assets/3.mp4" type="video/mp4">
+      <source src="@/assets/popback.mp4" type="video/mp4">
     </video>
     <NavBar/>
-      <h1 style="color:white;"> 인기순 TOP30</h1>
-      <carousel-3d height="480" border="1" :autoplay="true" :count="30" :controls-visible="true" style="width: 70%; margin: 0 auto">
+      <h1 style="color:white;">믿고 보는 인기순 거의 명지오떡순</h1>
+      <br>
+      <h2 style="color:white;"> 인기순 TOP30</h2>
+      <br>
+      <carousel-3d height="480" border="5" :autoplay="true" :count="30" :controls-visible="true" style="width: 70%; margin: 0 auto">
         <slide style="border-color: white;" 
         v-for="(movie, idx) in top30_popularity" :index="idx" :key="idx">
           <template slot-scope="{index, isCurrent, leftIndex, rightIndex}">

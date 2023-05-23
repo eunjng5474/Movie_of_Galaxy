@@ -1,16 +1,15 @@
 <template>
   <div class="movie-popular-list-container">
+    <video class="popbackground-video" autoplay loop muted>
+      <source src="@/assets/voteback.mp4" type="video/mp4">
+    </video>
     <NavBar/>
     <div>
-      <h1> 평점순 영화 추천</h1>
-      <!-- <b-carousel id="carousel-1" v-model="slide" :interval="2000"
-      controls indicators background="black" img-width="1024" img-height="480"
-      style="text-shadow: 1px 1px 2px #333; 
-      width: 60%; height: 150%; margin: 0 auto; z-index: auto;"
-      @sliding-start="onSlideStart" @sliding-end="onSlideEnd">
-        <TestMovieListItem v-for="(movie, idx) in top30_vote_average" :key="idx" :movie="movie"/>
-      </b-carousel> -->
-      <carousel-3d height="480" border="5" :autoplay="true" :count="30" :controls-visible="true">
+      <h1 style="color:white;"> 평점순 영화 추천</h1>
+      <br>
+      <h2 style="color:white;"> 평점순 TOP30</h2>
+      <br>
+      <carousel-3d height="480" border="5" :autoplay="true" :count="30" :controls-visible="true" style="width: 70%; margin: 0 auto">
         <slide style="border-color: white;" 
         v-for="(movie, idx) in top30_vote_average" :index="idx" :key="idx">
           <template slot-scope="{index, isCurrent, leftIndex, rightIndex}">
@@ -61,32 +60,5 @@ export default {
 </script>
 
 <style>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-
-.movie-card-container{
-  /* justify-content: space-between;
-  align-items: center; */
-  width: 80%;
-  margin: 0 auto;
-}
-
-.movie-card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
 
 </style>
