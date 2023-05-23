@@ -9,9 +9,15 @@
         </router-link>
       </td>
       <td>
-        {{ article?.write_article_user.nickname }}
+        <router-link :to="{ 
+          name: 'ProfileView',
+          params: { username: article?.write_article_user.username }}" style="color:white; text-decoration:none;">   
+          {{ article?.write_article_user.nickname }}
+        </router-link>
+        
       </td>
       <td>
+        
         {{article?.created_at.slice(0,10)}}
       </td>
     </tr>
