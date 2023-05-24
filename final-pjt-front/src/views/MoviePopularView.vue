@@ -1,6 +1,6 @@
 <template>
   <div class="movie-popular-list-container">
-    <video class="popbackground-video" autoplay loop muted>
+    <video class="popbackground-video" autoplay loop muted preload="auto" poster="@/assets/pop_tem.png" >
       <source src="@/assets/popback.mp4" type="video/mp4">
     </video>
     <NavBar/>

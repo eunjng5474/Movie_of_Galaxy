@@ -31,6 +31,7 @@ const routes = [
     path: '/movies',
     name: 'MovieView',
     component: MovieView
+
   },
   {
     path: '/signup',
@@ -104,13 +105,7 @@ const routes = [
     name: 'MovieSearchView',
     component: MovieSearchView
   },
-  // {
-  //   path: '/community/:id/comment',
-  //   name: 'CommentCreateView',
-  //   component: CommentCreateView
-  // }
-
-
+ 
   // 404 - 제일 마지막
   {
     path: '/404',
@@ -142,7 +137,7 @@ router.beforeEach((to, from, next) => {
     next({name: 'LogInView'})
   } else {
     next()
-  }
+  } 
 
 })
 
