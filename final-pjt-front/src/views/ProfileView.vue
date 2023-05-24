@@ -10,16 +10,37 @@
         <h5 style="color: white;" @click="getRandomImgs">사진을 눌러보세요!</h5>
         <!-- <button @click="getRandomImgs">랜덤 가챠</button> -->
       </div>
-      <div class="user-information align-self-center">
-        <h5 style="color: black"><b>닉네임</b></h5>
-        <h3 style="color: white;"><b>{{ getUserInfo?.nickname }}</b></h3>
+      <div class="user-information text-start">
+        <div class="profile-nickname d-flex">
+          <div class="profile-nickname-img">
+            <img style="width: 60px; height: 60px; margin-right: 15px;" src="@/assets/alien.png" alt="">
+          </div>
+          <div class="profile-nickname-text">
+            <h5 style="color: black"><b>닉네임</b></h5>
+            <h3 style="color: white;"><b>{{ getUserInfo?.nickname }}</b></h3>
+          </div>
+        </div>
         <!-- <h5>생년월일 : <b>{{ birth_year}}년 {{ birth_month }}월 {{ birth_day}}일</b></h5> -->
         <br>
-        <h5 style="color: black"><b>생년월일</b></h5>
-        <h4 style="color: white;"><b>{{ getUserBirthYear }}년 {{ getUserBirthMonth }}월 {{getUserBirthDay}}일</b></h4>
+        <div class="profile-birth d-flex">
+          <div class="profile-birth-img">
+            <img style="width: 60px; height: 60px; margin-right: 15px;" src="@/assets/birthday-cake.png" alt="">
+          </div>
+          <div class="profile-birth-text">
+            <h5 style="color: black"><b>생년월일</b></h5>
+            <h3 style="color: white;"><b>{{ getUserBirthYear }}년 {{ getUserBirthMonth }}월 {{getUserBirthDay}}일</b></h3>
+          </div>
+        </div>
         <br>
-        <h5 style="color: black"><b>별자리</b></h5>
-        <h3 style="color: white;"><b>{{ getUserStar }}</b></h3>
+        <div class="profile-star d-flex">
+          <div class="profile-star-img">
+            <img style="width: 60px; height: 60px; margin-right: 15px;" src="@/assets/constellation.png" alt="">
+          </div>
+          <div class="profile-star-text">
+            <h5 style="color: black"><b>별자리</b></h5>
+            <h3 style="color: white;"><b>{{ getUserStar }}</b></h3>
+          </div>
+        </div>
       </div>
     </div>
     <div class="like-movies">
@@ -200,7 +221,7 @@ export default {
 .user-information {
   margin-top: 30px;
   margin-bottom: 50px;
-  /* color: dark; */
+  color: darkslateblue;
 }
 
 </style>

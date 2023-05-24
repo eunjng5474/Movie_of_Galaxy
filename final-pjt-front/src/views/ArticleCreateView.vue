@@ -7,13 +7,19 @@
   <div class="article-create-container">
     <h1 class="article-create-title">게시글 작성</h1>
     <form @submit.prevent="createArticle" class="article-create-form">
-      <label for="title">제목</label>
-      <input type="text" id="title" v-model.trim="title">
-      <br>
-      <label for="content">내용</label>
-      <textarea id="content" cols="30" rows="10" v-model="content"></textarea>
-      <br>
-      <button type="submit">작성 완료</button>
+      <div style="width: 90%; margin: 0 auto;">
+        <!-- <div class="article-create-title"> -->
+          <label class="col align-self-start mt-2" for="title"><h5><b>제목</b></h5></label>
+          <input type="text" id="title" v-model.trim="title" 
+          style="background-color: rgba(255, 255, 255, 0.4); border-radius: 5px; width: 90%; height: 40px;">
+        <!-- </div> -->
+        <br>
+        <label class="mt-4" for="content"><h5><b>내용</b></h5></label>
+        <textarea id="content" cols="30" rows="10" v-model="content"
+        style="background-color: rgba(255, 255, 255, 0.4); border-radius: 5px; width: 90%"></textarea>
+        <br>
+        <button class="btn btn-outline-light mt-4" type="submit">작성 완료</button>
+      </div>
     </form>
     </div>
   </div>
@@ -193,7 +199,8 @@ export default {
   padding: 0;
   background-color: #0f0f1f; /* 배경색을 어두운 우주색으로 설정 */
   color: #ffffff; /* 글자색을 흰색으로 설정 */
-  height: 100vh;
+  height: 120vh;
+  overflow: auto;
 }
 
 #particles-js {
@@ -215,7 +222,7 @@ export default {
 .article-create-form {
   position: relative;
   z-index: 1;
-  width: 400px;
+  width: 500px;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 5px;

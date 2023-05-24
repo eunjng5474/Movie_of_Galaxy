@@ -7,13 +7,17 @@
     <div class="article-create-container">
       <h1 class="article-create-title">게시글 수정</h1>
       <form @submit.prevent="updateArticle" class="article-create-form">
-        <label for="title">제목</label>
-        <input type="text" id="title" v-model.trim="title"><br>
-        <br>
-        <label for="content">내용</label>
-        <textarea id="content" cols="30" rows="10" v-model="content"></textarea><br>
-        <br>
-        <button type="submit">작성 완료</button>
+        <div style="width: 90%; margin: 0 auto;">
+          <label class="col align-self-start mt-2" for="title"><h5><b>제목</b></h5></label>
+          <input type="text" id="title" v-model.trim="title"
+          style="background-color: rgba(255, 255, 255, 0.4); border-radius: 5px; width: 90%; height: 40px;"><br>
+          <br>
+          <label class="mt-4" for="content"><h5><b>내용</b></h5></label>
+          <textarea id="content" cols="30" rows="10" v-model="content" style="background-color: rgba(255, 255, 255, 0.4); border-radius: 5px; width: 90%">
+            </textarea><br>
+          <br>
+          <button type="submit">작성 완료</button>
+        </div>
       </form>
       </div>    
   </div>

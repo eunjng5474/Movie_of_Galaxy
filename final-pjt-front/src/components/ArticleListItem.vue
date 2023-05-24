@@ -12,7 +12,7 @@
         <router-link :to="{ 
           name: 'ProfileView',
           params: { username: article?.write_article_user.username }}" style="color:white; text-decoration:none;">   
-          {{ article?.write_article_user.nickname }}
+          <b>{{ article?.write_article_user.nickname }}</b>
         </router-link>
         
       </td>

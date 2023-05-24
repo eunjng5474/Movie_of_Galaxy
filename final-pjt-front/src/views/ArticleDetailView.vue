@@ -1,19 +1,21 @@
 <template>
   <div class="article-detail">
     <NavBar/>
-    <h1>Article Detail</h1>
+    <!-- <h1>Article Detail</h1> -->
     <div id="particles-js"></div>
     <div class="article-detail-container">
       <h2 class="post-title">{{detailOneArticle?.title}}</h2>
       <p class="author-info">작성자: {{detailOneArticle?.write_article_user.nickname}} | 작성일: {{detailOneArticle?.created_at.slice(0,10)}}</p>
+      <hr>
       <div class="post-content">
         <p>{{detailOneArticle?.content}}</p>
       </div>
       <!-- 자기가작성한것만 수정하기랑 삭제가뜸 -->
-      <div v-if="isArticleAuthor">
+      <div v-if="isArticleAuthor" class="justify-content-end">
         <router-link :to="{ name: 'ArticleUpdateView', 
-        params: {id: detailOneArticle?.id}}">수정</router-link>
-        <button @click="deleteArticle">삭제</button>
+        params: {id: detailOneArticle?.id}}">
+        <button class="btn btn-outline-success" style="margin-right: 10px;">수정</button></router-link>
+        <button class="btn btn-outline-danger" style="margin-left: 10px;" @click="deleteArticle">삭제</button>
       </div>
       <hr>
       

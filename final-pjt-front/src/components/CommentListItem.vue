@@ -3,14 +3,14 @@
     <div class="comment d-flex justify-content-between">
       <div v-if="!isEditing" class="commentss">{{comment?.write_comment_user.nickname}} : {{ comment?.content }}</div>
       <div v-if="getCurrentUser.username == comment.write_comment_user.username">
-        <button v-if="!isEditing" class="modifybtn" @click="switchIsEditing">수정</button>
+        <button v-if="!isEditing" class="modifybtn btn btn-outline-light" @click="switchIsEditing">수정</button>
         <form v-if="isEditing" class="modi d-flex justify-content-between">
           <!-- <div class="modi d-flex justify-content-between"> -->
-            <input type="text" v-model="content">
-            <button @click="updateComment">수정완료</button>
+            <input type="text" v-model="content" style="background-color: rgba(255, 255, 255, 0.4); border-radius: 5px; color: white; height: 40px;">
+            <button @click="updateComment" class="btn btn-outline-light align-self-end" style="margin-left: 10px;">수정완료</button>
           <!-- </div> -->
         </form>
-        <button v-if="!isEditing" class="deletebtn" @click="deleteComment">삭제</button>
+        <button v-if="!isEditing" class="deletebtn btn btn-outline-light" @click="deleteComment" style="margin-left: 10px;">삭제</button>
         </div>
     </div>
     <hr>

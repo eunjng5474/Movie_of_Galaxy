@@ -4,7 +4,7 @@
       <br>
       <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container-fluid">
-          <router-link to="/movies" class="navbar-brand " style="color:white;"><h3><b>Movie Of Galaxy</b></h3></router-link>
+          <router-link to="/movies" class="navbar-brand" style="color:white;"><h3><b>Movie Of Galaxy</b></h3></router-link>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="display: none;">
             <span class="navbar-toggler-icon"></span>

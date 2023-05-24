@@ -1,7 +1,11 @@
 <template>
   <div class="article-list">
-    <h3 style="color:white">Article List</h3>
-    <router-link :to="{ name: 'ArticleCreateView' }" style="position:relative; z-index:1; text-decoration:none; font-size:30px">🌟글 작성하기</router-link>
+    <!-- <h3 style="color:white">Article List</h3> -->
+    <div class="d-flex justify-content-end" style="margin-bottom: 30px;">
+      <img src="@/assets/writing.png" style="width: 40px; height: 40px; margin-right: 10px;">
+      <router-link :to="{ name: 'ArticleCreateView' }" 
+      style="position:relative; z-index:1; text-decoration:none; font-size:25px; color: white;"><p><b>글 작성하기</b></p></router-link>
+    </div>
       <div v-if="articles">
         <table class="table">
           <thead>

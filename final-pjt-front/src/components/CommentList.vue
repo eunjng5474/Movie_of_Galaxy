@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="comment-section">
-      <h3>댓글</h3>
+      <h4><b>댓글</b></h4>
       <CommentListItem @update-comment="getArticleDetail"
         v-for="(comment, idx) in comments" :key="idx" :comment="comment"/>
       <div class="comment-form">
