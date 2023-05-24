@@ -14,6 +14,7 @@ import MovieVoteView from '../views/MovieVoteView.vue'
 import MovieRandomView from '../views/MovieRandomView.vue'
 import MovieStarView from '../views/MovieStarView.vue'
 import MovieSearchView from '../views/MovieSearchView.vue'
+import NasaView from '../views/NasaView.vue'
 
 import NotFound404View from '../views/NotFound404View.vue'
 
@@ -105,7 +106,13 @@ const routes = [
     name: 'MovieSearchView',
     component: MovieSearchView
   },
- 
+
+  // 나사
+  {
+    path: '/nasa',
+    name: 'NasaView',
+    component: NasaView
+  },
   // 404 - 제일 마지막
   {
     path: '/404',
