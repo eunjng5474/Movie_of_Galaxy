@@ -162,7 +162,7 @@ const moviesModule = {
         headers: {Authorization: `Token ${this.getters.token}`},
       })
       .then((res) => {
-        console.log(res.data)
+        // console.log(res.data)
         context.commit('LIKE_MOVIE', res.data)
       })
       .catch((err) => {

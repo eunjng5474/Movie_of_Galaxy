@@ -95,7 +95,7 @@ const accountsModule = {
       LOG_OUT(state) {
         state.movieLike1 = []
         alert('로그아웃 되었습니다.')
-        console.log(state.movieLike1)
+        // console.log(state.movieLike1)
         // console.log(this.state.token)
         router.push({ name: 'LogInView'})
       },
@@ -290,7 +290,7 @@ const accountsModule = {
           // this.state.current_username = username
           // console.log('login')
           // console.log(res)
-          console.log(userinfo.username)
+          // console.log(userinfo.username)
           // this.getUserInfo(userinfo.username)
 
           context.commit('SAVE_TOKEN', res.data.key)

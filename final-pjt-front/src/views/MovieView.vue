@@ -135,7 +135,7 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1; /* 네브바를 동영상 위로 겹치기 위해 z-index 값을 설정합니다 */
+  z-index: 1; /* 네브바를 동영상 위로 겹치기 위해 z-index 값을 설정*/
 }
 
 .middle-background{

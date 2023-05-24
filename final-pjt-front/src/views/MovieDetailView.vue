@@ -45,7 +45,7 @@
           </div>
           <br>
           <h3 style="text-align: left;"><b>줄거리</b></h3>
-          <h5 style="text-align: left;">{{detailOneMovie?.overview}}</h5>
+          <h5 class="lh-base" style="text-align: left;">{{detailOneMovie?.overview}}</h5>
           <br>
           <!-- <button :class="like_btn" @click="likeMovie">좋아요</button> -->
           <!-- {{ detailOneMovie?.like_users}} -->
