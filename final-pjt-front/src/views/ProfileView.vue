@@ -1,8 +1,9 @@
 <template>
   <div class="profile-page">
     <NavBar/>
-    <h1 style=" margin-bottom: 80px;"><b>My Profile</b></h1>
-    <div class="profile-img-and-info d-flex justify-content-around" style="width: 60%; margin: 0 auto;">
+    <div>
+    <h1 style=" margin-bottom: 40px; color: white;"><b>My Profile</b></h1>
+    <div class="profile-img-and-info d-flex justify-content-around" style="width: 60%; margin: 0 auto; margin-bottom: 70px;">
       <div class="profile-star-img">
         <img class="img-thumbnail" :src="imgg" alt="" style="width: 300px; height: 300px; margin-bottom: 10px;" @click="getRandomImgs">
         <br>
@@ -10,20 +11,20 @@
         <!-- <button @click="getRandomImgs">랜덤 가챠</button> -->
       </div>
       <div class="user-information align-self-center">
-        <h5 style="color: white"><b>닉네임</b></h5>
-        <h3><b>{{ getUserInfo?.nickname }}</b></h3>
+        <h5 style="color: black"><b>닉네임</b></h5>
+        <h3 style="color: white;"><b>{{ getUserInfo?.nickname }}</b></h3>
         <!-- <h5>생년월일 : <b>{{ birth_year}}년 {{ birth_month }}월 {{ birth_day}}일</b></h5> -->
         <br>
-        <h5 style="color: white"><b>생년월일</b></h5>
-        <h4><b>{{ getUserBirthYear }}년 {{ getUserBirthMonth }}월 {{getUserBirthDay}}일</b></h4>
+        <h5 style="color: black"><b>생년월일</b></h5>
+        <h4 style="color: white;"><b>{{ getUserBirthYear }}년 {{ getUserBirthMonth }}월 {{getUserBirthDay}}일</b></h4>
         <br>
-        <h5 style="color: white"><b>별자리</b></h5>
-        <h3><b>{{ getUserStar }}</b></h3>
+        <h5 style="color: black"><b>별자리</b></h5>
+        <h3 style="color: white;"><b>{{ getUserStar }}</b></h3>
       </div>
     </div>
     <div class="like-movies">
       <!-- <p>{{likes_movie_id}}</p> -->
-      <h2><b>{{ getUserInfo?.nickname }}님이 좋아한 영화</b></h2>
+      <h2 style="color: white;"><b>{{ getUserInfo?.nickname }}님이 좋아한 영화</b></h2>
       <br>
        <!-- v-for="like_movie in user_movie_list" :key="like_movie.id" -->
       <div>
@@ -51,6 +52,7 @@
     <!-- {{getLike}} -->
     <!-- {{ getCurrentUser}} -->
     <!-- 좋아요 한 무비 아이디 -->
+    </div>
   </div>
 </template>
 
@@ -192,11 +194,13 @@ export default {
   background-image: url(@/assets/profileback10.jpg);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 120% auto;
 }
 
 .user-information {
   margin-top: 30px;
   margin-bottom: 50px;
+  /* color: dark; */
 }
+
 </style>

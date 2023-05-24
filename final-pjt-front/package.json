@@ -16,6 +16,7 @@
     "lodash": "^4.17.21",
     "particles.js": "^2.0.0",
     "particlesjs": "^2.2.3",
+    "request": "^2.88.2",
     "run": "^1.4.0",
     "serve": "^14.2.0",
     "vue": "^2.7.14",
