@@ -43,7 +43,7 @@ export default {
 
   mounted() {
     this.getArticleDetail()
-    // this.detailOneArticle() 오류 나주에봐야함 
+    this.detailOneArticle
     this.initializeParticles()
 
   },
