@@ -40,6 +40,8 @@ const accountsModule = {
     userBirthMonth: '',
     userBirthDay: '',
     userStar: '',
+    userStarImgs: [],
+    // userProfileImg: '',
   },
   getters: {
     // currentUserName(state) {
@@ -58,6 +60,7 @@ const accountsModule = {
     userBirthDay: (state) => state.userBirthDay,
 
     userStar: (state) => state.userStar,
+    userStarImgs: (state) => state.userStarImgs,
     ///// 좋아요 토글 
     // nickname: (state) => state.nickname,
     // birth: (state) => state.birth,
@@ -106,6 +109,7 @@ const accountsModule = {
         // }
         // state.movieLike1 = data.like_movies
 
+        state.userStarImgs = []
         state.userInfo = data
         state.userBirthYear = data.birth.slice(0, 4)
         state.userBirthMonth = data.birth.slice(5, 7)
@@ -118,30 +122,67 @@ const accountsModule = {
         // ===가 아닌 ==으로 쓰면 형변환 되고, 숫자 비교 가능한 듯
         if ((birth_month == 1 && birth_day >= 20) || (birth_month == 2 && birth_day <= 18)) {
           state.userStar = '물병자리'
+          for(let i=1; i<12; i++) {
+            state.userStarImgs.push(i)
+          }
+          // console.log(state.userStarImgs)
         } else if ((birth_month == 2 && birth_day >= 19) || (birth_month == 3 && birth_day <= 20)) {
           state.userStar = '물고기자리'
+          for(let i=1; i<14; i++) {
+            state.userStarImgs.push(i)
+          }
         } else if ((birth_month == 3 && birth_day >= 21) || (birth_month == 4 && birth_day <= 19)) {
           state.userStar = '양자리'
+          for(let i=1; i<12; i++) {
+            state.userStarImgs.push(i)
+          }
         } else if ((birth_month == 4 && birth_day >= 20) || (birth_month == 5 && birth_day <= 20)) {
           state.userStar = '황소자리'
+          for(let i=1; i<19; i++) {
+            state.userStarImgs.push(i)
+          }
         } else if ((birth_month == 5 && birth_day >= 21) || (birth_month == 6 && birth_day <= 21)) {
           state.userStar = '쌍둥이자리'
+          for(let i=1; i<11; i++) {
+            state.userStarImgs.push(i)
+          }
         } else if ((birth_month == 6 && birth_day >= 22) || (birth_month == 7 && birth_day <= 22)) {
           state.userStar = '게자리'
+          for(let i=1; i<13; i++) {
+            state.userStarImgs.push(i)
+          }
         } else if ((birth_month == 7 && birth_day >= 23) || (birth_month == 8 && birth_day <= 22)) {
           state.userStar = '사자자리'
+          for(let i=1; i<15; i++) {
+            state.userStarImgs.push(i)
+          }
         } else if ((birth_month == 8 && birth_day >= 23) || (birth_month == 9 && birth_day <= 23)) {
           state.userStar = '처녀자리'
+          for(let i=1; i<11; i++) {
+            state.userStarImgs.push(i)
+          }
         } else if ((birth_month == 9 && birth_day >= 24) || (birth_month == 10 && birth_day <= 22)) {
           state.userStar = '천칭자리'
+          for(let i=1; i<10; i++) {
+            state.userStarImgs.push(i)
+          }
         } else if ((birth_month == 10 && birth_day >= 23) || (birth_month ==11 && birth_day <= 22)) {
           state.userStar = '전갈자리'
+          for(let i=1; i<12; i++) {
+            state.userStarImgs.push(i)
+          }
         } else if ((birth_month == 11 && birth_day >= 23) || (birth_month == 12 && birth_day <= 24)) {
           state.userStar = '사수자리'
+          for(let i=1; i<15; i++) {
+            state.userStarImgs.push(i)
+          }
         } else if ((birth_month == 12 && birth_day >= 25) || (birth_month == 1 && birth_day <= 19)) {
           state.userStar = '염소자리'
+          for(let i=1; i<10; i++) {
+            state.userStarImgs.push(i)
+          }
         }
-        // console.log(state.userStar)
+        // console.log(state.userStarImgs)
 
 
         // state.nickname = data.nickname

@@ -11,7 +11,7 @@
       </div>
     </div>
 
-    <div class = 'middle-background border-top border-white border-4'>
+    <div class = 'middle-background border-top border-gray border-7'>
       <!-- <br>
       <h1 style="color:white;">Movies</h1>
       <br> -->

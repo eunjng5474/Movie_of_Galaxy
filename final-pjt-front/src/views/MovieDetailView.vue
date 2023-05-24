@@ -10,7 +10,7 @@
       <!-- <p>{{detailOneMovie in getUserInfo.like_movies}}</p> -->
       <!-- <p v-if="getLike.includes(detailOneMovie.id)">좋아요 취소</p> -->
       <!-- <p v-else>좋아요</p> -->
-      {{getLike}}
+      <!-- {{getLike}} -->
       <!-- {{detailOneMovie}} -->
       <!-- <p>{{detailOneMovie.includes(getLike)}}</p> -->
       <div class="row align-items-center" style="width: 80%; margin: 0 auto; margin-bottom: 50px;">

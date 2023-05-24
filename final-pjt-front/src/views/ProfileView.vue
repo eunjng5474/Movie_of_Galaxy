@@ -1,25 +1,32 @@
 <template>
-  <div>
+  <div class="profile-page">
     <NavBar/>
-    <h1>Profile</h1>
-    <div class="user-information">
-      <!-- <p>{{ getUserInfo }}</p> -->
-      <h4>닉네임 : <b>{{ getUserInfo?.nickname }}</b></h4>
-      <!-- <h4>닉네임 : <b>{{ nickname }}</b></h4> -->
-      <!-- <h4>닉네임 : <b>{{ getNickname }}</b></h4> -->
-      <!-- <h5>생년월일 : {{birth}}</h5> -->
-      <!-- <h5>생년월일 : <b>{{ birth_year}}년 {{ birth_month }}월 {{ birth_day}}일</b></h5> -->
-      <h5>생년월일 : <b>{{ getUserBirthYear }}년 {{ getUserBirthMonth }}월 {{getUserBirthDay}}일</b></h5>
-      <h5>별자리 : <b>{{ getUserStar }}</b></h5>
+    <h1 style=" margin-bottom: 80px;"><b>My Profile</b></h1>
+    <div class="profile-img-and-info d-flex justify-content-around" style="width: 60%; margin: 0 auto;">
+      <div class="profile-star-img">
+        <img class="img-thumbnail" :src="imgg" alt="" style="width: 300px; height: 300px; margin-bottom: 10px;" @click="getRandomImgs">
+        <br>
+        <h5 style="color: white;" @click="getRandomImgs">사진을 눌러보세요!</h5>
+        <!-- <button @click="getRandomImgs">랜덤 가챠</button> -->
+      </div>
+      <div class="user-information align-self-center">
+        <h5 style="color: white"><b>닉네임</b></h5>
+        <h3><b>{{ getUserInfo?.nickname }}</b></h3>
+        <!-- <h5>생년월일 : <b>{{ birth_year}}년 {{ birth_month }}월 {{ birth_day}}일</b></h5> -->
+        <br>
+        <h5 style="color: white"><b>생년월일</b></h5>
+        <h4><b>{{ getUserBirthYear }}년 {{ getUserBirthMonth }}월 {{getUserBirthDay}}일</b></h4>
+        <br>
+        <h5 style="color: white"><b>별자리</b></h5>
+        <h3><b>{{ getUserStar }}</b></h3>
+      </div>
     </div>
     <div class="like-movies">
       <!-- <p>{{likes_movie_id}}</p> -->
-      <h4>좋아요 누른 영화</h4>
+      <h2><b>{{ getUserInfo?.nickname }}님이 좋아한 영화</b></h2>
       <br>
        <!-- v-for="like_movie in user_movie_list" :key="like_movie.id" -->
       <div>
-        <!-- {{ like_movie.title }} -->
-        <!-- user_movie_list -->
       <carousel-3d height="480" border="5" :autoplay="true" :count="getUserInfo?.like_movies.length" :controls-visible="true"
       style="width: 70%; margin: 0 auto;">
         <slide style="border-color: white;" 
@@ -27,6 +34,7 @@
           <template slot-scope="{index, isCurrent, leftIndex, rightIndex}">
             <router-link :to="{name: 'MovieDetailView',
               params: {id: movie.id}}">
+              
             <img :data-index="index" 
             :class="{ current: isCurrent, onLeft: (leftIndex >= 0), onRight: (rightIndex >= 0)}"
              :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" >
@@ -51,6 +59,7 @@
 // const API_URL = 'http://127.0.0.1:8000'
 import NavBar from '@/components/Common/NavBar'
 import { Carousel3d, Slide } from 'vue-carousel-3d'
+import _ from "lodash"
 
 export default {
   name: 'ProfileView',
@@ -60,6 +69,9 @@ export default {
       likes_movie_id: [],
       nickname: '',
       birth: '',
+      imgpath: '1',
+      imgg: require(`@/assets/movielist4.png`),
+      // randomProfileImg: require(`@/assets/star/water/11.jpg`),
       // birth_year: '',
       // birth_month: '',
       // birth_day: '',
@@ -73,6 +85,9 @@ export default {
   },
   created() {
     this.getUserInformation()
+    this.getRandomImgs()
+    // console.log(this.$store.getters.getUserStarImg)
+    // console.log(this.getUserStarImg())
     // this.getUserMovieList()
   },
   computed: {
@@ -98,6 +113,17 @@ export default {
     getUserStar() {
       return this.$store.getters.userStar
     },
+    userStarImgs() {
+      return this.$store.getters.userStarImgs
+    },
+    // getRandomImgage() {
+    //   return `@/assets/star/water/${this.imgpath}.jpg`
+    // }
+    // getRandomImg() {
+    //   const imgs = this.$store.getters.userStarImg
+    //   const randomImg = _.sample(imgs);
+    //   return randomImg
+    // }
     // saveUserInfo() {
       
     // }
@@ -129,7 +155,9 @@ export default {
   },
     methods: {
       getUserInformation() {
+        // console.log(this.$route.params)
         const username = this.$route.params.username
+        // const username = this.getUserInfo.username
         // console.log(username)
         this.$store.dispatch('getUserInfo', username)
         // console.log(this.getUserInfo)
@@ -138,70 +166,35 @@ export default {
         // this.birth_month = tmpinfo.birth.slice(5, 7)
         // this.birth_day = tmpinfo.birth.slice(0, 4)
         // console.log(this.birth_year)
+      },
+      getRandomImgs() {
+        const imgs = this.$store.getters.userStarImgs
+        // // console.log(1111111111)
+        // console.log(imgs)
+        // const imgs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]S
+        const randomImg = _.sample(imgs);
+        // console.log(2222222222222)
+        // console.log(randomImg)t
+
+        // this.imgpath = randomImg
+        this.imgg = require(`@/assets/star/${this.getUserStar}/${randomImg}.jpg`)
+        // this.randomProfileImg = randomImg
+        // console.log(this.randomProfileImg)
+        // return randomImg
       }
-    //   getUserMovieList() {
-    //     console.log(this.$route.params.username)
-    //     axios({
-    //       method: 'get',
-    //       url: `${API_URL}/accounts/profile/${this.$route.params.username}/`,
-    //       // headers: {Authorization: `Token ${this.getters.token}`},
-    //     })
-    //     .then((res) => {
-    //       // console.log('profile - res data')
-    //       console.log(res.data)
-    //       this.nickname = res.data.nickname
-    //       this.birth = res.data.birth
-    //       this.user_movie_list = res.data.like_movies
 
-    //       this.birth_year = res.data.birth.slice(0, 4)
-    //       this.birth_month = res.data.birth.slice(5, 7)
-    //       this.birth_day = res.data.birth.slice(8, 11)
-    //       // console.log(res.data.like_movies)
-
-          // // ===가 아닌 ==으로 쓰면 형변환 되고, 숫자 비교 가능한 듯
-          // if ((this.birth_month == 1 && this.birth_day >= 20) || (this.birth_month == 2 && this.birth_day <= 18)) {
-          //   this.star = '물병자리'
-          // } else if ((this.birth_month == 2 && this.birth_day >= 19) || (this.birth_month == 3 && this.birth_day <= 20)) {
-          //   this.star = '물고기자리' // 물고기
-          // } else if ((this.birth_month == 3 && this.birth_day >= 21) || (this.birth_month == 4 && this.birth_day <= 19)) {
-          //   this.star = '양자리'  // 양
-          // } else if ((this.birth_month == 4 && this.birth_day >= 20) || (this.birth_month == 5 && this.birth_day <= 20)) {
-          //   this.star = '황소자리' // 황소
-          // } else if ((this.birth_month == 5 && this.birth_day >= 21) || (this.birth_month == 6 && this.birth_day <= 21)) {
-          //   this.star = '쌍둥이자리' // 쌍둥이
-          // } else if ((this.birth_month == 6 && this.birth_day >= 22) || (this.birth_month == 7 && this.birth_day <= 22)) {
-          //   this.star = '게자리' // 게
-          // } else if ((this.birth_month == 7 && this.birth_day >= 23) || (this.birth_month == 8 && this.birth_day <= 22)) {
-          //   this.star = '사자자리' // 사자
-          // } else if ((this.birth_month == 8 && this.birth_day >= 23) || (this.birth_month == 9 && this.birth_day <= 23)) {
-          //   this.star = '처녀자리' // 처녀
-          // } else if ((this.birth_month == 9 && this.birth_day >= 24) || (this.birth_month == 10 && this.birth_day <= 22)) {
-          //   this.star = '천칭자리' // 천칭
-          // } else if ((this.birth_month == 10 && this.birth_day >= 23) || (this.birth_month == 11 && this.birth_day <= 22)) {
-          //   this.star = '전갈자리' // 전갈
-          // } else if ((this.birth_month == 11 && this.birth_day >= 23) || (this.birth_month == 12 && this.birth_day <= 24)) {
-          //   this.star = '사수자리' // 사수
-          // } else if ((this.birth_month == 12 && this.birth_day >= 25) || (this.birth_month == 1 && this.birth_day <= 19)) {
-          //   this.star = '염소자리' // 염소
-          // }
-          
-    //       ///// 좋아요 토글 테스트 할 때 썼던 거
-    //       // for(let i=0; i<this.user_movie_list.length; i++) {
-    //       // // userLikeMovieId.push(userMovieLst[i])
-    //       // // console.log(this.user_movie_list[i].id)
-    //       // this.likes_movie_id.push(this.user_movie_list[i].id)
-    //     // }
-    //     })
-    //     .catch((err) => {
-    //       console.log(err)
-    //     })
-
-    //   }
     }
 }
 </script>
 
-<style>
+<style scoped>
+.profile-page {
+  background-image: url(@/assets/profileback10.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .user-information {
   margin-top: 30px;
   margin-bottom: 50px;
