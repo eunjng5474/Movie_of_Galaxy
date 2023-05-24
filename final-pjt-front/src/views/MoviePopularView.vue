@@ -1,5 +1,5 @@
 <template>
-  <div class="movie-popular-list-container">
+  <div class="movie-popular-list-container ">      
     <video class="popbackground-video" autoplay loop muted preload="auto" poster="@/assets/pop_tem.png" >
       <source src="@/assets/popback.mp4" type="video/mp4">
     </video>
@@ -21,6 +21,7 @@
           </template>
         </slide>
       </carousel-3d>
+
     </div>
 </template>
 
@@ -51,7 +52,7 @@ export default {
   overflow:hidden;
   margin: 0;
   padding: 0;
-  /* background-color: black; */
+  
   height:100vh;
 }
 

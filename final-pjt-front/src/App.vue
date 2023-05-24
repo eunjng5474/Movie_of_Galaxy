@@ -30,7 +30,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-
   /* 배경잠시설정 */
   /* height: 500vh;
   width: 100vw;
@@ -38,6 +37,7 @@ export default {
   background-size : cover;
   background-repeat : no-repeat; */
 }
+
 * {
   box-sizing: content-box;
 }

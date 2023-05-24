@@ -1,8 +1,11 @@
 <template>
   <div class="signuppage">
-    <video autoplay loop muted>
+    <div>
+    <video autoplay loop muted preload="metadata">
       <source src="@/assets/3.mp4" type="video/mp4">
     </video>
+    </div>
+      
     <div class="box">
       <router-link to="/movies" style="color:white;">임시 나중지움 무비로가는거MOvie</router-link>
       <br>

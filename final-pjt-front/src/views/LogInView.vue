@@ -12,7 +12,7 @@
     </form> -->
 
     <!-- ---------------------- -->
-    <video autoplay loop muted>
+    <video autoplay loop muted preload="metadata">
       <source src="@/assets/3.mp4" type="video/mp4">
     </video>
     <div class="box">

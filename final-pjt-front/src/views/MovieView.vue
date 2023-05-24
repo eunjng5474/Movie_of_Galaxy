@@ -2,7 +2,7 @@
   <div class="Movie">
     <!--  네브바 있는자리 -->
     <!-- 네브바 및 네브바 살짝 밑 까지 보이게함 -->
-    <div class="video-container">
+    <div class="video-container" style="background-color:black;">
       <video autoplay loop muted class="allmovie-background-video" preload="auto" poster="@/assets/main_tem.png">
         <source src="@/assets/movielist3.mp4" type="video/mp4">
       </video>
