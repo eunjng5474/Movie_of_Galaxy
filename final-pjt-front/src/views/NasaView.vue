@@ -32,6 +32,7 @@ export default {
 
   created() {
     this.NasaSearch()
+    this.Papago()
   },
 
   data() {
@@ -55,14 +56,72 @@ export default {
       params
     })
     .then((res) => {
-      console.log(res)
+      // console.log(res)
       this.NasaTitle = res.data.title
       this.NasaContent = res.data.explanation
       this.NasaImg = res.data.url
 
     })
     .catch(err => console.log(err))
-    }
+    },
+
+    Papago() {
+      // const client_id = 'o92CbJZ3U6s9VTRIt7yi'
+      // const client_secret = '_sezYRBBhv'
+      // const encText = urllib.parse.quote(this.NasaTitle)
+      // const data = "source=en&target=ko&text=" + encText
+      // const url = "https://openapi.naver.com/v1/papago/n2mt"
+      // const request = urllib.request.Request(url)
+      // request.add_header("X-Naver-Client-Id",client_id)
+      // request.add_header("X-Naver-Client-Secret",client_secret)
+      // const response = urllib.request.urlopen(request, data=data.encode("utf-8"))
+      // const rescode = response.getcode()
+      // if(rescode==200) {
+      //   const response_body = response.read()
+      //   print(response_body.decode('utf-8'))
+      // }
+      // else {
+      //   print("Error Code:" + rescode)
+      // }
+    //   const TRANSLATE_METHODS = {
+    //   nmt: 'nmt',
+    //   smt: 'smt',
+    // };
+
+    //   const url = method === TRANSLATE_METHODS.smt ?
+    //     'language/translate' : 'papago/n2mt';
+
+      const params = {
+        source: 'en',
+        target: 'ko',
+        text: this.NasaTitle,
+      }
+
+      const config = {
+        baseURL: 'https://openapi.naver.com/v1/',
+        headers: {
+            'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            'x-naver-client-id': 'o92CbJZ3U6s9VTRIt7yi',
+            'x-naver-client-secret': '_sezYRBBhv',
+        },
+      }
+
+      axios({
+        method: 'get',
+        // url,
+        url: 'https://cors-anywhere.herokuapp.com/https://openapi.naver.com/v1/',
+        params,
+        config
+      })
+      .then((res) => {
+        console.log(res)
+        // this.NasaTitle = res.data.title
+        // this.NasaContent = res.data.explanation
+        // this.NasaImg = res.data.url
+
+      })
+      .catch(err => console.log(err))
+      }
 
   }
 
