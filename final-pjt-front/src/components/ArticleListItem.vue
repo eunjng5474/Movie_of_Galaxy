@@ -33,7 +33,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 td{
   padding: 10px;
   text-align: center;

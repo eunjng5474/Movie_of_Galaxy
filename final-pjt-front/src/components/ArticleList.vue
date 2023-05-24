@@ -38,7 +38,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .article-list{
   width: 70%;
   margin: 0 auto;
