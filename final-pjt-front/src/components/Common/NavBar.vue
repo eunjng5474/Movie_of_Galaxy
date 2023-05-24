@@ -79,4 +79,21 @@ export default {
 .router-link-exact-active {
   text-decoration: none !important;
 }
+
+/* 임시 */
+.nav-link:hover {
+  background-color: #000;
+  opacity: 0.5;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.dropdown-menu .droptown-item:hover {
+  background-color: #000;
+  opacity: 0.5;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.profile-link:hover {
+  color: #000;
+}
 </style>
