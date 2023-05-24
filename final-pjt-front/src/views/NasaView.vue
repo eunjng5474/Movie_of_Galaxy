@@ -1,5 +1,5 @@
 <template>
-  <div class="nasa-page" style="background-color: black;">
+  <div class="nasa-page" style="background-color: black; background-size: cover;">
     <NavBar/>
       <div>
         <date-picker v-model="time1" valueType="format" @change="NasaSearch" placeholder="날짜를 선택하세요"></date-picker>
@@ -9,7 +9,7 @@
         <!-- <h1>나사페이지</h1> -->
         <h3 class="mt-4" style="color: white">{{NasaTitle}}</h3>
         <h5 class="lh-base mt-5" style=" color: white;">{{NasaContent}}</h5>
-        <p class="mt-5"><img :src="NasaImg" alt=""></p>
+        <img class="mt-5" style="width: 100%; height: auto; margin-bottom: 100px;" :src="NasaImg" alt="">
       </div>
 
   </div>

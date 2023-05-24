@@ -194,7 +194,7 @@ export default {
   background-image: url(@/assets/profileback10.jpg);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 120% auto;
+  background-size: cover;
 }
 
 .user-information {

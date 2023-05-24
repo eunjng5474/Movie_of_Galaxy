@@ -17,10 +17,10 @@
               <li class="nav-item">
                 <router-link to="/community" class="nav-link ms-4" style="color:white;"><h5><b>Community</b></h5></router-link>
               </li>
-              <!-- <li class="nav-item">
-                <router-link to="/" class="nav-link" style="color:white;">login임시(나중game)</router-link>
-              </li>
               <li class="nav-item">
+                <router-link to="/nasa" class="nav-link ms-4" style="color:white;"><h5><b>Daily Star</b></h5></router-link>
+              </li>
+              <!-- <li class="nav-item">
                 <router-link to="/signup" class="nav-link" style="color:white;">signup임시(나중없어짐)</router-link>
               </li> -->
             </ul>
