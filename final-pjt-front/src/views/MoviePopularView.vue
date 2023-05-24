@@ -1,8 +1,18 @@
 <template>
   <div class="movie-popular-list-container ">      
-    <video class="popbackground-video" autoplay loop muted preload="auto" poster="@/assets/pop_tem.png" >
+    <video class="popbackground-video" autoplay loop muted preload="auto" poster="@/assets/pop_tem.png" @loadeddata="videoLoaded = true">
       <source src="@/assets/popback.mp4" type="video/mp4">
     </video>
+    <!-- 로딩페이지 -->
+    <div v-if="!videoLoaded" style="background-color:black; height:100vh">
+      <img src="@/assets/loading.gif" class="loadImg">
+
+    </div>
+
+
+    <div v-else>
+
+
     <NavBar/>
       <h1 style="color:white;">믿고 보는 인기순 거의 명지오떡순</h1>
       <br>
@@ -23,6 +33,7 @@
       </carousel-3d>
 
     </div>
+  </div>
 </template>
 
 <script>
@@ -37,6 +48,13 @@ export default {
     Carousel3d,
     Slide
   },
+
+  data() {
+    return {
+      videoLoaded: false,
+    }
+  },
+  
   computed: {
     top30_popularity() {
       // console.log(this.$store.getters.top30_popularity)
@@ -47,6 +65,13 @@ export default {
 </script>
 
 <style>
+.loadImg {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .movie-popular-list-container {
   position: relative;
   overflow:hidden;

@@ -1,8 +1,16 @@
 <template>
   <div class="movie-popular-list-container">
-    <video class="popbackground-video" autoplay loop muted preload="auto" poster="@/assets/ran_tem.png">
+
+    <video class="popbackground-video" autoplay loop muted preload="auto" poster="@/assets/ran_tem.png" @loadeddata="videoLoaded = true">
       <source src="@/assets/ranback.mp4" type="video/mp4">
     </video>
+    <div v-if="!videoLoaded" style="background-color:black; height:100vh">
+      <img src="@/assets/loading.gif" class="loadImg">
+
+    </div>
+
+    <div v-else>
+
     <NavBar/>
     <div>
       <h1 style="color:white;"> 랜덤 영화 추천</h1>
@@ -22,6 +30,7 @@
           </template>
         </slide>
       </carousel-3d>
+    </div>
     </div>
     <!-- <div class= "movie-card-container border border-black p-5">
       <MovieListItem v-for="movie in random30" :key="movie.id" :movie="movie"/>
@@ -54,9 +63,11 @@ export default {
   },
   data() {
     return {
-      parent: this.$parent
+      parent: this.$parent,
+      videoLoaded: false
     }
   },
+  
   computed: {
     random30() {
       return this.$store.getters.random30
@@ -66,21 +77,12 @@ export default {
 </script>
 
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+.loadImg {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-
 .movie-card-container{
   /* justify-content: space-between;
   align-items: center; */

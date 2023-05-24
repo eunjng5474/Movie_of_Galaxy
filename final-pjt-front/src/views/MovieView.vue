@@ -3,13 +3,21 @@
     <!--  네브바 있는자리 -->
     <!-- 네브바 및 네브바 살짝 밑 까지 보이게함 -->
     <div class="video-container" style="background-color:black;">
-      <video autoplay loop muted class="allmovie-background-video" preload="auto" poster="@/assets/main_tem.png">
+      <video autoplay loop muted class="allmovie-background-video" preload="auto" poster="@/assets/black.png" @loadeddata="videoLoaded = true">
         <source src="@/assets/movielist3.mp4" type="video/mp4">
       </video>
+    </div>
+
+    <!-- 로딩될동안보여줄 페이지 -->
+    <div v-if="!videoLoaded" style="background-color:black; height:100vh">
+      <img src="@/assets/loading.gif" class="loadImg">
+
+    </div>
+
+    <div v-else>
       <div class="nav-container">
         <NavBar/>
       </div>
-    </div>
 
     <div class = 'middle-background border-top border-gray border-7'>
       <!-- <br>
@@ -45,6 +53,7 @@
       <MovieList/>  
       </div>
     </div>
+  </div>
   <!-- </div> -->
 </template>
 
@@ -64,6 +73,7 @@ export default {
   data() {
     return {
       keyword: '',
+      videoLoaded: false,
       videoSrc:  require('@/assets/movielist3.mp4')
     }
   },

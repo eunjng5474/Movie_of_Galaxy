@@ -1,20 +1,15 @@
 <template>
   <div class="loginpage">
-    <!-- <h1>LogIn Page</h1>
-    <form @submit.prevent="login">
-      <label for="username">username : </label>
-      <input type="text" id="username" v-model="username"><br>
-
-      <label for="password"> password : </label>
-      <input type="password" id="password" v-model="password"><br>
-
-      <input type="submit" value="logIn">
-    </form> -->
-
-    <!-- ---------------------- -->
-    <video autoplay loop muted preload="metadata">
+    <video autoplay loop muted preload="auto" @loadeddata="videoLoaded = true">
       <source src="@/assets/3.mp4" type="video/mp4">
     </video>
+
+    <!-- 로딩 -->
+    <div v-if="!videoLoaded" style="background-color:black; height:100vh">
+    </div>
+
+    <div v-else>
+
     <div class="box">
       <router-link to="/movies" style="color:white;">임시 나중지움 무비로가는거MOvie</router-link>
       <br>
@@ -37,6 +32,7 @@
         </div>
       </form>
     </div>
+    </div>
   </div>
 </template>
 
@@ -47,9 +43,18 @@ export default {
     return {
       username: null,
       password: null,
+      videoLoaded: false
     }
   },
+  created() {
+    this.getMovies()
+  },
+
   methods: {
+    getMovies() {
+      this.$store.dispatch('getMovies')
+    },
+
     login() {
       const username = this.username
       const password = this.password
@@ -75,6 +80,7 @@ export default {
   height: 100%;
   overflow: hidden;
   font-family: sans-serif;
+  background-color: black;
 }
 
 video {

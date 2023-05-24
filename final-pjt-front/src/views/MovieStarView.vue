@@ -1,8 +1,16 @@
 <template>
   <div class="movie-popular-list-container">
-    <video class="popbackground-video" autoplay loop muted preload="auto" poster="@/assets/star_tem.png">
+    <video class="popbackground-video" autoplay loop muted preload="auto" poster="@/assets/star_tem.png" @loadeddata="videoLoaded = true">
       <source src="@/assets/movielist3.mp4" type="video/mp4">
     </video>
+    <!-- 로딩페이지 -->
+    <div v-if="!videoLoaded" style="background-color:black; height:100vh">
+      <img src="@/assets/loading.gif" class="loadImg">
+
+    </div>
+
+    <div v-else>
+
     <NavBar/>
     <div>
       <h1 style="color:white;">별자리가 같은 영화 추천</h1>
@@ -24,6 +32,7 @@
         <p>{{movie.title}}</p>
       </div> -->
     </div>
+    </div>
   </div>
 </template>
 
@@ -42,6 +51,7 @@ export default {
     return {
       parent: this.$parent,
       starMovies: [],
+      videoLoaded: false
     }
   },
   created() {

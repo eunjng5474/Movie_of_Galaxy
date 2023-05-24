@@ -1,10 +1,16 @@
 <template>
   <div class="signuppage">
-    <div>
-    <video autoplay loop muted preload="metadata">
+    <video autoplay loop muted preload="auto" @loadeddata="videoLoaded = true">
       <source src="@/assets/3.mp4" type="video/mp4">
     </video>
+
+    <!-- 로딩 -->
+    <div v-if="!videoLoaded" style="background-color:black; height:100vh">
+
     </div>
+
+    <div>
+
       
     <div class="box">
       <router-link to="/movies" style="color:white;">임시 나중지움 무비로가는거MOvie</router-link>
@@ -35,24 +41,7 @@
         <input type="submit" value="SignUp">
       </form>
     </div>
-<!-- ------------------------------------------------------ -->
-    <!-- <div class="box">
-      <h2>Login</h2>
-      <form>
-        <div class="inputBox">
-          <input type="email" name="email" required onkeyup="this.setAttribute('value', this.value);" value="">
-          <label>Username</label>
-        </div>
-        <div class="inputBox">
-          <input type="password" name="password" required value=""
-                onkeyup="this.setAttribute('value', this.value);"
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
-          <label>Password</label>
-        </div>
-        <input type="submit" name="sign-in" value="Sign In">
-      </form>
-    </div> -->
+    </div>
 </div>
 </template>
 
@@ -69,6 +58,7 @@ export default {
       birth: null,
       password1: null,
       password2: null,
+      videoLoaded: false
 
     }
   },
@@ -102,6 +92,7 @@ export default {
   height: 100%;
   overflow: hidden;
   font-family: sans-serif;
+  background-color:black;
 }
 
 video {

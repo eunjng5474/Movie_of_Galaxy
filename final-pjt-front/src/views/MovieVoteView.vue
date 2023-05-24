@@ -1,8 +1,17 @@
 <template>
   <div class="movie-popular-list-container">
-    <video class="popbackground-video" autoplay loop muted preload="auto" poster="@/assets/vote_tem.png">
+    <video class="popbackground-video" autoplay loop muted preload="auto" poster="@/assets/vote_tem.png" @loadeddata="videoLoaded = true">
       <source src="@/assets/voteback.mp4" type="video/mp4">
     </video>
+    
+    <!-- 로딩 -->
+    <div v-if="!videoLoaded" style="background-color:black; height:100vh">
+      <img src="@/assets/loading.gif" class="loadImg">
+
+    </div>
+    
+    <div v-else>
+    
     <NavBar/>
     <div>
       <h1 style="color:white;"> 평점순 영화 추천</h1>
@@ -26,6 +35,7 @@
     <!-- <div class= "movie-card-container border border-black p-5">
       <MovieListItem v-for="movie in top30_vote_average" :key="movie.id" :movie="movie"/>
     </div> -->
+    </div>
   </div>
 </template>
 
@@ -44,12 +54,11 @@ export default {
     Carousel3d,
     Slide,
   },
-  // data() {
-  //   return {
-  //     slide: 0,
-  //     sliding: null,
-  //   }
-  // },
+  data() {
+    return {
+      videoLoaded: false
+    }
+  },
   computed: {
     top30_vote_average() {
       // console.log(this.$store.getters.top30_vote_average)
