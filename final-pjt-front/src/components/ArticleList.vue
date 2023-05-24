@@ -39,6 +39,10 @@ export default {
 </script>
 
 <style>
+.article-list{
+  width: 70%;
+  margin: 0 auto;
+}
 table {
   width: 100%;
   border-collapse: collapse;

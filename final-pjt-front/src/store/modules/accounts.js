@@ -86,6 +86,7 @@ const accountsModule = {
         // for(let i=0; i<data.like_movies; i++) {
         //   state.movieLike1.push(data.like_movies[i].id)
         // }
+        // console.log(this.getters.movieLike)
         router.push({ name: 'MovieView'})
       },
       LOG_OUT(state) {
