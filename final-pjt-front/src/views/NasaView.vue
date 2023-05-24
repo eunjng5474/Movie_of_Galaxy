@@ -1,16 +1,16 @@
 <template>
-  <div class="nasa-page">
+  <div class="nasa-page" style="background-color: black;">
     <NavBar/>
       <div>
-        <date-picker v-model="time1" valueType="format" @change="NasaSearch"></date-picker>
-        
+        <date-picker v-model="time1" valueType="format" @change="NasaSearch" placeholder="날짜를 선택하세요"></date-picker>
       </div>
-
-      <p>{{time1}}</p>
-      <h1>나사페이지</h1>
-      <p>{{NasaTitle}}</p>
-      <p>{{NasaContent}}</p>
-      <p><img :src="NasaImg" alt=""></p>
+      <div class="nasa-text" style="width: 70%; margin: 0 auto;">
+        <h3 class="mt-2" style="color: white">{{time1}}</h3>
+        <!-- <h1>나사페이지</h1> -->
+        <h3 class="mt-4" style="color: white">{{NasaTitle}}</h3>
+        <h5 class="lh-base mt-5" style=" color: white;">{{NasaContent}}</h5>
+        <p class="mt-5"><img :src="NasaImg" alt=""></p>
+      </div>
 
   </div>
 </template>
@@ -32,7 +32,7 @@ export default {
 
   created() {
     this.NasaSearch()
-    this.Papago()
+    // this.Papago()
   },
 
   data() {
@@ -66,6 +66,58 @@ export default {
     },
 
     Papago() {
+      // const search = (keyword) => {
+      //   return axios.create({
+      //     baseURL = 'https://openapi.naver.com/v1/papago/n2mt',
+      //     Headers: {
+      //       "X-Naver-Client-Id" : client_id,
+      //       "X-Naver-Client-Secret" : client_secret,
+      //     },
+      //     params : {
+      //       source: 'en',
+      //       target: 'ko',
+      //       text: this.NasaTitle,
+      //     }
+      //   })
+      // }
+
+      // async function papago() {
+      //   try {
+      //     const res = await search(this.NasaTitle).get();
+      //     console.log(res.data)
+      //   } catch (err) {
+      //     console.log(err)
+      //   }
+      // }
+
+
+      // const request = require("request");
+      // const express = require('express')
+      // const app = express();
+
+      // const papago_api = "https://openapi.naver.com/v1/papago/n2mt"
+      // const client_id = 'o92CbJZ3U6s9VTRIt7yi'
+      // const client_secret = '_sezYRBBhv'
+      // const query = this.NasaTitle
+
+      // const options = {
+      //   url: papago_api,
+      //   form: { source: 'en', target: 'ko', text: query },
+      //   Headers: {
+      //     "X-Naver-Client-Id" : client_id,
+      //     "X-Naver-Client-Secret" : client_secret,
+      //   }
+      // }
+
+      // request.post(options, function (error, response, body) {
+      //   if (!error && response.statusCode == 200) {
+      //     console.log(JSON.parse(body))
+      //   } else {
+      //     console.log("error = " + response.statusCode)
+      //   }
+      // })
+
+
       // const client_id = 'o92CbJZ3U6s9VTRIt7yi'
       // const client_secret = '_sezYRBBhv'
       // const encText = urllib.parse.quote(this.NasaTitle)
@@ -88,30 +140,41 @@ export default {
     //   smt: 'smt',
     // };
 
-    //   const url = method === TRANSLATE_METHODS.smt ?
-    //     'language/translate' : 'papago/n2mt';
+      // const url = method === TRANSLATE_METHODS.smt ?
+        // 'language/translate' : 'papago/n2mt';
 
+/// 401 error
       const params = {
         source: 'en',
         target: 'ko',
-        text: this.NasaTitle,
+        text: 'hello, world!'
+        // text: this.NasaTitle,
       }
 
-      const config = {
-        baseURL: 'https://openapi.naver.com/v1/',
-        headers: {
-            'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-            'x-naver-client-id': 'o92CbJZ3U6s9VTRIt7yi',
-            'x-naver-client-secret': '_sezYRBBhv',
-        },
-      }
+      // console.log(this.NasaTitle)
+      // const config = {
+      //   // baseURL: 'https://openapi.naver.com/v1/papago/n2mt',
+      //   headers: {
+      //       'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+      //       'x-naver-client-id': 'o92CbJZ3U6s9VTRIt7yi',
+      //       'x-naver-client-secret': '_sezYRBBhv',
+      //   },
+      // }
 
       axios({
-        method: 'get',
+        method: 'post',
         // url,
-        url: 'https://cors-anywhere.herokuapp.com/https://openapi.naver.com/v1/',
+        url: 'https://openapi.naver.com/v1/papago/n2mt',
+        // url: 'https://cors-anywhere.herokuapp.com/https://openapi.naver.com/v1/papago/n2mt',
         params,
-        config
+        headers: {
+        // 'User-Agent': 'curl/7.49.1',
+        // 'Accept': '*/*',
+        // 'Access-Control-Allow-Origin': true,
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',  
+        'X-Naver-Client-Id': '',
+        'X-Naver-Client-Secret': '',
+        },
       })
       .then((res) => {
         console.log(res)
@@ -124,8 +187,8 @@ export default {
       }
 
   }
-
-}
+  }
+// }
 </script>
 
 <style scoped>
