@@ -17,6 +17,7 @@
         <div class="col-6">
           <img class="img-fluid" :src="`https://image.tmdb.org/t/p/original/${detailOneMovie?.poster_path}`" alt="">
         </div>
+        <!-- style="background-color: rgba(255, 255, 255, 0.1); border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);" -->
         <div class="col-6">
           <div class="title">  
           <h1><b>{{detailOneMovie?.title}}</b></h1>
