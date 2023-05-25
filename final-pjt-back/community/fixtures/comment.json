@@ -1,0 +1,200 @@
+[
+{
+    "model": "community.comment",
+    "pk": 1,
+    "fields": {
+        "write_comment_user": 2,
+        "article": 1,
+        "content": "ㅋㅋ 노잼",
+        "created_at": "2023-05-25T16:04:50.114Z",
+        "updated_at": "2023-05-25T16:04:50.114Z"
+    }
+},
+{
+    "model": "community.comment",
+    "pk": 2,
+    "fields": {
+        "write_comment_user": 3,
+        "article": 1,
+        "content": "슝슝",
+        "created_at": "2023-05-25T16:06:22.678Z",
+        "updated_at": "2023-05-25T16:06:22.678Z"
+    }
+},
+{
+    "model": "community.comment",
+    "pk": 3,
+    "fields": {
+        "write_comment_user": 3,
+        "article": 2,
+        "content": "진진아 안뇽",
+        "created_at": "2023-05-25T16:07:20.203Z",
+        "updated_at": "2023-05-25T16:07:20.203Z"
+    }
+},
+{
+    "model": "community.comment",
+    "pk": 4,
+    "fields": {
+        "write_comment_user": 4,
+        "article": 1,
+        "content": "완전재밌음 ㅋㅋㅋㅋㅋㅋ",
+        "created_at": "2023-05-25T16:09:11.105Z",
+        "updated_at": "2023-05-25T16:09:11.105Z"
+    }
+},
+{
+    "model": "community.comment",
+    "pk": 5,
+    "fields": {
+        "write_comment_user": 4,
+        "article": 2,
+        "content": "별빛 달빛 별빛 달빛",
+        "created_at": "2023-05-25T16:09:24.046Z",
+        "updated_at": "2023-05-25T16:09:24.047Z"
+    }
+},
+{
+    "model": "community.comment",
+    "pk": 6,
+    "fields": {
+        "write_comment_user": 4,
+        "article": 2,
+        "content": "달빛 천사",
+        "created_at": "2023-05-25T16:15:56.896Z",
+        "updated_at": "2023-05-25T16:15:56.896Z"
+    }
+},
+{
+    "model": "community.comment",
+    "pk": 7,
+    "fields": {
+        "write_comment_user": 4,
+        "article": 3,
+        "content": "ㅋㅋ 가즈아",
+        "created_at": "2023-05-25T16:16:17.430Z",
+        "updated_at": "2023-05-25T16:16:17.430Z"
+    }
+},
+{
+    "model": "community.comment",
+    "pk": 8,
+    "fields": {
+        "write_comment_user": 6,
+        "article": 4,
+        "content": "w확시맇 재밌음??",
+        "created_at": "2023-05-25T16:16:44.986Z",
+        "updated_at": "2023-05-25T16:16:44.986Z"
+    }
+},
+{
+    "model": "community.comment",
+    "pk": 9,
+    "fields": {
+        "write_comment_user": 6,
+        "article": 3,
+        "content": "ㄱㄱㄱㄱㄱㄱㄱㄱ",
+        "created_at": "2023-05-25T16:16:56.373Z",
+        "updated_at": "2023-05-25T16:16:56.373Z"
+    }
+},
+{
+    "model": "community.comment",
+    "pk": 10,
+    "fields": {
+        "write_comment_user": 6,
+        "article": 1,
+        "content": "ㅋㅋㅋ 도지가즈아",
+        "created_at": "2023-05-25T16:17:07.106Z",
+        "updated_at": "2023-05-25T16:17:07.106Z"
+    }
+},
+{
+    "model": "community.comment",
+    "pk": 11,
+    "fields": {
+        "write_comment_user": 6,
+        "article": 2,
+        "content": "가요가요",
+        "created_at": "2023-05-25T16:17:13.992Z",
+        "updated_at": "2023-05-25T16:17:13.992Z"
+    }
+},
+{
+    "model": "community.comment",
+    "pk": 12,
+    "fields": {
+        "write_comment_user": 5,
+        "article": 4,
+        "content": "ㅇㅇㅇㅇㅇㅇ",
+        "created_at": "2023-05-25T16:20:23.585Z",
+        "updated_at": "2023-05-25T16:20:23.585Z"
+    }
+},
+{
+    "model": "community.comment",
+    "pk": 13,
+    "fields": {
+        "write_comment_user": 5,
+        "article": 1,
+        "content": "아이엠 아이ㅔㄴ만",
+        "created_at": "2023-05-25T16:20:33.016Z",
+        "updated_at": "2023-05-25T16:20:33.016Z"
+    }
+},
+{
+    "model": "community.comment",
+    "pk": 14,
+    "fields": {
+        "write_comment_user": 5,
+        "article": 2,
+        "content": "비이이잉ㅁ",
+        "created_at": "2023-05-25T16:20:49.929Z",
+        "updated_at": "2023-05-25T16:20:49.929Z"
+    }
+},
+{
+    "model": "community.comment",
+    "pk": 15,
+    "fields": {
+        "write_comment_user": 1,
+        "article": 3,
+        "content": "가즈아으ㅏㄱ즈ㅏㅇ",
+        "created_at": "2023-05-25T16:21:17.385Z",
+        "updated_at": "2023-05-25T16:21:17.385Z"
+    }
+},
+{
+    "model": "community.comment",
+    "pk": 16,
+    "fields": {
+        "write_comment_user": 1,
+        "article": 4,
+        "content": "ㄱㄱㄱㄱㄱ",
+        "created_at": "2023-05-25T16:21:25.614Z",
+        "updated_at": "2023-05-25T16:21:25.614Z"
+    }
+},
+{
+    "model": "community.comment",
+    "pk": 17,
+    "fields": {
+        "write_comment_user": 2,
+        "article": 4,
+        "content": "zz",
+        "created_at": "2023-05-25T16:21:54.871Z",
+        "updated_at": "2023-05-25T16:21:54.871Z"
+    }
+},
+{
+    "model": "community.comment",
+    "pk": 18,
+    "fields": {
+        "write_comment_user": 3,
+        "article": 5,
+        "content": "나느 5천만큼",
+        "created_at": "2023-05-25T16:24:49.691Z",
+        "updated_at": "2023-05-25T16:24:49.692Z"
+    }
+}
+]

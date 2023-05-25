@@ -1,0 +1,142 @@
+[
+{
+    "model": "accounts.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$f1je9CiX6gYI0I85puDtfv$MqhCuGF7B99H5172QHK/x5rKrHVTrrZ4rJdBVCU7dPI=",
+        "last_login": "2023-05-25T15:53:25.457Z",
+        "is_superuser": false,
+        "username": "user0",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-05-25T15:53:25.287Z",
+        "nickname": "뀨수",
+        "birth": "1993-01-14",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$sfxTAuQ2XMBzBZf3SmljOq$8cSSdk2b0JDNjrdcB9YBz7e4NIQiHkqrk8siOBuPuos=",
+        "last_login": "2023-05-25T16:01:48.984Z",
+        "is_superuser": false,
+        "username": "user1",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-05-25T16:01:48.793Z",
+        "nickname": "나는진진이",
+        "birth": "1998-05-31",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$zAJLaMauMCagxf9bGvl4Ej$UoHmvcvSZ03Oed4lpyfP8DaOJN/9OTTQ7UfsvA6JTAk=",
+        "last_login": "2023-05-25T16:02:17.559Z",
+        "is_superuser": false,
+        "username": "user2",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-05-25T16:02:17.375Z",
+        "nickname": "CSI",
+        "birth": "1997-11-19",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$JE9geagmfVf4HjgX96ILN4$1Ab1fGcSwUhO7CZpKpjpup3gegxrAmbfGVywwGZdhmA=",
+        "last_login": "2023-05-25T16:02:57.227Z",
+        "is_superuser": false,
+        "username": "user3",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-05-25T16:02:57.053Z",
+        "nickname": "곽곽은정",
+        "birth": "1998-02-12",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$N9JbJS02dgCmlPAFYJQoNd$lUr+Pa7YyD6YtfwmMUQV09e4nULdKaeVwlt1Bjftbf4=",
+        "last_login": "2023-05-25T16:03:30.259Z",
+        "is_superuser": false,
+        "username": "user4",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-05-25T16:03:30.096Z",
+        "nickname": "아이언맨3000",
+        "birth": "1990-10-11",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$2gUT0JiQ8w4wX44AW1fhUm$BfWkLyBY0OzobJeUMYnhx0Gw60elC3DyvXtTG7KHkBU=",
+        "last_login": "2023-05-25T16:03:59.591Z",
+        "is_superuser": false,
+        "username": "user5",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-05-25T16:03:59.422Z",
+        "nickname": "무당벌레",
+        "birth": "1999-11-11",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$PQ2X6BwuRT3TNol0Hbrcxo$zi/PILKdZd/9VCN3SOrAvXdBsSygSdMNJP8GT/I/LQY=",
+        "last_login": "2023-05-25T16:04:26.467Z",
+        "is_superuser": false,
+        "username": "user6",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-05-25T16:04:26.297Z",
+        "nickname": "토르123",
+        "birth": "2001-04-03",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]
