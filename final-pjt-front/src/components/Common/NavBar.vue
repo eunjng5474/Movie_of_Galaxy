@@ -16,6 +16,9 @@
                 <router-link to="/community" class="nav-link ms-4"><h5><b>Community</b></h5></router-link>
               </li>
               <li class="nav-item">
+                <router-link to="/hero" class="nav-link ms-4"><h5><b>Hero-zone</b></h5></router-link>
+              </li>
+              <li class="nav-item">
                 <router-link to="/nasa" class="nav-link ms-4"><h5><b>Daily Space</b></h5></router-link>
               </li>
               <!-- <li class="nav-item">

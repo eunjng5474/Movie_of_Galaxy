@@ -15,6 +15,7 @@ import MovieRandomView from '../views/MovieRandomView.vue'
 import MovieStarView from '../views/MovieStarView.vue'
 import MovieSearchView from '../views/MovieSearchView.vue'
 import NasaView from '../views/NasaView.vue'
+import HeroView from '../views/HeroView.vue'
 
 import NotFound404View from '../views/NotFound404View.vue'
 
@@ -113,6 +114,14 @@ const routes = [
     name: 'NasaView',
     component: NasaView
   },
+  
+  // 히어로
+  {
+    path: '/hero',
+    name: 'HeroView',
+    component: HeroView
+  },
+
   // 404 - 제일 마지막
   {
     path: '/404',

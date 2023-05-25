@@ -1,13 +1,22 @@
 <template>
 <div class="movie-search">
-  <div class="video-container">
-    <video autoplay loop muted class="allmovie-background-video">
-      <source src="@/assets/movielist3.mp4" type="video/mp4">
+
+  <div class="video-container" style="background-color:black;">
+    <video autoplay loop muted class="allmovie-background-video" preload="auto" poster="@/assets/black.png" @loadeddata="videoLoaded = true">
+      <source src="@/assets/movielist3.mp4" type="video/mp4" >
     </video>
+  </div>
+
+  <!-- 로딩중보여줄페이지 -->
+  <div v-if="!videoLoaded" style="background-color:black; height:100vh">
+      <img src="@/assets/loading.gif" class="loadImg">
+  </div>
+
+
+  <div v-else>
     <div class="nav-container">
       <NavBar/>
     </div>
-  </div>
 
   <div class = 'middle-background border-top border-white border-4'>
     <!-- <h2 style="color: white;">"{{ this.$route.params.keyword }}" 검색 결과</h2> -->
@@ -49,6 +58,7 @@
           </div>
           </div>
         </div>
+      </div>
   </div>
   <!-- {{ searchMovies}} -->
 </div>
@@ -63,6 +73,8 @@ export default {
   data() {
     return {
       keyword: '',
+      videoLoaded: false,
+      isLoading: true,
     }
   },
   components: {
