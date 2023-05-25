@@ -1,7 +1,5 @@
 <template>
   <div class="nav-bar">
-      <!-- <h1>네브바다임마</h1> -->
-      <br>
       <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container-fluid">
           <router-link to="/movies" class="navbar-brand"><img src="@/assets/logo1.png" alt=""></router-link>
@@ -18,7 +16,7 @@
                 <router-link to="/community" class="nav-link ms-4"><h5><b>Community</b></h5></router-link>
               </li>
               <li class="nav-item">
-                <router-link to="/nasa" class="nav-link ms-4" style="color:white;"><h5><b>Daily Space</b></h5></router-link>
+                <router-link to="/nasa" class="nav-link ms-4"><h5><b>Daily Space</b></h5></router-link>
               </li>
               <!-- <li class="nav-item">
                 <router-link to="/signup" class="nav-link" style="color:white;">signup임시(나중없어짐)</router-link>
@@ -80,17 +78,33 @@ export default {
   text-decoration: none !important;
 }
 
+.navbar-brand {
+  color: white;
+}
+
+.navbar-brand:hover {
+  color: gray;
+}
+
+.nav-link {
+  color: white;
+}
+
 /* 임시 */
 .nav-link:hover {
-  background-color: #000;
+  color: gray;
+  /* background-color: #000;
   opacity: 0.5;
-  transition: background-color 0.3s ease-in-out;
+  border-radius: 10px;
+  transition: background-color 0.3s ease-in-out; */
 }
 
 .dropdown-menu .droptown-item:hover {
-  background-color: #000;
+  color: gray;
+  /* background-color: #000;
   opacity: 0.5;
-  transition: background-color 0.3s ease-in-out;
+  border-radius: 10px;
+  transition: background-color 0.3s ease-in-out; */
 }
 
 .profile-link:hover {

@@ -32,7 +32,7 @@
           <form @submit.prevent="onSearch" class="d-flex">
             <input v-model="keyword" class="form-control me-2" type="search" placeholder="검색할 영화를 입력하세요" aria-label="Search"
             style="width: 230px">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <button class="btn btn-outline-info" type="submit">Search</button>
           </form>
           </div>
         </div>

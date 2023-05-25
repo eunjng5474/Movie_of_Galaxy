@@ -48,7 +48,7 @@ export default {
   },
   created() {
     this.getMovies()
-    this.deleteLikes()
+    // this.deleteLikes()
   },
 
   methods: {
