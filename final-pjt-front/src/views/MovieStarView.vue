@@ -13,9 +13,26 @@
 
     <NavBar/>
     <div>
-      <h1 style="color:white;">별자리가 같은 영화 추천</h1>
-      <h3 style="color:white;">{{getUserInfo.nickname}}의 별자리는 {{getUserStar}}입니다.</h3>
-      <carousel-3d height="480" border="5" :autoplay="true" :count="starMovies.length" :controls-visible="true" style="width: 70%; margin: 0 auto">
+      <h1 class="fw-bold" style="color:white; margin-bottom: 30px;"> 별자리가 같은 영화 추천</h1>
+      <h4 style="color:white;">{{getUserInfo.nickname}}의 별자리는 {{getUserStar}}입니다.</h4>
+      <br>
+      <div class="images" style="text-align: left; border-bottom: solid 1px; border-bottom-color:white; width: 70%; margin: 0 auto;">
+        <div>
+          <router-link :to="{ name: 'MoviePopularView'}">
+            <img class="recom-img" src="@/assets/popul.png" alt="" >
+          </router-link>
+          <router-link :to="{ name: 'MovieVoteView'}">
+            <img class="recom-img" src="@/assets/average.png" alt="">
+          </router-link>
+          <router-link :to="{ name: 'MovieRandomView'}">
+            <img class="recom-img" src="@/assets/random.png" alt="">
+          </router-link>
+          <router-link :to="{ name: 'MovieStarView'}">
+            <img class="recom-img" src="@/assets/star.png" alt="" >
+          </router-link>
+        </div>
+      </div>
+      <carousel-3d height="480" border="5" :autoplay="true" :count="starMovies.length" :controls-visible="true" style="width: 70%; margin: 0 auto;  margin-top: 60px;">
         <slide style="border-color: white;" 
         v-for="(movie, idx) in starMovies" :index="idx" :key="idx">
           <template slot-scope="{index, isCurrent, leftIndex, rightIndex}">
@@ -164,5 +181,9 @@ export default {
 </script>
 
 <style scoped>
-
+.recom-img {
+  width:120px; 
+  height:120px;
+  /* margin: 0 300px 0 */
+}
 </style>

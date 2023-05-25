@@ -48,11 +48,15 @@ export default {
   },
   created() {
     this.getMovies()
+    this.deleteLikes()
   },
 
   methods: {
     getMovies() {
       this.$store.dispatch('getMovies')
+    },
+    deleteLikes(){
+      this.$store.dispatch('deleteLikes')
     },
 
     login() {

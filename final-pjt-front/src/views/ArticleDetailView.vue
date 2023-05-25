@@ -4,8 +4,11 @@
     <!-- <h1>Article Detail</h1> -->
     <div id="particles-js"></div>
     <div class="article-detail-container">
-      <h2 class="post-title">{{detailOneArticle?.title}}</h2>
-      <p class="author-info">작성자: {{detailOneArticle?.write_article_user.nickname}} | 작성일: {{detailOneArticle?.created_at.slice(0,10)}}</p>
+      <h1 class="post-title">{{detailOneArticle?.title}}</h1>
+      <p class="author-info" style="text-align: right;">작성자: 
+        <router-link :to="{ name: 'ProfileView',params: { username: article?.write_article_user.username }}" style="color:white; text-decoration:none;">
+          {{detailOneArticle?.write_article_user.nickname}}</router-link>
+           | 작성일: {{detailOneArticle?.created_at.slice(0,10)}}</p>
       <hr>
       <div class="post-content">
         <p>{{detailOneArticle?.content}}</p>

@@ -13,11 +13,26 @@
 
     <NavBar/>
     <div>
-      <h1 style="color:white;"> 랜덤 영화 추천</h1>
+      <h1 class="fw-bold" style="color:white; margin-bottom: 30px;"> 랜덤 영화 추천</h1>
+      <h4 style="color:white;">랜덤으로 추천해드립니다</h4>
       <br>
-      <h2 style="color:white;"> 램덤30</h2>
-      <br>
-      <carousel-3d height="480" border="5" :autoplay="true" :count="30" :controls-visible="true" style="width: 70%; margin: 0 auto">
+      <div class="images" style="text-align: left; border-bottom: solid 1px; border-bottom-color:white; width: 70%; margin: 0 auto;">
+        <div>
+          <router-link :to="{ name: 'MoviePopularView'}">
+            <img class="recom-img" src="@/assets/popul.png" alt="" >
+          </router-link>
+          <router-link :to="{ name: 'MovieVoteView'}">
+            <img class="recom-img" src="@/assets/average.png" alt="">
+          </router-link>
+          <router-link :to="{ name: 'MovieRandomView'}">
+            <img class="recom-img" src="@/assets/random.png" alt="">
+          </router-link>
+          <router-link :to="{ name: 'MovieStarView'}">
+            <img class="recom-img" src="@/assets/star.png" alt="" >
+          </router-link>
+        </div>
+      </div>
+      <carousel-3d height="480" border="5" :autoplay="true" :count="30" :controls-visible="true" style="width: 70%; margin: 0 auto; margin-top: 60px;">
         <slide style="border-color: white;" 
         v-for="(movie, idx) in random30" :index="idx" :key="idx">
           <template slot-scope="{index, isCurrent, leftIndex, rightIndex}">
@@ -96,5 +111,9 @@ export default {
   justify-content: space-between;
 }
 
-
+.recom-img {
+  width:120px; 
+  height:120px;
+  /* margin: 0 300px 0 */
+}
 </style>
