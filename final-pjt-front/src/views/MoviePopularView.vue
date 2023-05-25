@@ -14,11 +14,26 @@
 
 
     <NavBar/>
-      <h1 style="color:white;">믿고 보는 인기순 거의 명지오떡순</h1>
+      <h1 class="fw-bold" style="color:white; margin-bottom: 30px;">믿고 보는 인기순</h1>
+      <h4  style="color:white;">현재 인기 있는 영화 TOP 30</h4>
       <br>
-      <h2 style="color:white;"> 인기순 TOP30</h2>
-      <br>
-      <carousel-3d height="480" border="5" :autoplay="true" :count="30" :controls-visible="true" style="width: 70%; margin: 0 auto">
+      <div class="images" style="text-align: left; border-bottom: solid 1px; border-bottom-color:white; width: 70%; margin: 0 auto;">
+        <div>
+          <router-link :to="{ name: 'MoviePopularView'}">
+            <img class="recom-img" src="@/assets/popul.png" alt="" >
+          </router-link>
+          <router-link :to="{ name: 'MovieVoteView'}">
+            <img class="recom-img" src="@/assets/average.png" alt="">
+          </router-link>
+          <router-link :to="{ name: 'MovieRandomView'}">
+            <img class="recom-img" src="@/assets/random.png" alt="">
+          </router-link>
+          <router-link :to="{ name: 'MovieStarView'}">
+            <img class="recom-img" src="@/assets/star.png" alt="" >
+          </router-link>
+        </div>
+      </div>
+      <carousel-3d height="480" border="5" :autoplay="true" :count="30" :controls-visible="true" style="width: 70%; margin: 0 auto; margin-top: 60px;">
         <slide style="border-color: white;" 
         v-for="(movie, idx) in top30_popularity" :index="idx" :key="idx">
           <template slot-scope="{index, isCurrent, leftIndex, rightIndex}">
@@ -108,5 +123,11 @@ export default {
     user-select: none;
     text-decoration: none;
     top: 0;
+}
+
+.recom-img {
+  width:120px; 
+  height:120px;
+  /* margin: 0 300px 0 */
 }
 </style>
