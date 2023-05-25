@@ -11,11 +11,13 @@
               <img :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="card-img-top border border-white" alt="">
             </router-link> 
             <!-- <div calss="card-body"></div> -->
-            <div class="card-footer border border-white">
+            <div class="card-footer border border-white" style="background-image: '@/assets/movielist3.png';">
               <!-- <h2 v-if="getUserInfo?.like_movies.includes(movie)" @click="likeMovie">&#128150;</h2>
               <h2 v-else @click="likeMovie">&#128420;</h2> -->
-              <h2 v-if="getLike.includes(movie.id)" @click="likeMovie">&#128150;</h2>
-              <h2 v-else @click="likeMovie">&#128420;</h2>
+              <img v-if="getLike.includes(movie.id)" @click="likeMovie" src="@/assets/heart.png" alt="" style="width: 30px; height: 30px;">
+              <!-- <h2 v-if="getLike.includes(movie.id)" @click="likeMovie">&#128150;</h2> -->
+              <img v-else @click="likeMovie" src="@/assets/like.png" alt="" style="width: 30px; height: 30px;">
+              <!-- <h2 v-else @click="likeMovie">&#128420;</h2> -->
               <!-- =----------------------------- -->
               <!-- <img style="margin-left: 50px; width: 55px; height: 70px;" v-if="getLike.includes(movie.id)" @click="likeMovie" src="@/assets/ufolike.png">
               <img style="margin-left: 50px; width: 55px; height: 50px;" v-else @click="likeMovie" src="@/assets/ufohate11.png"> -->

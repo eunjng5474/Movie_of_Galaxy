@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <div class = 'middle-background border-top border-white border-4'>
+  <div class = 'middle-background border-top border-gray border-7'>
     <!-- <h2 style="color: white;">"{{ this.$route.params.keyword }}" 검색 결과</h2> -->
       <div class="recommend-and-search" style="width: 80%; margin: 0 auto;">
         <div class="d-flex justify-content-between" style="margin-top: 30px;">
@@ -38,7 +38,7 @@
         </div>
         </div>
 
-        <div class= " border border-4 border-white rounded-5 p-5">
+        <div class="search-result-container border border-6 border-white rounded-5 p-5">
           <div v-if="searchMovies.length < 1" class="p-5">
             <h2 style="color: white;">"{{ this.$route.params.keyword }}"의 검색 결과가 없습니다.</h2>
           </div>
@@ -106,7 +106,7 @@ export default {
 
 .video-container {
   position: relative;
-  height: 300px; 
+  height: 150px; 
   overflow: hidden;
 }
 
@@ -130,7 +130,7 @@ export default {
   background-image: url(@/assets/movielist4.png);
   /* background-size: cover; */
   background-position: center;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .movie-card-container{
@@ -159,12 +159,18 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
   opacity: 0;
   transition: opacity 0.3s;
 }
 
 .image-link:hover::after {
   opacity: 1;
+}
+
+.search-result-container {
+  width: 80%;
+  margin: 0 auto;
 }
 </style>

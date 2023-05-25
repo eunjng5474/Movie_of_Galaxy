@@ -171,7 +171,8 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
   opacity: 0;
   transition: opacity 0.3s;
 }

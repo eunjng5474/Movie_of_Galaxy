@@ -19,16 +19,16 @@
       <br>
       <div class="images" style="text-align: left; border-bottom: solid 1px; border-bottom-color:white; width: 70%; margin: 0 auto;">
         <div>
-          <router-link :to="{ name: 'MoviePopularView'}">
+          <router-link :to="{ name: 'MoviePopularView'}" class="image-link">
             <img class="recom-img" src="@/assets/popul.png" alt="" >
           </router-link>
-          <router-link :to="{ name: 'MovieVoteView'}">
+          <router-link :to="{ name: 'MovieVoteView'}" class="image-link">
             <img class="recom-img" src="@/assets/average.png" alt="">
           </router-link>
-          <router-link :to="{ name: 'MovieRandomView'}">
+          <router-link :to="{ name: 'MovieRandomView'}" class="image-link">
             <img class="recom-img" src="@/assets/random.png" alt="">
           </router-link>
-          <router-link :to="{ name: 'MovieStarView'}">
+          <router-link :to="{ name: 'MovieStarView'}" class="image-link">
             <img class="recom-img" src="@/assets/star.png" alt="" >
           </router-link>
         </div>
@@ -72,8 +72,10 @@ export default {
   
   computed: {
     top30_popularity() {
+      const tmp_pop = this.$store.getters.top30_popularity
+      const popular_lst = tmp_pop.slice(0, 31)
       // console.log(this.$store.getters.top30_popularity)
-      return this.$store.getters.top30_popularity
+      return popular_lst
     }
   }
 }
@@ -129,5 +131,27 @@ export default {
   width:120px; 
   height:120px;
   /* margin: 0 300px 0 */
+}
+
+.image-link {
+  display: inline-block;
+  position: relative;
+}
+
+.image-link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.image-link:hover::after {
+  opacity: 1;
 }
 </style>

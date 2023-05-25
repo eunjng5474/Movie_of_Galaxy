@@ -131,19 +131,6 @@
 },
 {
     "model": "movies.movie",
-    "pk": 11,
-    "fields": {
-        "title": "메간",
-        "overview": "교통사고로 부모를 잃고 혼자가 된 소녀 ‘케이디’. 로봇 엔지니어이자, ‘케이디’의 보호자가 된 ‘젬마’는 ‘케이디’를 안전하게 지켜야 하는 프로그램이 입력된 AI 로봇 ‘메간’을 선물한다. 메간은 언제나 ‘케이디’의 곁을 지켜주며 함께 웃고, 힘들 땐 위로해주는 둘도 없는 친구가 된다. 어느 날, ‘케이디’가 위험에 처하자 ‘메간’은 예측할 수 없는 방향으로 업그레이드되며 감당할 수 없는 일들이 벌어지는데…",
-        "release_date": "2022-12-28",
-        "poster_path": "/v0TtgXaZZ6NeDxKackgQK9byEDL.jpg",
-        "vote_average": 7.3,
-        "popularity": 274.906,
-        "key": "NyRLKaOucc8"
-    }
-},
-{
-    "model": "movies.movie",
     "pk": 12,
     "fields": {
         "title": "스파이더맨: 노 웨이 홈",

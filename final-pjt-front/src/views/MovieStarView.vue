@@ -18,16 +18,16 @@
       <br>
       <div class="images" style="text-align: left; border-bottom: solid 1px; border-bottom-color:white; width: 70%; margin: 0 auto;">
         <div>
-          <router-link :to="{ name: 'MoviePopularView'}">
+          <router-link :to="{ name: 'MoviePopularView'}" class="image-link">
             <img class="recom-img" src="@/assets/popul.png" alt="" >
           </router-link>
-          <router-link :to="{ name: 'MovieVoteView'}">
+          <router-link :to="{ name: 'MovieVoteView'}" class="image-link">
             <img class="recom-img" src="@/assets/average.png" alt="">
           </router-link>
-          <router-link :to="{ name: 'MovieRandomView'}">
+          <router-link :to="{ name: 'MovieRandomView'}" class="image-link">
             <img class="recom-img" src="@/assets/random.png" alt="">
           </router-link>
-          <router-link :to="{ name: 'MovieStarView'}">
+          <router-link :to="{ name: 'MovieStarView'}" class="image-link">
             <img class="recom-img" src="@/assets/star.png" alt="" >
           </router-link>
         </div>
@@ -88,12 +88,15 @@ export default {
   methods: {
     getStarMovies() {
       // console.log(this.getAllMovies)
+      let j = 0;
       for(let i=0; i<this.getAllMovies.length; i++) {
+        if(j == 30) break;
         if (this.getUserStar == '물병자리') {
           let movie_month = this.getAllMovies[i].release_date.slice(5, 7)
           let movie_day = this.getAllMovies[i].release_date.slice(8, 11)
           if ((movie_month == 1 && movie_day >= 20) || (movie_month == 2 && movie_day <= 18)) {
             this.starMovies.push(this.getAllMovies[i])
+            j ++
         }
       } 
         else if (this.getUserStar == '물고기자리') {
@@ -101,6 +104,7 @@ export default {
           let movie_day = this.getAllMovies[i].release_date.slice(8, 11)
           if ((movie_month == 2 && movie_day >= 19) || (movie_month == 3 && movie_day <= 20)) {
             this.starMovies.push(this.getAllMovies[i])
+            j ++
         }
       } 
         else if (this.getUserStar == '양자리') {
@@ -108,6 +112,7 @@ export default {
           let movie_day = this.getAllMovies[i].release_date.slice(8, 11)
           if ((movie_month == 3 && movie_day >= 21) || (movie_month == 4 && movie_day <= 19)) {
             this.starMovies.push(this.getAllMovies[i])
+            j ++
         }
       } 
         else if (this.getUserStar == '황소자리') {
@@ -115,6 +120,7 @@ export default {
           let movie_day = this.getAllMovies[i].release_date.slice(8, 11)
           if ((movie_month ==4 && movie_day >= 20) || (movie_month == 5 && movie_day <= 20)) {
             this.starMovies.push(this.getAllMovies[i])
+            j ++
         }
       } 
         else if (this.getUserStar == '쌍둥이자리') {
@@ -122,6 +128,7 @@ export default {
           let movie_day = this.getAllMovies[i].release_date.slice(8, 11)
           if ((movie_month == 5 && movie_day >= 21) || (movie_month == 6 && movie_day <= 21)) {
             this.starMovies.push(this.getAllMovies[i])
+            j ++
         }
       } 
         else if (this.getUserStar == '게자리') {
@@ -129,6 +136,7 @@ export default {
           let movie_day = this.getAllMovies[i].release_date.slice(8, 11)
           if ((movie_month ==6 && movie_day >= 22) || (movie_month == 7 && movie_day <= 22)) {
             this.starMovies.push(this.getAllMovies[i])
+            j ++
         }
       } 
         else if (this.getUserStar == '사자자리') {
@@ -136,6 +144,7 @@ export default {
           let movie_day = this.getAllMovies[i].release_date.slice(8, 11)
           if ((movie_month == 7 && movie_day >= 23) || (movie_month == 8 && movie_day <= 22)) {
             this.starMovies.push(this.getAllMovies[i])
+            j ++
         }
       } 
         else if (this.getUserStar == '처녀자리') {
@@ -143,6 +152,7 @@ export default {
           let movie_day = this.getAllMovies[i].release_date.slice(8, 11)
           if ((movie_month ==8 && movie_day >= 23) || (movie_month == 9 && movie_day <= 23)) {
             this.starMovies.push(this.getAllMovies[i])
+            j ++
         }
       } 
         else if (this.getUserStar == '천칭자리') {
@@ -150,6 +160,7 @@ export default {
           let movie_day = this.getAllMovies[i].release_date.slice(8, 11)
           if ((movie_month == 9 && movie_day >= 24) || (movie_month == 10 && movie_day <= 22)) {
             this.starMovies.push(this.getAllMovies[i])
+            j ++
         }
       } 
         else if (this.getUserStar == '전갈자리') {
@@ -157,6 +168,7 @@ export default {
           let movie_day = this.getAllMovies[i].release_date.slice(8, 11)
           if ((movie_month == 10 && movie_day >= 23) || (movie_month == 11 && movie_day <= 22)) {
             this.starMovies.push(this.getAllMovies[i])
+            j ++
         }
       } 
         else if (this.getUserStar == '사수자리') {
@@ -164,6 +176,7 @@ export default {
           let movie_day = this.getAllMovies[i].release_date.slice(8, 11)
           if ((movie_month ==11 && movie_day >= 23) || (movie_month == 12 && movie_day <= 24)) {
             this.starMovies.push(this.getAllMovies[i])
+            j ++
         }
       } 
         else if (this.getUserStar == '염소자리') {
@@ -171,6 +184,7 @@ export default {
           let movie_day = this.getAllMovies[i].release_date.slice(8, 11)
           if ((movie_month == 12 && movie_day >= 25) || (movie_month == 1 && movie_day <= 19)) {
             this.starMovies.push(this.getAllMovies[i])
+            j ++
         }
       } 
     }
@@ -185,5 +199,27 @@ export default {
   width:120px; 
   height:120px;
   /* margin: 0 300px 0 */
+}
+
+.image-link {
+  display: inline-block;
+  position: relative;
+}
+
+.image-link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(6, 5, 12, 0.5);
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.image-link:hover::after {
+  opacity: 1;
 }
 </style>
