@@ -27,16 +27,16 @@
       <div class="recommend-and-search" style="width: 80%; margin: 0 auto;">
         <div class="d-flex justify-content-between" style="margin-top: 30px;">
           <div class="images">
-          <router-link :to="{ name: 'MoviePopularView'}">
+          <router-link :to="{ name: 'MoviePopularView'}" class="image-link">
             <img class="recom-img" src="@/assets/popul.png" alt="" >
           </router-link>
-          <router-link :to="{ name: 'MovieVoteView'}">
+          <router-link :to="{ name: 'MovieVoteView'}" class="image-link">
             <img class="recom-img" src="@/assets/average.png" alt="">
           </router-link>
-          <router-link :to="{ name: 'MovieRandomView'}">
+          <router-link :to="{ name: 'MovieRandomView'}" class="image-link">
             <img class="recom-img" src="@/assets/random.png" alt="">
           </router-link>
-          <router-link :to="{ name: 'MovieStarView'}">
+          <router-link :to="{ name: 'MovieStarView'}" class="image-link">
             <img class="recom-img" src="@/assets/star.png" alt="" >
           </router-link>
           </div>
@@ -152,6 +152,29 @@ export default {
   background-image: url(@/assets/movielist4.png);
   /* background-size: cover; */
   background-position: center;
+}
+
+
+/* 이미지위에 올렸을때 효과 */
+.image-link {
+  display: inline-block;
+  position: relative;
+}
+
+.image-link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.image-link:hover::after {
+  opacity: 1;
 }
 
 </style>

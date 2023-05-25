@@ -11,12 +11,20 @@
         <h3 class="mt-4" style="color: white">{{NasaTitle}}</h3>
         <h5 v-if="!TranslateContent" class="lh-base mt-5" style=" color: white;">{{NasaContent}}</h5>
         <h5 v-else class="lh-base mt-5" style=" color: white;">{{TranslateContent}}</h5>
-        <div class="d-flex justify-content-center">
-          <img src="@/assets/ufo1.png" alt="" style="width:50px; height:50px;">
-          <button  @click="Translate(NasaContent)" class="btn btn-outline-light">한글</button>
 
+        <div v-if="NasaImg">
+          <div class="d-flex justify-content-center">
+            <img src="@/assets/ufo1.png" alt="" style="width:50px; height:50px;">
+            <button  @click="Translate(NasaContent)" class="btn btn-outline-light">한글</button>
+
+          </div>
+
+          <img class="mt-5" style="width: 100%; height: auto; margin-bottom: 100px;" :src="NasaImg" alt="">
         </div>
-        <img class="mt-5" style="width: 100%; height: auto; margin-bottom: 100px;" :src="NasaImg" alt="">
+        <div v-else style="background-color:black; height:100vh">
+          <img src="@/assets/loading.gif" class="loadImg">
+
+          </div>
       </div>
 
   </div>
@@ -39,7 +47,11 @@ export default {
 
   created() {
     this.NasaSearch()
-    // this.Papago()
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    this.time1 = `${year}-${month}-${day}`;
   },
 
   data() {
@@ -47,6 +59,7 @@ export default {
       NasaTitle: null,
       NasaContent: null,
       NasaImg: null,
+      currentDate:null,
       time1: null,
       TranslateTitle:null,
       TranslateContent:null,

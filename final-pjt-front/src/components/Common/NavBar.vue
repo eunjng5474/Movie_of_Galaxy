@@ -18,7 +18,7 @@
                 <router-link to="/community" class="nav-link ms-4" style="color:white;"><h5><b>Community</b></h5></router-link>
               </li>
               <li class="nav-item">
-                <router-link to="/nasa" class="nav-link ms-4" style="color:white;"><h5><b>Daily Star</b></h5></router-link>
+                <router-link to="/nasa" class="nav-link ms-4" style="color:white;"><h5><b>Daily Space</b></h5></router-link>
               </li>
               <!-- <li class="nav-item">
                 <router-link to="/signup" class="nav-link" style="color:white;">signup임시(나중없어짐)</router-link>
@@ -78,22 +78,5 @@ export default {
 
 .router-link-exact-active {
   text-decoration: none !important;
-}
-
-/* 임시 */
-.nav-link:hover {
-  background-color: #000;
-  opacity: 0.5;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.dropdown-menu .droptown-item:hover {
-  background-color: #000;
-  opacity: 0.5;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.profile-link:hover {
-  color: #000;
 }
 </style>
