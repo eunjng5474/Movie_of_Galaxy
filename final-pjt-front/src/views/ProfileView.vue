@@ -2,12 +2,12 @@
   <div class="profile-page">
     <NavBar/>
     <div>
-    <h1 style="margin-bottom: 60px; color: black;"><b>My Profile</b></h1>
+    <h1 style="margin-bottom: 60px; color: white; text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5)"><b>My Profile</b></h1>
     <div class="profile-img-and-info d-flex justify-content-around" style="width: 60%; margin: 0 auto; margin-bottom: 70px;">
       <div class="profile-star-img">
         <img class="img-thumbnail" :src="imgg" alt="" style="width: 300px; height: 300px; margin-bottom: 10px;" @click="getRandomImgs">
         <br>
-        <h5 style="color: white;" @click="getRandomImgs">사진을 눌러보세요!</h5>
+        <h5 style="color: black;" @click="getRandomImgs">사진을 눌러보세요!</h5>
         <!-- <button @click="getRandomImgs">랜덤 가챠</button> -->
       </div>
       <div class="user-information text-start" style="margin-left: 10px;">
@@ -16,8 +16,8 @@
             <img style="width: 60px; height: 60px; margin-right: 15px;" src="@/assets/alien.png" alt="">
           </div>
           <div class="profile-nickname-text">
-            <h5 style="color: white"><b>닉네임</b></h5>
-            <h3 style="color: black;"><b>{{ getUserInfo?.nickname }}</b></h3>
+            <h5 style="color: white; text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5)"><b>닉네임</b></h5>
+            <h3 style="color: black; text-shadow: 4px 4px 4px rgba(255, 255, 255, 0.5);"><b>{{ getUserInfo?.nickname }}</b></h3>
           </div>
         </div>
         <!-- <h5>생년월일 : <b>{{ birth_year}}년 {{ birth_month }}월 {{ birth_day}}일</b></h5> -->
@@ -27,8 +27,8 @@
             <img style="width: 60px; height: 60px; margin-right: 15px;" src="@/assets/birthday-cake.png" alt="">
           </div>
           <div class="profile-birth-text">
-            <h5 style="color: white"><b>생년월일</b></h5>
-            <h3 style="color: black;"><b>{{ getUserBirthYear }}년 {{ getUserBirthMonth }}월 {{getUserBirthDay}}일</b></h3>
+            <h5 style="color: white; text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5)"><b>생년월일</b></h5>
+            <h3 style="color: black; text-shadow: 4px 4px 4px rgba(255, 255, 255, 0.5);"><b>{{ getUserBirthYear }}년 {{ getUserBirthMonth }}월 {{getUserBirthDay}}일</b></h3>
           </div>
         </div>
         <br>
@@ -37,15 +37,15 @@
             <img style="width: 60px; height: 60px; margin-right: 15px;" src="@/assets/constellation.png" alt="">
           </div>
           <div class="profile-star-text">
-            <h5 style="color: white"><b>별자리</b></h5>
-            <h3 class="fw-bolder" style="color: black;">{{ getUserStar }}</h3>
+            <h5 style="color: white; text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5)"><b>별자리</b></h5>
+            <h3 class="fw-bolder" style="color: black; text-shadow: 4px 4px 4px rgba(255, 255, 255, 0.5)">{{ getUserStar }}</h3>
           </div>
         </div>
       </div>
     </div>
     <div class="like-movies">
       <!-- <p>{{likes_movie_id}}</p> -->
-      <h2 style="color: black;"><b>{{ getUserInfo?.nickname }}님이 좋아한 영화</b></h2>
+      <h2 style="color: white; text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5)"><b>{{ getUserInfo?.nickname }}이 좋아한 영화</b></h2>
       <br>
        <!-- v-for="like_movie in user_movie_list" :key="like_movie.id" -->
       <div>
@@ -212,10 +212,26 @@ export default {
 
 <style scoped>
 .profile-page {
-  background-image: url(@/assets/profileback10.jpg);
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.profile-page::after {
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: url(@/assets/profileback3.jpg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* opacity: 0.9; */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  z-index: -1;
 }
 
 .user-information {

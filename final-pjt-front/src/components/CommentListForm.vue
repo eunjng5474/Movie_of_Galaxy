@@ -3,7 +3,7 @@
     <form @submit.prevent="createComment">
       <!-- <label for="content"></label> -->
       <input type="text" size="38" id="comment" v-model="content" placeholder="댓글을 입력해주세요"
-      style="background-color: rgba(255, 255, 255, 0.4); border-radius: 5px; height: 40px; margin-right: 10px;">
+      style="background-color: rgba(255, 255, 255, 0.4); border-radius: 5px; height: 40px; margin-right: 10px; ">
       <button class="btn btn-outline-light" type="submit">제출</button> 
       <!-- <input class="btn btn-outline-secondary" type="submit" id="submit"> -->
     </form>

@@ -13,8 +13,8 @@
 
     <NavBar/>
     <div>
-      <h1 class="fw-bold" style="color:white; margin-bottom: 30px;"> 랜덤 영화 추천</h1>
-      <h4 style="color:white;">랜덤으로 추천해드립니다</h4>
+      <h1 class="fw-bold" style="color:white; margin-bottom: 30px;">랜덤 영화 추천</h1>
+      <h4 style="color:white;">오늘은 운에 맡겨보는 게 어떤가요?</h4>
       <br>
       <div class="images" style="text-align: left; border-bottom: solid 1px; border-bottom-color:white; width: 70%; margin: 0 auto;">
         <div>
@@ -31,8 +31,11 @@
             <img class="recom-img" src="@/assets/star.png" alt="" >
           </router-link>
         </div>
+        <!-- <div>
+          <button class="btn btn-outline-primary">다시 추천</button>
+        </div> -->
       </div>
-      <carousel-3d height="480" border="5" :autoplay="true" :count="30" :controls-visible="true" style="width: 70%; margin: 0 auto; margin-top: 60px;">
+      <carousel-3d height="480" border="5" :autoplay="true" :count="30" :controls-visible="true" style="width: 70%; margin: 0 auto; margin-top: 60px; margin-bottom: 50px;">
         <slide style="border-color: white;" 
         v-for="(movie, idx) in random30" :index="idx" :key="idx">
           <template slot-scope="{index, isCurrent, leftIndex, rightIndex}">
