@@ -218,27 +218,27 @@ const accountsModule = {
         })
         .then(() => {
           router.push({name: 'LogInView'})
-          // context.commit('SIGNUP_USER')
-          // console.log(res)
-          // this.state.current_usernickname = payload.nickname
-          // this.state.current_username = username
-          // console.log(this.state.current_username)
-          // console.log(this.state.current_usernickname)
-          
-          //// string -> object로 변환
-          // 제발되라
-          // const token = res.data.key
-          // axios.defaults.headers.common['Authorization'] = `Token ${token}`
-
-          // const userinfo = JSON.parse(res.config.data)
-          // console.log(typeof(test))
-          // console.log(res.data.key)
-          // context.commit('SAVE_TOKEN', token)
-          // context.commit('SIGNUP_SAVE_USER', userinfo)
         })
         .catch((err) => {
+          // console.log(payload)
+          if (!payload.username) {
+            alert('ID를 입력해주세요')            
+          } else if(!payload.password1) {
+            alert('Password를 입력해주세요')
+          } else if(!payload.password2) {
+            alert('Password confirmation을 입력해주세요')
+          } else if(!payload.nickname) {
+            alert('nickname을 입력해주세요')
+          } else if(!payload.birth) {
+            alert('birth를 입력해주세요')
+          } else if(payload.password1!=payload.password2) {
+            alert('Password 확인이 일치하지않습니다.')
+          }
+            else{
+              alert('이미 사용중인 ID입니다.')
+            }
           console.log(err)
-        })
+          })
       },
       getUserInfo(context, username) {
         // console.log(username)
@@ -300,6 +300,7 @@ const accountsModule = {
           // router.push({ name: 'MovieView'})
         })
         .catch((err) => {
+          alert('ID와 Password를 다시 확인해주세요')
           console.log(err)
         })
       },

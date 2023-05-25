@@ -11,9 +11,7 @@
     <div v-else>
 
     <div class="box">
-      <router-link to="/movies" style="color:white;">임시 나중지움 무비로가는거MOvie</router-link>
       <br>
-      <router-link to="/signup" style="color:white;">임시 나중 지움 SignUp 가는거</router-link> 
       <h2>Login</h2>
       <form @submit.prevent="login">
         <div class="inputBox">
@@ -25,9 +23,9 @@
           <label>Password</label>
         </div>
         <div>
-          <input type="submit" name="log-in" value="Log In">
+          <button type="submit" class="btn btn-outline-light m-2">Log In</button>
           <router-link to="/signup">
-            <input type="submit" name="sign-up" value="Sign Up">
+            <button type="submit" class="btn btn-outline-light m-2">Sign Up</button>
           </router-link>
         </div>
       </form>

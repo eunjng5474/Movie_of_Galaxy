@@ -10,17 +10,14 @@
     </div>
 
     <div>
-
       
-    <div class="box">
-      <router-link to="/movies" style="color:white;">임시 나중지움 무비로가는거MOvie</router-link>
+    <div class="box"> 
       <br>
-      <router-link to="/" style="color:white;">임시 나중 지움 lopgin 가는거</router-link> 
       <h2>Sign Up</h2>
       <form @submit.prevent="signUp">
         <div class="inputBox">
           <input type="text" id="username" v-model="username"><br>
-          <label>username</label>
+          <label>ID</label>
         </div>
         <div class="inputBox">
           <input type="text" id="nickname" v-model="nickname"><br>
@@ -38,7 +35,7 @@
           <input type="password" id="password2" v-model="password2">
           <label for="password2"> password confirmation</label>
         </div>
-        <input type="submit" value="SignUp">
+        <button type="submit" class="btn btn-outline-light m-2">Sign Up</button>
       </form>
     </div>
     </div>
