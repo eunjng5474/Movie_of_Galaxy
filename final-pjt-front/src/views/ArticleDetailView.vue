@@ -136,7 +136,7 @@ export default {
         "line_linked": {
           "enable": true,
           "distance": 150,
-          "color": "#ffffff",
+          "color": "#ffff00",
           "opacity": 0.4,
           "width": 1
         },

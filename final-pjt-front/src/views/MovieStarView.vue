@@ -13,7 +13,7 @@
 
     <NavBar/>
     <div>
-      <h1 class="fw-bold" style="color:white; margin-bottom: 30px;">{{getUserInfo.nickname}}과 별자리가 같은 영화</h1>
+      <h1 class="fw-bold" style="color:white; margin-bottom: 30px;">{{getUserInfo.nickname}}님과 별자리가 같은 영화</h1>
       <h4 style="color:white;">{{getUserStar}}의 영화들은 어떤가요?</h4>
       <br>
       <div class="images" style="text-align: left; border-bottom: solid 1px; border-bottom-color:white; width: 70%; margin: 0 auto;">

@@ -1,9 +1,16 @@
 <template>
   <div class="heropage">
 
-      <div div id="particles-js"></div>
+      <div id="particles-js"></div>
 
     <NavBar/>
+
+    <div>
+      <h1><b>Hero-Zone</b></h1>
+      <br>
+      <h4>히어로 영화의 주인공들을 만나보세요!</h4>
+      <h4>클릭한 캐릭터로 그들이 출연한 영화를 검색할 수 있습니다.</h4>
+    </div>
 
     <div class="">
       <div class="lowlow">
@@ -60,7 +67,7 @@
               <img class="recom-img1" src="@/assets/spider.gif" alt="">
         </router-link>
       </div>
-
+      
       <div class="lowlow">
         <router-link :to="{ name: 'MovieSearchView', params:{keyword:terminate}}" class="image-link">
               <img class="recom-img1" src="@/assets/terminate.gif" alt="">

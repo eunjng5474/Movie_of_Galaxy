@@ -103,6 +103,7 @@ const moviesModule = {
       state.searchMovies = searchmovies
     },
     GET_LIKEMOVIES(state, movielist) {
+      state.movieLike1 = []
       for(let i=0; i<movielist.length; i++) {
         state.movieLike1.push(movielist[i].id)
       }

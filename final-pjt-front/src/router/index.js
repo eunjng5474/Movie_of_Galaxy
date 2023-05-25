@@ -16,6 +16,7 @@ import MovieStarView from '../views/MovieStarView.vue'
 import MovieSearchView from '../views/MovieSearchView.vue'
 import NasaView from '../views/NasaView.vue'
 import HeroView from '../views/HeroView.vue'
+import StartView from '../views/StartView.vue'
 
 import NotFound404View from '../views/NotFound404View.vue'
 
@@ -26,7 +27,14 @@ Vue.use(VueRouter)
 
 const routes = [
 
-// 일단 첫화면에 로그인이 나와야함
+
+  //시작 페이지
+  {
+    path: '/',
+    name: 'StartView',
+    component: StartView
+
+  },
 
 
   {
@@ -45,7 +53,7 @@ const routes = [
     // component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
   {
-    path: '/',
+    path: '/login',
     name: 'LogInView',
     component: LogInView
   },
@@ -144,7 +152,7 @@ router.beforeEach((to, from, next) => {
 
   const isLoggedIn = store.getters.isLogin
 
-  const allowAuthPages = ['LogInView', 'SignupView']
+  const allowAuthPages = ['StartView','LogInView', 'SignupView']
 
   const isAuthRequired = !allowAuthPages.includes(to.name)
 

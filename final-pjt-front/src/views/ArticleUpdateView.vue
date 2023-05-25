@@ -14,7 +14,7 @@
           <br>
           <label class="mt-4" for="content"><h5><b>내용</b></h5></label>
           <textarea id="content" cols="30" rows="10" v-model="content" style="background-color: rgba(255, 255, 255, 0.4); border-radius: 5px; width: 90%; color: white;">
-            </textarea><br>
+            </textarea>
           <br>
           <button class="btn btn-outline-light mt-3" type="submit">작성 완료</button>
         </div>
@@ -134,7 +134,7 @@ export default {
       "line_linked": {
         "enable": true,
         "distance": 150,
-        "color": "#ffffff",
+        "color": "#ffff00",
         "opacity": 0.4,
         "width": 1
       },
@@ -207,7 +207,7 @@ export default {
   padding: 0;
   background-color: #0f0f1f; /* 배경색을 어두운 우주색으로 설정 */
   color: #ffffff; /* 글자색을 흰색으로 설정 */
-  height: 120vh;
+  height: 100vh;
   overflow: auto;
 }
 
@@ -223,6 +223,7 @@ export default {
 
 .article-create-title {
   font-size: 30px;
+  
   font-weight: bold;
   margin-bottom: 20px;
 }

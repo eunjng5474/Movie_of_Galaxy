@@ -7,7 +7,7 @@
       <div class="profile-star-img">
         <img class="img-thumbnail" :src="imgg" alt="" style="width: 300px; height: 300px; margin-bottom: 10px;" @click="getRandomImgs">
         <br>
-        <h5 style="color: black;" @click="getRandomImgs">사진을 눌러보세요!</h5>
+        <h5 style="color: black;" @click="getRandomImgs"><b>사진을 눌러보세요!</b></h5>
         <!-- <button @click="getRandomImgs">랜덤 가챠</button> -->
       </div>
       <div class="user-information text-start" style="margin-left: 10px;">
@@ -45,7 +45,7 @@
     </div>
     <div class="like-movies">
       <!-- <p>{{likes_movie_id}}</p> -->
-      <h2 style="color: white; text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5)"><b>{{ getUserInfo?.nickname }}이 좋아한 영화</b></h2>
+      <h2 style="color: white; text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5)"><b>{{ getUserInfo?.nickname }}님이 좋아한 영화</b></h2>
       <br>
        <!-- v-for="like_movie in user_movie_list" :key="like_movie.id" -->
       <div>

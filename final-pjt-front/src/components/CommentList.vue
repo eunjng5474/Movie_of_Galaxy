@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="comment-section">
-      <h4><b>댓글</b></h4>
+      <h4><b>댓글: {{commentCount}}개</b></h4>
       <CommentListItem @update-comment="getArticleDetail"
         v-for="(comment, idx) in comments" :key="idx" :comment="comment"/>
       <div class="comment-form">
@@ -26,6 +26,9 @@ export default {
   computed: {
     comments() {
       return this.$store.getters.detailarticle.comment_set
+    },
+    commentCount() {
+      return this.$store.getters.detailarticle.comment_count
     }
   },
   methods: {

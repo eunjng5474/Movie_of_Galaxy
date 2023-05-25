@@ -1,6 +1,6 @@
 <template>
   <div class="nav-bar">
-      <nav class="navbar navbar-expand-lg navbar-light ">
+      <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
           <router-link to="/movies" class="navbar-brand"><img src="@/assets/logo1.png" alt=""></router-link>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 

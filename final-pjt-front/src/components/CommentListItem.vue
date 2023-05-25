@@ -36,11 +36,12 @@ export default {
   },
   created() {
     this.content = this.comment.content
-    console.log(this.comment)
+    // console.log(this.comment)
     // this.deleteComment()
   },
   mounted() {
     this.getCommentUpdate()
+
   },
   methods: {
     deleteComment() {
@@ -108,7 +109,7 @@ export default {
     getCurrentUser() {
       // console.log(this.$store.getters.currentUser.username)
       return this.$store.getters.currentUser
-    }
+    },
   }
 }
 </script>
