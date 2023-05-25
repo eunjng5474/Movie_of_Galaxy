@@ -1,10 +1,8 @@
 <template>
   <div class="nav-bar">
-      <!-- <h1>네브바다임마</h1> -->
-      <br>
       <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container-fluid">
-          <router-link to="/movies" class="navbar-brand"><h3><b>Movie Of Galaxy</b></h3></router-link>
+          <router-link to="/movies" class="navbar-brand"><img src="@/assets/logo1.png" alt=""></router-link>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="display: none;">
             <span class="navbar-toggler-icon"></span>
@@ -18,7 +16,7 @@
                 <router-link to="/community" class="nav-link ms-4"><h5><b>Community</b></h5></router-link>
               </li>
               <li class="nav-item">
-                <router-link to="/nasa" class="nav-link ms-4"><h5><b>Daily Star</b></h5></router-link>
+                <router-link to="/nasa" class="nav-link ms-4"><h5><b>Daily Space</b></h5></router-link>
               </li>
               <!-- <li class="nav-item">
                 <router-link to="/signup" class="nav-link" style="color:white;">signup임시(나중없어짐)</router-link>

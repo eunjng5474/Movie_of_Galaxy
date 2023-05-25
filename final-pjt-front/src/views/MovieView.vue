@@ -13,6 +13,7 @@
       <img src="@/assets/loading.gif" class="loadImg">
 
     </div>
+    
 
     <div v-else>
       <div class="nav-container">
@@ -74,13 +75,15 @@ export default {
     return {
       keyword: '',
       videoLoaded: false,
+      isLoading: true,
       videoSrc:  require('@/assets/movielist3.mp4')
     }
   },
-  created() {
+  mounted() {
     this.getMovies()
     this.getUserInformation()
 
+  
   },
 
   methods: {
@@ -128,7 +131,7 @@ export default {
 
 .video-container {
   position: relative;
-  height: 300px; 
+  height: 150px; 
   overflow: hidden;
 }
 
