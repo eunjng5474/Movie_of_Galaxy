@@ -4,6 +4,7 @@
       <!-- <vue-glide> -->
         <!-- <vue-glide-slide :key="movie.id"> -->
           <!-- <p>{{getUserInfo?.like_movies}}</p> -->
+
           <div class="card h-200 mt-3 mb-3 bg-transparent">
             <router-link :to="{
               name: 'MovieDetailView',
@@ -23,6 +24,7 @@
               <img style="margin-left: 50px; width: 55px; height: 50px;" v-else @click="likeMovie" src="@/assets/ufohate11.png"> -->
               <!-- <button :class="like_btn" @click="likeMovie">좋아요</button> -->
             </div>
+            
             <!-- {{ detailOneMovie.like_users}} -->
           </div>
         <!-- </vue-glide-slide> -->
@@ -32,8 +34,6 @@
 </template>
 
 <script>
-// import { Carousel3d, Slide } from 'vue-carousel-3d';
-// import { Glide, GlideSlide } from 'vue-glide-js'
 
 export default {
   name: 'MovieListItem',
@@ -44,7 +44,8 @@ export default {
     return {
       like_btn: 'btn btn-outline-primary',
       like_toggle: false,
-      this_movie: this.movie
+      this_movie: this.movie,
+      isload: false
     }
   },
   components: {
@@ -52,12 +53,7 @@ export default {
     // [GlideSlide.name]: GlideSlide
   },
   created() {
-        // this.getUserInformation()
-        // console.log(this.getUserInfo?.like_movies.includes(this.movie))
-    // this.likeMovie()
-    // likeMovie() {
-    //   return this.$store.getters.movieLike
-    // }
+
   },
   computed: {
     detailOneMovie() {
@@ -80,32 +76,14 @@ export default {
       // 좋아요 누르고 새로고침하면 버튼 색깔 다시 기본으로 돌아감 - this.like_toggle로 판단해서인 듯
       const movieId = this.movie.id
       this.$store.dispatch('likeMovie', movieId)
-      // this.like_toggle = !this.like_toggle
-      // if (this.getLike.includes(this.detailOneMovie.id)) {
-      //   this.like = '💜'
-      // } else {
-      //   this.like = '🖤'
-      // }
     },
     //// 로그아웃 후 다시 로그인해도 기존 좋아요 리스트 반영되게 테스트
       getUserInformation() {
         const username = this.getCurrentUser.username
         // console.log(username)
         this.$store.dispatch('getUserInfo', username)
-      }
+      },
 
-    // likeMovie() {
-    //   // const movieId = this.$store.getters.detailmovie.id
-    //   const movieId = this.this_movie.id
-    //   console.log(movieId)
-    //   this.$store.dispatch('likeMovie', movieId)
-    //   this.like_toggle = !this.like_toggle
-    //   if (this.like_toggle === true) {
-    //     this.like_btn = 'btn btn-primary'
-    //   } else {
-    //     this.like_btn = 'btn btn-outline-primary'
-    //   }
-    // }
   }
 }
 </script>

@@ -152,7 +152,7 @@ export default {
           }
         },
         "opacity": {
-          "value": 0.5,
+          "value": 1.3,
           "random": false,
           "anim": {
             "enable": false,
@@ -180,7 +180,7 @@ export default {
         },
         "move": {
           "enable": true,
-          "speed": 5,
+          "speed": 8,
           "direction": "none",
           "random": false,
           "straight": false,

@@ -9,7 +9,6 @@
 
     </div>
 
-
     <div v-else>
 
 
@@ -95,7 +94,7 @@ export default {
   margin: 0;
   padding: 0;
   
-  height:auto;
+  height:120vh;
 }
 
 .popbackground-video {
