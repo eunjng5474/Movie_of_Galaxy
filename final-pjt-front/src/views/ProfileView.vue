@@ -2,7 +2,7 @@
   <div class="profile-page">
     <NavBar/>
     <div>
-    <h1 class="text-info" style=" margin-bottom: 60px;"><b>My Profile</b></h1>
+    <h1 style="margin-bottom: 60px; color: black;"><b>My Profile</b></h1>
     <div class="profile-img-and-info d-flex justify-content-around" style="width: 60%; margin: 0 auto; margin-bottom: 70px;">
       <div class="profile-star-img">
         <img class="img-thumbnail" :src="imgg" alt="" style="width: 300px; height: 300px; margin-bottom: 10px;" @click="getRandomImgs">

@@ -2,7 +2,7 @@
   <tbody>
     <tr>
       <td>
-        <router-link :to="{ 
+        <router-link class="fw-semibold" :to="{ 
           name: 'ArticleDetailView',
           params: { id: article?.id }}" style="color:white; text-decoration:none;">   
           {{ article?.title }}

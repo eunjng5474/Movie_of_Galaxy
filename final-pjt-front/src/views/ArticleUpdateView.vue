@@ -10,13 +10,13 @@
         <div style="width: 90%; margin: 0 auto;">
           <label class="col align-self-start mt-2" for="title"><h5><b>제목</b></h5></label>
           <input type="text" id="title" v-model.trim="title"
-          style="background-color: rgba(255, 255, 255, 0.4); border-radius: 5px; width: 90%; height: 40px;"><br>
+          style="background-color: rgba(255, 255, 255, 0.4); border-radius: 5px; width: 90%; height: 40px; color: white;"><br>
           <br>
           <label class="mt-4" for="content"><h5><b>내용</b></h5></label>
-          <textarea id="content" cols="30" rows="10" v-model="content" style="background-color: rgba(255, 255, 255, 0.4); border-radius: 5px; width: 90%">
+          <textarea id="content" cols="30" rows="10" v-model="content" style="background-color: rgba(255, 255, 255, 0.4); border-radius: 5px; width: 90%; color: white;">
             </textarea><br>
           <br>
-          <button class="btn btn-outline-light mt-4" type="submit">작성 완료</button>
+          <button class="btn btn-outline-light mt-3" type="submit">작성 완료</button>
         </div>
       </form>
       </div>    

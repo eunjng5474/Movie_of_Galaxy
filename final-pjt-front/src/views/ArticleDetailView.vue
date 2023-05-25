@@ -14,11 +14,13 @@
         <p>{{detailOneArticle?.content}}</p>
       </div>
       <!-- 자기가작성한것만 수정하기랑 삭제가뜸 -->
-      <div v-if="isArticleAuthor" class="justify-content-end">
-        <router-link :to="{ name: 'ArticleUpdateView', 
-        params: {id: detailOneArticle?.id}}">
-        <button class="btn btn-outline-success" style="margin-right: 10px;">수정</button></router-link>
-        <button class="btn btn-outline-danger" style="margin-left: 10px;" @click="deleteArticle">삭제</button>
+      <div class="d-flex justify-content-end"> 
+        <div v-if="isArticleAuthor" class="edit-btns">
+          <router-link :to="{ name: 'ArticleUpdateView', 
+          params: {id: detailOneArticle?.id}}">
+          <button class="btn btn-outline-success">수정</button></router-link>
+          <button class="btn btn-outline-danger" style="margin-left: 10px;" @click="deleteArticle">삭제</button>
+        </div>
       </div>
       <hr>
       
@@ -243,5 +245,9 @@ export default {
   margin-bottom: 20px;
   font-size: 20px;
 }
+
+/* .edit-btns {
+  justify-content: end;
+} */
 
 </style>

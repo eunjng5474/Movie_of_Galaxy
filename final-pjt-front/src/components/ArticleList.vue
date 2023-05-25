@@ -7,12 +7,12 @@
       style="position:relative; z-index:1; text-decoration:none; font-size:25px; color: white;"><p><b>글 작성하기</b></p></router-link>
     </div>
       <div v-if="articles">
-        <table class="table">
+        <table class="table" style="">
           <thead>
             <tr>
-              <th >제목</th>
-              <th>작성자</th>
-              <th>작성날짜</th>
+              <th class="text-center">제목</th>
+              <th class="text-center">작성자</th>
+              <th class="text-center">작성날짜</th>
             </tr>
           </thead>
           <ArticleListItem 
@@ -58,9 +58,9 @@ th{
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #555577; /* 구분선 색상을 어두운 회색으로 설정 */
-  color: white;
+  color: gray;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 25px;
 
 }
 

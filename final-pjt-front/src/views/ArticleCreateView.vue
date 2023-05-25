@@ -18,7 +18,7 @@
         <textarea id="content" cols="30" rows="10" v-model="content"
         style="background-color: rgba(255, 255, 255, 0.4); border-radius: 5px; width: 90%"></textarea>
         <br>
-        <button class="btn btn-outline-light mt-4" type="submit">작성 완료</button>
+        <button class="btn btn-outline-light mt-3" type="submit">작성 완료</button>
       </div>
     </form>
     </div>
