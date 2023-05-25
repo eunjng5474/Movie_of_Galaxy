@@ -1,5 +1,5 @@
 <template>
-  <div class="movie-popular-list-container ">      
+  <div class="movie-popular-list-container">      
     <video class="popbackground-video" autoplay loop muted preload="auto" poster="@/assets/pop_tem.png" @loadeddata="videoLoaded = true">
       <source src="@/assets/popback.mp4" type="video/mp4">
     </video>
@@ -15,7 +15,7 @@
 
     <NavBar/>
       <h1 class="fw-bold" style="color:white; margin-bottom: 30px;">믿고 보는 인기순</h1>
-      <h4  style="color:white;">현재 인기 있는 영화 TOP 30</h4>
+      <h4  style="color:white;">현재 가장 인기 있는 영화입니다</h4>
       <br>
       <div class="images" style="text-align: left; border-bottom: solid 1px; border-bottom-color:white; width: 70%; margin: 0 auto;">
         <div>
@@ -33,7 +33,7 @@
           </router-link>
         </div>
       </div>
-      <carousel-3d height="480" border="5" :autoplay="true" :count="30" :controls-visible="true" style="width: 70%; margin: 0 auto; margin-top: 60px;">
+      <carousel-3d height="480" border="5" :autoplay="true" :count="30" :controls-visible="true" style="width: 70%; margin: 0 auto; margin-top: 60px; margin-bottom: 50px;">
         <slide style="border-color: white;" 
         v-for="(movie, idx) in top30_popularity" :index="idx" :key="idx">
           <template slot-scope="{index, isCurrent, leftIndex, rightIndex}">
@@ -95,7 +95,7 @@ export default {
   margin: 0;
   padding: 0;
   
-  height:100vh;
+  height:auto;
 }
 
 .popbackground-video {

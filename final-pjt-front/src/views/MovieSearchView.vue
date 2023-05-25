@@ -141,8 +141,10 @@ export default {
 .middle-background{
   background-image: url(@/assets/movielist4.png);
   /* background-size: cover; */
-  background-position: center;
-  /* height: 100vh; */
+  /* background-position: center; */
+  /* height: 120%; */
+  height: 100vh;
+  overflow: auto;
 }
 
 .movie-card-container{

@@ -13,8 +13,8 @@
 
     <NavBar/>
     <div>
-      <h1 class="fw-bold" style="color:white; margin-bottom: 30px;"> 별자리가 같은 영화 추천</h1>
-      <h4 style="color:white;">{{getUserInfo.nickname}}의 별자리는 {{getUserStar}}입니다.</h4>
+      <h1 class="fw-bold" style="color:white; margin-bottom: 30px;">{{getUserInfo.nickname}}과 별자리가 같은 영화</h1>
+      <h4 style="color:white;">{{getUserStar}}의 영화들은 어떤가요?</h4>
       <br>
       <div class="images" style="text-align: left; border-bottom: solid 1px; border-bottom-color:white; width: 70%; margin: 0 auto;">
         <div>
@@ -32,7 +32,8 @@
           </router-link>
         </div>
       </div>
-      <carousel-3d height="480" border="5" :autoplay="true" :count="starMovies.length" :controls-visible="true" style="width: 70%; margin: 0 auto;  margin-top: 60px;">
+
+      <carousel-3d height="480" border="5" :autoplay="true" :count="starMovies.length" :controls-visible="true" style="width: 70%; margin: 0 auto;  margin-top: 60px; margin-bottom: 50px;">
         <slide style="border-color: white;" 
         v-for="(movie, idx) in starMovies" :index="idx" :key="idx">
           <template slot-scope="{index, isCurrent, leftIndex, rightIndex}">

@@ -6,17 +6,17 @@
       </div>
       <br>
       <div class="nasa-text" style="width: 70%; margin: 0 auto;">
-        <h3 class="mt-2" style="color: white">{{time1}}</h3>
+        <h3 class="mt-2" style="color: white">{{time1}}의 우주를 소개합니다</h3>
+        <h5 style="color: gray;">원하는 날짜를 선택해보세요</h5>
         <!-- <h1>나사페이지</h1> -->
-        <h3 class="mt-4" style="color: white">{{NasaTitle}}</h3>
+        <h3 style="color: white; margin-top: 40px;">{{NasaTitle}}</h3>
         <h5 v-if="!TranslateContent" class="lh-base mt-5" style=" color: white;">{{NasaContent}}</h5>
         <h5 v-else class="lh-base mt-5" style=" color: white;">{{TranslateContent}}</h5>
 
         <div v-if="NasaImg">
-          <div class="d-flex justify-content-center">
-            <img src="@/assets/ufo1.png" alt="" style="width:50px; height:50px;">
-            <button  @click="Translate(NasaContent)" class="btn btn-outline-light">한글</button>
-
+          <div class="d-flex justify-content-center" style="margin-top: 20px;">
+            <img src="@/assets/ufo1.png" alt="" style="width:50px; height:50px; margin-right: 10px;">
+            <button @click="Translate(NasaContent)" class="btn btn-outline-light">한글로 번역</button>
           </div>
 
           <img class="mt-5" style="width: 100%; height: auto; margin-bottom: 100px;" :src="NasaImg" alt="">

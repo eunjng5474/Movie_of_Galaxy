@@ -14,8 +14,8 @@
     
     <NavBar/>
     <div>
-      <h1 class="fw-bold" style="color:white; margin-bottom: 30px;"> 평점순 영화 추천</h1>
-      <h4 style="color:white;">평점이 좋은 영화 TOP 30</h4>
+      <h1 class="fw-bold" style="color:white; margin-bottom: 30px;">평점이 높은 영화</h1>
+      <h4 style="color:white;">사람들은 이 영화들을 높게 평가했어요</h4>
       <div class="images" style="text-align: left; border-bottom: solid 1px; border-bottom-color:white; width: 70%; margin: 0 auto;">
         <div>
           <router-link :to="{ name: 'MoviePopularView'}" class="image-link">
@@ -32,7 +32,7 @@
           </router-link>
         </div>
       </div>
-      <carousel-3d height="480" border="5" :autoplay="true" :count="30" :controls-visible="true" style="width: 70%; margin: 0 auto; margin-top: 60px;">
+      <carousel-3d height="480" border="5" :autoplay="true" :count="30" :controls-visible="true" style="width: 70%; margin: 0 auto; margin-top: 60px; margin-bottom: 50px;">
         <slide style="border-color: white;" 
         v-for="(movie, idx) in top30_vote_average" :index="idx" :key="idx">
           <template slot-scope="{index, isCurrent, leftIndex, rightIndex}">

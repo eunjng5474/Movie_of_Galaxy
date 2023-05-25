@@ -1,16 +1,14 @@
 <template>
   <div style="width: 100%;">
     <div class="comment d-flex justify-content-between" style="width: 100%;">
-      <div style="width: 100%" v-if="!isEditing" class="commentss">{{comment?.write_comment_user.nickname}} : {{ comment?.content }}</div>
-      <div v-if="getCurrentUser.username == comment.write_comment_user.username" style="width: 100%;">
+      <div v-if="!isEditing" class="commentss">{{comment?.write_comment_user.nickname}} : {{ comment?.content }}</div>
+      <div v-if="getCurrentUser.username == comment.write_comment_user.username" >
         <button v-if="!isEditing" class="btn btn btn-outline-light" @click="switchIsEditing">수정</button>
-        <form v-if="isEditing" class="d-flex"  style="width: 100%">
-          <div class="d-flex justify-content-between" style="width: 100%">
-            <div class="d-flex justify-content-between" style="width: 100%">
-              <input type="text" v-model="content" style="background-color: rgba(255, 255, 255, 0.4); border-radius: 5px; color: white; height: 40px;">
-              <button @click="updateComment" class="btn btn-outline-light align-self-end">수정완료</button>
+        <form  v-if="isEditing" >
+            <div class="d-flex " style="width: 100%">
+              <input type="text" v-model="content" style="background-color: rgba(255, 255, 255, 0.4); border-radius: 5px; color: white; height: 40px; width: 650px;">
+              <button @click="updateComment" class="btn btn-outline-light align-self-end" style="margin-left: 10px;">수정완료</button>
             </div>
-          </div>
         </form>
         <button v-if="!isEditing" class="deletebtn btn btn-outline-light" @click="deleteComment" style="margin-left: 10px;">삭제</button>
         </div>

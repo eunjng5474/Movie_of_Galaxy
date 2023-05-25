@@ -207,7 +207,8 @@ export default {
   padding: 0;
   background-color: #0f0f1f; /* 배경색을 어두운 우주색으로 설정 */
   color: #ffffff; /* 글자색을 흰색으로 설정 */
-  height: 100vh;
+  height: 120vh;
+  overflow: auto;
 }
 
 #particles-js {
