@@ -31,13 +31,11 @@ export default {
     return {
       isEditing: false,
       content: null,
-      // comment_content: null,
+      
     }
   },
   created() {
     this.content = this.comment.content
-    // console.log(this.comment)
-    // this.deleteComment()
   },
   mounted() {
     this.getCommentUpdate()
@@ -45,7 +43,7 @@ export default {
   },
   methods: {
     deleteComment() {
-      // console.log(this.comment.id)
+  
       axios({
         method: 'delete',
         url: `${API_URL}/api/v2/comments/${this.comment.id}/`,
@@ -53,7 +51,6 @@ export default {
       .then(() => {
         alert("댓글이 삭제되었습니다.")
         this.$emit('update-comment')
-        // this.$router.push({name: 'ArticleDetailView'})
       })
       .catch((err) => {
         console.log(err)
@@ -61,14 +58,7 @@ export default {
     },
     switchIsEditing() {
       this.isEditing = !this.isEditing
-      // console.log(this.comment.content)
-      // this.content = this.comment.content
-      // const commentss = document.querySelector('.commentss')
-      // const modifybtn = document.querySelector('.modifybtn')
-      // const deletebtn = document.querySelector('.deletebtn')
-      // commentss.classList.add('visible')
-      // modifybtn.classList.add('visible')
-      // deletebtn.classList.add('visible')
+      
     },
     updateComment() {
       this.isEditing = true
@@ -83,9 +73,6 @@ export default {
         alert("댓글이 수정되었습니다.")
         this.$emit('update-comment')
         this.isEditing = false
-        // this.content = this.comment.content
-        // console.log('update comment')
-        // console.log(this.comment.id)
       })
       .catch((err) => {
         console.log(err)
@@ -95,7 +82,6 @@ export default {
       axios({
         method: 'get',
         url: `${API_URL}/api/v2/comments/${this.comment.id}/`,
-        // data: {content},
       })
       .then((res) => {
         this.content = res.data.content
@@ -107,7 +93,6 @@ export default {
   },
   computed: {
     getCurrentUser() {
-      // console.log(this.$store.getters.currentUser.username)
       return this.$store.getters.currentUser
     },
   }
@@ -124,8 +109,5 @@ export default {
   display: none;
 }
 
-/* .modi {
-   justify-content: space-between
-} */
 
 </style>

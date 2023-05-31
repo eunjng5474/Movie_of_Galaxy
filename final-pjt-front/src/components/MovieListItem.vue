@@ -1,35 +1,22 @@
 <template>
   <div>
-      <!-- <div class="col"> -->
-      <!-- <vue-glide> -->
-        <!-- <vue-glide-slide :key="movie.id"> -->
-          <!-- <p>{{getUserInfo?.like_movies}}</p> -->
-
           <div class="card h-200 mt-3 mb-3 bg-transparent">
             <router-link :to="{
               name: 'MovieDetailView',
               params: {id: movie.id}}">
               <img :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="card-img-top border border-white" alt="">
             </router-link> 
-            <!-- <div calss="card-body"></div> -->
+            
             <div class="card-footer border border-white" style="background-image: '@/assets/movielist3.png';">
-              <!-- <h2 v-if="getUserInfo?.like_movies.includes(movie)" @click="likeMovie">&#128150;</h2>
-              <h2 v-else @click="likeMovie">&#128420;</h2> -->
+              
               <img v-if="getLike.includes(movie.id)" @click="likeMovie" src="@/assets/heart.png" alt="" style="width: 30px; height: 30px;">
-              <!-- <h2 v-if="getLike.includes(movie.id)" @click="likeMovie">&#128150;</h2> -->
+              
               <img v-else @click="likeMovie" src="@/assets/like.png" alt="" style="width: 30px; height: 30px;">
-              <!-- <h2 v-else @click="likeMovie">&#128420;</h2> -->
-              <!-- =----------------------------- -->
-              <!-- <img style="margin-left: 50px; width: 55px; height: 70px;" v-if="getLike.includes(movie.id)" @click="likeMovie" src="@/assets/ufolike.png">
-              <img style="margin-left: 50px; width: 55px; height: 50px;" v-else @click="likeMovie" src="@/assets/ufohate11.png"> -->
-              <!-- <button :class="like_btn" @click="likeMovie">좋아요</button> -->
+              
             </div>
             
-            <!-- {{ detailOneMovie.like_users}} -->
+            
           </div>
-        <!-- </vue-glide-slide> -->
-        <!-- </vue-glide> -->
-      <!-- </div> -->
   </div>
 </template>
 
@@ -49,8 +36,6 @@ export default {
     }
   },
   components: {
-    // [Glide.name]: Glide,
-    // [GlideSlide.name]: GlideSlide
   },
   created() {
 
@@ -80,7 +65,6 @@ export default {
     //// 로그아웃 후 다시 로그인해도 기존 좋아요 리스트 반영되게 테스트
       getUserInformation() {
         const username = this.getCurrentUser.username
-        // console.log(username)
         this.$store.dispatch('getUserInfo', username)
       },
 
@@ -95,11 +79,7 @@ export default {
   /* width: 10rem; */
   object-fit:cover;
 }
-/* 
-.card-footer {
-        background-color: #ffffff;
-  background-color: rgba( 255, 255, 255, 0 );
-} */
+
 
 
 </style>

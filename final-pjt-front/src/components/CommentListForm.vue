@@ -23,7 +23,6 @@ export default {
   },
   methods: {
     createComment() {
-      // alert("댓글이 등록되었습니다")
       const content = this.content
       console.log(this.$route.params.id)
       if (!content) {
@@ -42,7 +41,7 @@ export default {
         alert("댓글이 등록되었습니다.")
         this.content = null
         this.$emit('create-comment')
-        // this.$router.push({ name: 'ArticleDetailView'})
+        
       })
       .catch((err) => {
         console.log(err)

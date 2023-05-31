@@ -40,21 +40,6 @@ const moviesModule = {
     // 검색
     keyword: (state) => state.keyword,
     searchMovies: (state) => state.searchMovies,
-  //   isLikeMovie: (getters) => {
-  //     return getters.userInfo.like_movies.include(getters.detailmovie.id)
-  //     // return getters.userLikeMovieId.include(getters.detailmovie.id)
-  // }
-    /////// 좋아요 토글을 위한 테스트
-    // userMovieLst: (state) => state.userMovieLst,
-    // userLikeMovieId: (state) => state.userLikeMovieId,
-    // isLikeMovie: (state, getters) => {
-    //   return getters.detailmovie.id in state.userMovieLst
-    //   // return getters.getCurrentUser in getters.detailmovie.like_users
-    // }
-    // isLikeMovie: (getters) => {
-    //   return getters.userLikeMovieId.include(getters.detailmovie.id)
-    //   // return getters.detailmovie.id in getters.likes_movie_id
-    // }
   },
   mutations: {
     GET_MOVIES(state, payload) {
@@ -62,9 +47,6 @@ const moviesModule = {
       state.random30 = payload.random30
       state.top30_popularity = payload.top30_popularity
       state.top30_vote_average = payload.top30_vote_average
-      // console.log('current 찍히나')
-      // console.log(state.currentUser)
-      // console.log(state.top30_popularity)
     },
     GET_MOVIE_DETAIL(state, detailmovie){
       state.detailmovie = detailmovie
@@ -72,12 +54,6 @@ const moviesModule = {
     },
     // 이거 밑에 get_like_lst 해결되면 지워도 될 듯
     LIKE_MOVIE(state, like_data) {
-      // console.log(like_data.id)
-      // state.movieLike = like_data
-      // if(state.movieLike1.include(like_data.id)) {
-      //   state.movi
-      // }
-      // state.movieLike1 = 
       /////// 여기서 냅다 push 하는게 아니라 if문으로 
       if(state.movieLike1.includes(like_data.id)) {
         for(let i=0; i<state.movieLike1.length; i++) {
@@ -88,12 +64,7 @@ const moviesModule = {
       } else {
         state.movieLike1.push(like_data.id)
       }
-      // state.movieLike1.push(like_data.id)
-      // state.userMovieLst.push(like_data.id)
-      
-      // state.userMovieLst.push(like_data.id)
-      // state.userLikeMovieId.push(like_data.id) 
-      // console.log(state.userMovieLst)
+
     },
     // 좋아요
     SET_KEYWORD(state, keyword) {
@@ -111,21 +82,6 @@ const moviesModule = {
     DELETE_LIKES(state) {
       state.movieLike1 = []
     }
-    // 좋아요 토글 테스트
-    // GET_LIKE_LST(state, data) {
-    //   console.log('좋아요 리스트')
-    //   console.log(data)
-    //   if(data.like_users) {
-    //     state.userMovieLst.push(data.id)
-    //   } else {
-    //     for (let i=0; i<state.userMovieLst.length; i++) {
-    //       if (state.userMovieLst[i] == data.id) {
-    //         state.userMovieLst.splice(i, 1)
-    //       }
-    //     }
-    //   }
-    //   console.log(state.userMovieLst)
-    // }
   },
   actions: {
     getMovies(context) {
@@ -134,8 +90,6 @@ const moviesModule = {
         url: `${API_URL}/api/v1/movies/`
       })
       .then((res) => {
-        // console.log(res.data)
-        // console.log(21313123)
         context.commit('GET_MOVIES', res.data)
       })
       .catch((err) => {
@@ -163,7 +117,7 @@ const moviesModule = {
         headers: {Authorization: `Token ${this.getters.token}`},
       })
       .then((res) => {
-        // console.log(res.data)
+        
         context.commit('LIKE_MOVIE', res.data)
       })
       .catch((err) => {

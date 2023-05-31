@@ -14,31 +14,17 @@ from .models import Article, Comment
 
 
 @api_view(['GET', 'POST'])
-# @permission_classes([IsAuthenticated])
 def article_list(request):
     if request.method == 'GET':
-        # print('x'*30)
-        # articles = get_list_or_404(Article)
         articles = Article.objects.all()
-        # print(38483483848348)
         serializer = ArticleListSerializer(articles, many=True)
         return Response(serializer.data)
     
     elif request.method == 'POST':
         serializer = ArticleSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
-            # print(request.user)
-            # print(request)
             serializer.save(write_article_user = request.user) # write_articleuser = request.user추가
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-# @api_view(['POST'])
-# def article_create(request):
-#     if request.method == 'POST':
-#         serializer = ArticleSerializer(data=request.data)
-#         if serializer.is_valid(raise_exception=True):
-#             serializer.save()
-#             return Response(serializer.data)
-
         
 @api_view(['GET', 'DELETE', 'PUT'])
 def article_detail(request, article_pk):
@@ -46,7 +32,6 @@ def article_detail(request, article_pk):
 
     if request.method == 'GET':
         serializer = ArticleSerializer(article)
-        # print(serializer.data)
         return Response(serializer.data)
     
     elif request.method == 'DELETE':
@@ -94,7 +79,3 @@ def comment_create(request, article_pk):
         serializer.save(article=article, write_comment_user = request.user) #유저정보가 잇어야함ㄴㄴ
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-
-# @api_view(['POST'])
-# def article_likes(request, article_pk):
-#     article = get_object_or_404(Article, pk=article_pk)

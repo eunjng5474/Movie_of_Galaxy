@@ -1,6 +1,5 @@
 <template>
   <div class="article-list">
-    <!-- <h3 style="color:white">Article List</h3> -->
     <div class="d-flex justify-content-end" style="margin-bottom: 30px;">
       <img src="@/assets/writing.png" style="width: 40px; height: 40px; margin-right: 10px;">
       <router-link :to="{ name: 'ArticleCreateView' }" 
@@ -19,10 +18,6 @@
             v-for="article in articles" :key="article.id" :article="article"/>
         </table>
       </div>
-
-    <!-- <div v-else>
-      <p>글이 없어요</p>
-    </div> -->
   </div>
 </template>
 

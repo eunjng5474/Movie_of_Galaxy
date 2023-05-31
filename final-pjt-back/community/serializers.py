@@ -16,8 +16,6 @@ class ArticleListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Article
-        # fields = ('id', 'title', 'content')
-        # fields = ('id', 'title', 'content', 'write_article_user',)
         fields = '__all__'
 
 
@@ -39,7 +37,6 @@ class CommentSerializer(serializers.ModelSerializer):
 
 # 게시글 하나 조회수정삭제
 class ArticleSerializer(serializers.ModelSerializer):
-    # username = serializers.CharField(source='user.username', read_only=True)
 
     class UserSerializer(serializers.ModelSerializer):
         class Meta:
@@ -53,4 +50,3 @@ class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
         fields = '__all__'
-        # read_only_fields = ('user', )

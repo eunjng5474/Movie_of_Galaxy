@@ -46,9 +46,6 @@
         </slide>
       </carousel-3d>
     </div>
-    <!-- <div class= "movie-card-container border border-black p-5">
-      <MovieListItem v-for="movie in top30_vote_average" :key="movie.id" :movie="movie"/>
-    </div> -->
     </div>
   </div>
 </template>

@@ -97,22 +97,12 @@ export default {
       const username = this.getCurrentUser.username
       this.$store.dispatch('getUserInfo', username)
     }
-    // getUsername() {
-    //   this.$store.dispatch('currentUserName')
-    // }
-    // goProfile() {
-    //   const user_id = this.$store.state.token
-    // }
+  
   },
   computed: {
-    // getUsername() {
-    //   console.log(this.$store.getters.currentUserName)
-    //   return this.$store.getters.currentUserName
-    // }
+  
     getCurrentUser() {
-      // console.log(this.$store.state.currentUser)
-      // console.log(typeof(this.$store.state.currentUser))
-      // console.log(this.$store.state.token)
+    
       return this.$store.getters.currentUser
     },
     isLogin() {

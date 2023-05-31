@@ -13,12 +13,6 @@ from dj_rest_auth.registration.views import RegisterView
 from rest_framework.permissions import *
 
 
-# from django.contrib.auth import get_user_model
-
-# User = get_user_model()
-
-# Create your views here.
-
 
 ######## signup form custom 시도
 @api_view(['POST'])
@@ -28,21 +22,6 @@ def signup(request):
     if serializer.is_valid(raise_exception=True):
         serializer.save(request)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-# 프로필 조회
-# @api_view(['GET'])
-# def profile(request, user_pk):
-#     if request.method == 'GET':
-#         person = get_object_or_404(User, pk=user_pk)
-#         serializer = ProfileSerializer(person)
-#         return Response(serializer.data)
-# 회원가입
-# @api_view(['POST'])
-# @permission_classes([AllowAny])
-# def signup(request):
-#     serializer = CustomRegisterSerializer(data=request.data)
-#     if serializer.is_valid(raise_exception=True):
-#         serializer.save(request)
-#         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 # 프로필 조회
 @api_view(['GET'])
